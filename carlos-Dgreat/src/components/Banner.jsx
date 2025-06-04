@@ -1,7 +1,7 @@
 function Banner() {
   return (
     <div
-      className="relative h-screen bg-cover bg-center bg-no-repeat flex w-full"
+      className="relative h-screen bg-cover bg-center bg-no-repeat flex w-full z-0"
       style={{ backgroundImage: 'url("/Banner.png")' }}
     >
       <div className="flex w-full">
