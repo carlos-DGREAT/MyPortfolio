@@ -28,7 +28,7 @@ export default function Navbar() {
     </ul>
   </div>
   <div className="navbar-end ">
-    <a className="btn px-10 py-7 rounded-full">Hire Me</a>
+    <a className="btn px-10 py-7 bg-[#932929] rounded-full">Hire Me</a>
   </div>
 </div>
   );

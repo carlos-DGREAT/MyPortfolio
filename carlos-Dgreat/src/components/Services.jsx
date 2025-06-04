@@ -5,7 +5,7 @@ export default function Services() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50); // Adjust trigger value if needed
+      setScrolled(window.scrollY > 50); 
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -13,7 +13,7 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center w-full h-[50vh] bg-[#2D1111]">
+    <div className="flex justify-center items-center w-full h-[50vh] bg-gradient-to-b from-red-950 via-stone-90 to-red-950">
       <div
         className={`z-10 w-[80%] h-[600px] px-35 rounded-[100px] transition-all duration-700 ease-out
         ${

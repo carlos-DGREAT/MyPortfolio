@@ -1,6 +1,7 @@
 import Banner from './components/Banner';
 import Navbar from './components/Navbar';
 import Services from './components/Services';
+import Portfolio from './components/Portfolio';
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Navbar />
       <Banner />
       <Services />
+      <Portfolio />
     </div>
   );
 }
