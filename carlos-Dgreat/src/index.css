@@ -1,14 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-.menu a:focus,
-.menu a:active,
-.menu a:focus-visible {
-  background-color: transparent !important;
-  color: inherit !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
 
 :root {
   --breakpoint-xs: 30rem;     /* 480px */
@@ -18,5 +10,15 @@
   --breakpoint-xl: 80rem;     /* 1280px */
   --breakpoint-2xl: 100rem;   /* 1600px */
   --breakpoint-3xl: 120rem;   /* 1920px */
-}
+  
+  --font-display: "Poppins", "Playfair Display", sans-serif;
+  --font-heading: "Poppins", "Playfair Display", sans-serif;
+  --font-body:"Playfair Display", sans-serif;
 
+
+  --color-primary: #932929;
+  --color-secondary: #000000;
+  --color-tertiary: #ffffff;
+  --background-color-primary: #932929;
+
+}

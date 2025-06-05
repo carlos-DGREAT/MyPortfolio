@@ -7,8 +7,8 @@ function Banner() {
       <div className="flex w-full">
         {/* Left div */}
         <div className=" w-1/2 flex-1 flex flex-col justify-center text-black xl:pl-40 lg:pl-20 pl-20">
-          <p className="text-[30px] font-bold">
-            Hi, I'm Carlos Opeña
+          <p className="text-[30px] font-bold font-body">
+            Hi, I'm Carlos
           </p>
           <h1 className="xl:text-[60px] text-[50px] font-bold mb-4 xl:w-[750px] w-[600px]  text-red-900 ">Front-end Developer + UI/UX Designer</h1>
           <p className="text-lg/relaxed max-w-2xl">

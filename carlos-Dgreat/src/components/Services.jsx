@@ -24,13 +24,13 @@ export default function Services() {
         bg-[radial-gradient(ellipse_70.11%_336.83%_at_50.00%_50.00%,_#932929_0%,_#0B0B0B_50%,_#581E1E_100%)] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]`}
       >
         {/* Content here */}
-        <div className="text-center justify-center mt-16">
-            <p className="text-[28px] font-bold text-white">
+        <div className="text-center justify-center mt-16 text-white">
+            <p className="text-[28px] font-bold">
                What I can provide?
             </p>
-            <hr className="my-3 border-2 w-[220px] mx-auto "></hr>
+            <hr className="bg-primary my-3 border-2 w-[220px] mx-auto "></hr>
         </div>
-        <div className="flex justify-between mt-20">
+        <div className="flex justify-between mt-20 text-white">
             <div className="flex flex-col items-center text-center max-w-xs">
                 <img 
                 src="/icon-3.png"

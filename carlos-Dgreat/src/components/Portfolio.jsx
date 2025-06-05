@@ -1,7 +1,7 @@
 export default function Portfolio() {
     return (
         <div>
-            <p className="text-center text-4xl py-14">My Portfolio</p>
+            <p className="text-center text-4xl py-14 font-bold">My Portfolio</p>
 
             {/* Container with custom width, rounded corners, and background */}
             <div className="flex justify-center">
