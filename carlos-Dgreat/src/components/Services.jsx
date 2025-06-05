@@ -13,9 +13,9 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="flex justify-center items-center w-full h-[50vh] bg-gradient-to-b from-red-950 via-stone-90 to-red-950">
+    <div className="flex justify-center items-center w-full h-[70vh] bg-gradient-to-b from-red-950 via-stone-950 to-red-950">
       <div
-        className={`z-10 w-[80%] h-[600px] px-35 rounded-[100px] transition-all duration-700 ease-out
+        className={`z-10 w-[80%] h-[550px] px-35 rounded-[80px] transition-all duration-700 ease-out
         ${
           scrolled
             ? "mt-[-20rem] opacity-100"
@@ -35,10 +35,10 @@ export default function Services() {
                 <img 
                 src="/icon-3.png"
                 alt="icon1"
-                className="w-[80px] h-[80px] mb-4"
+                className="w-[60px] h-[60px] mb-4"
                 />
                 <p className="font-semibold text-2xl py-3">UI/UX DESIGN</p>
-                <p className="text-lg">
+                <p className="text-[18px]">
                 I create user-friendly designs using Figma and can also use Photoshop to 
                 edit photos.
                 </p>
@@ -48,10 +48,10 @@ export default function Services() {
                 <img 
                 src="/icon-1.png"
                 alt="icon2"
-                className="w-[80px] h-[80px] mb-4"
+                className="w-[60px] h-[60px] mb-4"
                 />
                 <p className="font-semibold text-2xl py-3">Front-end Development</p>
-                <p className="text-lg">
+                <p className="text-[18px]">
                 I work with HTML, CSS Frameworks, JavaScript, WordPress, and Bootstrap for responsive 
                 web development, along with knowledge in PHP for database management.
                 </p>
@@ -61,10 +61,10 @@ export default function Services() {
                 <img 
                 src="/icon-2.png"
                 alt="icon3"
-                className="w-[80px] h-[80px] mb-4"
+                className="w-[60px] h-[60px] mb-4"
                 />
                 <p className="font-semibold text-2xl py-3">Responsiveness</p>
-                <p className="text-lg">
+                <p className="text-[18px]">
                 I focus on developing responsive designs that adapt smoothly to different screen sizes, 
                 ensuring an optimal user experience on any device.
                 </p>

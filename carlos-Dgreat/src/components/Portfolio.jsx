@@ -5,7 +5,7 @@ export default function Portfolio() {
 
             {/* Container with custom width, rounded corners, and background */}
             <div className="flex justify-center">
-                <div className="tabs tabs-box w-full max-w-4/5 pt-8 rounded-xl bg-neutral p-2 flex justify-center gap-2">
+                <div className="tabs tabs-box w-full max-w-4/5 pt-8 rounded-xl p-2 flex justify-center gap-2">
 
                     <input type="radio" name="my_tabs_6" className="tab" aria-label="All" />
                     <div className="tab-content p-6">All</div>
