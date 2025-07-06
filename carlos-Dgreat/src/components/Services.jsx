@@ -15,7 +15,7 @@ export default function Services() {
   return (
     <div className="flex justify-center items-center w-full h-[70vh] bg-gradient-to-b from-red-950 via-stone-950 to-red-950">
       <div
-        className={`z-10 w-[80%] h-[550px] px-35 rounded-[80px] transition-all duration-700 ease-out
+        className={`z-10 w-full max-w-6xl h-[550px] px-6 md:px-10 rounded-[80px] transition-all duration-700 ease-out
         ${
           scrolled
             ? "mt-[-20rem] opacity-100"
