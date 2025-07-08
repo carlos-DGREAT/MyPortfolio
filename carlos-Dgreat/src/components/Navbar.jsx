@@ -40,7 +40,7 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end ">
-        <a className="btn px-10 py-7 bg-primary text-white rounded-full">Hire Me</a>
+        <a className="hidden md:inline-flex btn px-10 py-7 bg-primary text-white rounded-full">Hire Me</a>
       </div>
     </div>
   );

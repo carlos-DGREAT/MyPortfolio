@@ -1,8 +1,8 @@
 export default function Timeline() {
   return (
-    <div className="max-w-6xl mx-auto px-4"> 
+    <div className="max-w-6xl mx-auto px-4">
       <p className="text-center text-4xl font-bold my-14">My Timeline</p>
-      <div className="flex w-full">
+      <div className="flex flex-col md:flex-row w-full gap-10">
         {/* Experience Section */}
         <div className="flex-1 text-center">
           <h2 className="text-3xl font-bold mb-2 pb-10 text-primary">Experience</h2>
