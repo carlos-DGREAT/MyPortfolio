@@ -5,6 +5,8 @@ import Portfolio from './components/Portfolio';
 import Timeline from './components/Timeline';
 import Footer from './components/Footer';
 import MyTechStack from './components/MyTechStack';
+import AboutMe from './components/AboutMe';
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
       <Services />
 
       <div className="space-y-20">
+        <AboutMe />
         <Portfolio />
         <Timeline />
         <MyTechStack />
