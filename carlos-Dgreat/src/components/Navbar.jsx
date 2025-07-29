@@ -11,36 +11,65 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
-    <div className={`z-20 fixed top-0 left-0 navbar px-10 md:px-24 py-7 text-black transition-colors duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}>
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+    <div
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      } h-20 flex items-center`}
+    >
+      <div className="w-full flex items-center justify-between px-6 md:px-24">
+        <a className="text-xl font-bold text-black">CARLOS.DGREAT</a>
+
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex space-x-8 text-lg font-display text-black">
+          {["Services", "About", "Portfolio", "Resume", "Contact"].map(
+            (item, index) => (
+              <a
+                key={index}
+                href="#"
+                className="hover:text-[#932929] transition-colors"
+              >
+                {item}
+              </a>
+            )
+          )}
+        </div>
+
+        <a className="hidden lg:inline-flex btn bg-primary text-white px-10 py-3 rounded-full">
+          Hire Me
+        </a>
+
+        <div className="dropdown lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-black"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-white">
-            <li><a>Services</a></li>
-            <li><a>About</a></li>
-            <li><a>Portfolio</a></li>
-            <li><a>Resume</a></li>
-            <li><a>Contact</a></li>
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white rounded-box w-52 text-black"
+          >
+            {["Services", "About", "Portfolio", "Resume", "Contact"].map(
+              (item, index) => (
+                <li key={index}>
+                  <a className="hover:text-[#932929]">{item}</a>
+                </li>
+              )
+            )}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl font-bold">CARLOS.DGREAT</a>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-lg font-display">
-            <li><a className="hover:text-[#932929]">Services</a></li>
-            <li><a className="hover:text-[#932929]">About</a></li>
-            <li><a className="hover:text-[#932929]">Portfolio</a></li>
-            <li><a className="hover:text-[#932929]">Resume</a></li>
-            <li><a className="hover:text-[#932929]">Contact</a></li>
-        </ul>
-      </div>
-      <div className="navbar-end ">
-        <a className="hidden md:inline-flex btn px-10 py-7 bg-primary text-white rounded-full">Hire Me</a>
       </div>
     </div>
   );
