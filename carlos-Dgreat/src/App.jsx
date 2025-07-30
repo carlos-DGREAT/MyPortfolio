@@ -18,8 +18,8 @@ function App() {
       <div className="space-y-20">
         <AboutMe />
         <Portfolio />
-        <Timeline />
         <MyTechStack />
+        <Timeline />
         <Footer />
       </div>
     </div>

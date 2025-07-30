@@ -19,8 +19,8 @@ export default function Navbar() {
       } h-20 flex items-center`}
     >
       <div className="w-full flex items-center justify-between px-6 md:px-24">
-        <a className="flex items-center text-xl font-bold text-black">
-          <img src="/carlos-logo.png" alt="Logo" className="h-25 w-25" />
+        <a className="flex items-center space-x-2 text-xl font-bold text-black">
+          <img src="/logo-5.png" alt="Logo" className="h-13 w-13" />
           <span>CARLOS.DGREAT</span>
         </a>
 
