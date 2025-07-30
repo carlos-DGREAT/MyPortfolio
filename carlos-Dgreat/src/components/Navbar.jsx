@@ -19,7 +19,10 @@ export default function Navbar() {
       } h-20 flex items-center`}
     >
       <div className="w-full flex items-center justify-between px-6 md:px-24">
-        <a className="text-xl font-bold text-black">CARLOS.DGREAT</a>
+        <a className="flex items-center text-xl font-bold text-black">
+          <img src="/carlos-logo.png" alt="Logo" className="h-25 w-25" />
+          <span>CARLOS.DGREAT</span>
+        </a>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex space-x-8 text-lg font-display text-black">
