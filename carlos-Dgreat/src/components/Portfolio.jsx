@@ -4,12 +4,12 @@ export default function Portfolio() {
   const [filter, setFilter] = useState("All");
 
   const portfolioItems = [
-    { id: 1, title: "Weather App", category: "Web App", image: "project-2-mobile.png" },
-    { id: 2, title: "Landing Page Design", category: "Web Design", image: "project-3-mobile.png" },
-    { id: 3, title: "Portfolio Website", category: "Web App", image: "project-4-mobile.png" },
-    { id: 4, title: "Mobile App UI", category: "Figma Design", image: "project-2-mobile.png" },
-    { id: 5, title: "Restaurant Website", category: "Web Design", image: "project-2-mobile.png" },
-    { id: 6, title: "E-commerce UI Kit", category: "Figma Design", image: "project-2-mobile.png" },
+    { id: 1, title: "Website Landing Page", category: "Web App", image: "project-2-mobile.png" },
+    { id: 2, title: "Website Landing Page", category: "Web Design", image: "project-3-mobile.png" },
+    { id: 3, title: "Portfolio Website", category: "Web Design", image: "project-4-mobile.png" },
+    { id: 4, title: "My Portfolio", category: "Figma Design", image: "MyPortfolio.PNG" },
+    { id: 5, title: "DENR-Reservation System", category: "Web App", image: "DENR-reservation System.PNG" },
+    { id: 6, title: "Web Application Utilizing a Deep Learning Model", category: "Web App", image: "EcoSense.png" },
   ];
 
   const filteredItems =
@@ -54,10 +54,7 @@ export default function Portfolio() {
             </figure>
             <div className="card-body flex-1 flex flex-col justify-between">
               <div>
-                <h2 className="card-title flex items-center justify-between">
-                  {item.title}
-                  <div className="badge badge-secondary">NEW</div>
-                </h2>
+                <h2 className="card-title">{item.title}</h2>
                 <p className="mt-2 text-sm text-gray-600">This project falls under the category: {item.category}</p>
               </div>
 
