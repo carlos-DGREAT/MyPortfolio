@@ -14,12 +14,7 @@ export default function Banner() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight">
             Front-end Developer + UI/UX Designer
           </h1>
-          <p className="text-base sm:text-lg leading-relaxed max-w-2xl">
-            Welcome to my landing page! I’m a Web Developer and UI/UX Designer with a
-            passion for creating engaging and user-friendly websites. This page showcases
-            some of my work and the skills I’ve developed along the way!
-          </p>
-          <button className="mt-8 px-6 py-2 border w-fit border-red-900 text-red-900 hover:bg-red-950 hover:text-white rounded transition">
+          <button className="mt-2 px-6 py-2 border w-fit border-red-900 text-red-900 hover:bg-red-950 hover:text-white rounded transition">
             Download CV
           </button>
         </div>

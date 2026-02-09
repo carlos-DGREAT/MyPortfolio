@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Playfair+Display:wght@400;700&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
 
@@ -36,4 +37,18 @@
   .animate-slide-right {
     animation: slide-left 30s linear infinite reverse;
   }
+}
+
+/* Global font settings: titles use Montserrat semi-bold, body uses serif */
+body {
+  font-family: var(--font-body);
+}
+
+/* Apply Montserrat semi-bold for common title classes */
+.font-bold,
+.card-title,
+.text-4xl,
+.text-3xl {
+  font-family: 'Montserrat', var(--font-heading);
+  font-weight: 600;
 }

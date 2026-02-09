@@ -18,7 +18,7 @@ export default function AboutMe() {
               ABOUT ME
             </h2>
             <p className="text-base sm:text-lg leading-relaxed max-w-2xl">
-              Hi! I'm Carlos, a passionate Front-End Developer focused on creating intuitive user interfaces and seamless web experiences. I love working with modern tools like React, Tailwind CSS, and more.
+              Hi, I’m Carlos Opena, a Web Developer specializing in responsive and user-friendly websites. I’m passionate about improving my skills and working toward becoming a Software Engineer. I create websites and applications that are reliable, efficient, and easy to use.
             </p>
           </div>
         </div>
@@ -32,7 +32,7 @@ export default function AboutMe() {
               GOALS
             </h2>
             <p className="text-base sm:text-lg leading-relaxed max-w-2xl">
-              My goal is to continuously grow as a front-end developer, stay updated with the latest technologies, and build high-quality, accessible, and scalable web applications that make a difference.
+              I help bring your ideas to life by building websites and applications that are reliable, efficient, and easy to use. I focus on understanding your needs and delivering results that achieve your objectives and meet user expectations.
             </p>
           </div>
             <div className="w-full md:w-1/2 flex items-center justify-center p-6 order-2">

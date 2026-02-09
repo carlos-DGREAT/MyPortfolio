@@ -29,7 +29,7 @@ export default function MyTechStack() {
                 key={idx}
                 className="group relative flex items-center justify-center"
               >
-                    <div className="w-24 h-24 bg-white border border-black rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer hover:scale-110">
+                    <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer hover:scale-110">
                       <img src={tech.img} alt={tech.name} className="w-12 h-12" />
                     </div>
 

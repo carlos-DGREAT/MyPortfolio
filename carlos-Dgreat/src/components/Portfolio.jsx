@@ -43,28 +43,27 @@ export default function Portfolio() {
         {filteredItems.map((item) => (
           <div
             key={item.id}
-            className="py-10 card bg-gradient-to-r from-gray-100 to-gray-300 shadow-md w-full rounded-xl overflow-hidden"
+            className="card bg-base-100 p-6 shadow-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300 w-full rounded-xl overflow-hidden h-full flex flex-col border border-base-content/25"
           >
-            <figure className="p-4">
-              {/* removed bg-white so gradient shows */}
+            <figure className="flex items-center justify-center">
               <img
                 src={`/${item.image}`}
                 alt={item.title}
-                className="rounded-lg object-contain mx-auto"
+                className="rounded-lg object-contain mx-auto max-h-40"
               />
             </figure>
-            <div className="card-body">
-              <h2 className="card-title">
-                {item.title}
-                <div className="badge badge-secondary">NEW</div>
-              </h2>
-              <p>
-                This project falls under the category:
-             {item.category}
-              </p>
-              <div className="card-actions justify-end">
-                <div className="badge badge-outline">{item.category}</div>
-                <div className="badge badge-outline">Project</div>
+            <div className="card-body flex-1 flex flex-col justify-between">
+              <div>
+                <h2 className="card-title flex items-center justify-between">
+                  {item.title}
+                  <div className="badge badge-secondary">NEW</div>
+                </h2>
+                <p className="mt-2 text-sm text-gray-600">This project falls under the category: {item.category}</p>
+              </div>
+
+              <div className="card-actions justify-end mt-4">
+                <div className="badge">{item.category}</div>
+                <div className="badge">Project</div>
               </div>
             </div>
           </div>
