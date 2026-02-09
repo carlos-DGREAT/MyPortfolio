@@ -17,7 +17,7 @@ export default function Timeline() {
               {
                 title: "Web Developer",
                 company: "Seva Solutions",
-                date: "Nov 2024 - January 2025",
+                date: "Nov 2024 - January 2025  ·  Gig",
                 location: "Philippines · Remote"
               }
             ].map((exp, idx) => (
