@@ -19,7 +19,7 @@ export default function Portfolio() {
 
   return (
     <div>
-      <p className="text-center text-4xl py-14 font-bold">My Recent Projects</p>
+      <p className="text-center text-4xl mb-14 font-bold">My Recent Projects</p>
 
       {/* Tabs */}
       <div className="flex justify-center">

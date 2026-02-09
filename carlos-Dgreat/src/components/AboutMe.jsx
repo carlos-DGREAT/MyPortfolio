@@ -2,8 +2,8 @@ export default function AboutMe() {
   return (
     <div className="relative flex flex-col w-full bg-white">
       {/* ABOUT ME Section */}
-      <div className="relative flex justify-center w-full pt-20 pb-10">
-        <div className="flex flex-col md:flex-row w-full max-w-screen-xl mx-auto gap-10">
+      <div className="relative flex justify-center w-full py-16">
+        <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-10 px-4 md:px-6">
           <div className="w-full md:w-1/2 flex items-center justify-center p-6 order-2 md:order-1">
             <img
               src="/About-me1.png"
@@ -25,8 +25,8 @@ export default function AboutMe() {
       </div>
 
       {/* GOALS Section */}
-      <div className="relative flex justify-center w-full pt-10 pb-20">
-        <div className="flex flex-col md:flex-row w-full max-w-screen-xl mx-auto gap-10">
+      <div className="relative flex justify-center w-full mb-16">
+        <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-10 px-4 md:px-6">
           <div className="w-full md:w-1/2 flex flex-col justify-center p-8 text-gray-900 order-1">
             <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight">
               GOALS

@@ -55,9 +55,9 @@ export default function Services() {
         </div>
 
         {/* Services Cards */}
-        <div className="flex flex-row max-[1024px]:flex-col items-center justify-between gap-12 mt-16 text-white">
+        <div className="flex flex-row max-[1024px]:flex-col items-start justify-between gap-12 mt-16 text-white">
           {/* Card 1 */}
-          <div className="flex flex-col items-center text-center max-w-xs">
+          <div className="flex flex-col items-center text-center max-w-xs flex-1 min-h-[220px]">
             <img src="/icon-3.png" alt="icon1" className="w-[60px] h-[60px] mb-4" />
             <p className="font-semibold text-2xl py-3">UI/UX DESIGN</p>
             <p className="text-[18px]">
@@ -66,22 +66,20 @@ export default function Services() {
           </div>
 
           {/* Card 2 */}
-          <div className="flex flex-col items-center text-center max-w-xs">
+          <div className="flex flex-col items-center text-center max-w-xs flex-1 min-h-[220px]">
             <img src="/icon-1.png" alt="icon2" className="w-[60px] h-[60px] mb-4" />
             <p className="font-semibold text-2xl py-3">Front-end Development</p>
             <p className="text-[18px]">
-              I work with HTML, CSS Frameworks, JavaScript, WordPress, and Bootstrap for responsive
-              web development, along with knowledge in PHP for database management.
+    I develop dynamic and responsive web applications with clean, maintainable code that performs reliably on any device.
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="flex flex-col items-center text-center max-w-xs">
+          <div className="flex flex-col items-center text-center max-w-xs flex-1 min-h-[220px]">
             <img src="/icon-2.png" alt="icon3" className="w-[60px] h-[60px] mb-4" />
             <p className="font-semibold text-2xl py-3">Responsiveness</p>
             <p className="text-[18px]">
-              I focus on developing responsive designs that adapt smoothly to different screen sizes,
-              ensuring an optimal user experience on any device.
+  I ensure designs and applications adapt to different screen sizes, delivering a consistent and efficient experience for all users.
             </p>
           </div>
         </div>
