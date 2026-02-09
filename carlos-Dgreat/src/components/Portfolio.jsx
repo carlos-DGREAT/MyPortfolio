@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Portfolio() {
   const [filter, setFilter] = useState("All");
@@ -16,6 +16,16 @@ export default function Portfolio() {
     filter === "All"
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === filter);
+
+  const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") setSelected(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <div>
@@ -43,7 +53,13 @@ export default function Portfolio() {
         {filteredItems.map((item) => (
           <div
             key={item.id}
-            className="card bg-base-100 p-6 shadow-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300 w-full rounded-xl overflow-hidden h-full flex flex-col border border-base-content/25"
+            role="button"
+            tabIndex={0}
+            onClick={() => setSelected(item)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") setSelected(item);
+            }}
+            className="card bg-base-100 p-6 shadow-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300 w-full rounded-xl overflow-hidden h-full flex flex-col border border-base-content/25 cursor-pointer"
           >
             <figure className="flex items-center justify-center">
               <img
@@ -66,6 +82,40 @@ export default function Portfolio() {
           </div>
         ))}
       </div>
+
+      {/* Modal / Lightbox */}
+      {selected && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60"
+          onClick={() => setSelected(null)}
+          aria-modal="true"
+          role="dialog"
+        >
+          <div
+            className="bg-white rounded-lg p-4 max-w-[90%] max-h-[90%] shadow-lg relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelected(null)}
+              aria-label="Close"
+              className="absolute top-3 right-3 text-gray-700 hover:text-black bg-gray-100 hover:bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center"
+            >
+              ×
+            </button>
+
+            <img
+              src={`/${selected.image}`}
+              alt={selected.title}
+              className="object-contain max-h-[75vh] mx-auto rounded"
+            />
+
+            <div className="mt-3 text-center">
+              <h3 className="font-semibold">{selected.title}</h3>
+              <p className="text-sm text-gray-500">{selected.category}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
