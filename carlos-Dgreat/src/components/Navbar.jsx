@@ -12,9 +12,18 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navItems = [
+    { label: "Services", href: "#services" },
+    { label: "About", href: "#about" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Resume", href: "#resume" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
     <div className="drawer fixed top-0 left-0 w-full z-50">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+
       <div
         className={`drawer-content transition-all duration-300 ${
           isScrolled ? "bg-white shadow-md" : "bg-transparent"
@@ -22,28 +31,29 @@ export default function Navbar() {
       >
         <div className="w-full flex items-center justify-between px-6 md:px-24">
           {/* Logo */}
-          <a className="flex items-center space-x-2 text-xl font-bold text-black">
+          <a href="#home" className="flex items-center space-x-2 text-xl font-bold text-black">
             <img src="/logo-5.png" alt="Logo" className="h-13 w-13" />
             <span>CARLOS.DGREAT</span>
           </a>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex space-x-8 text-lg font-display text-black">
-            {["Services", "About", "Portfolio", "Resume", "Contact"].map(
-              (item, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="hover:text-[#932929] transition-colors"
-                >
-                  {item}
-                </a>
-              )
-            )}
+            {navItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.href}
+                className="hover:text-[#932929] transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
           </div>
 
           {/* Hire Me Button */}
-          <a className="hidden lg:inline-flex btn bg-primary text-white px-10 py-3 rounded-full">
+          <a
+            href="#contact"
+            className="hidden lg:inline-flex btn bg-primary text-white px-10 py-3 rounded-full"
+          >
             Hire Me
           </a>
 
@@ -80,6 +90,7 @@ export default function Navbar() {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
+
         <div className="bg-base-200 min-h-full w-80 p-4 text-black relative">
           {/* Close Button */}
           <label
@@ -90,18 +101,30 @@ export default function Navbar() {
           </label>
 
           <ul className="menu mt-10">
-            {["Services", "About", "Portfolio", "Resume", "Contact"].map(
-              (item, index) => (
-                <li key={index}>
-                  <a className="hover:text-[#932929]">{item}</a>
-                </li>
-              )
-            )}
+            {navItems.map((item, index) => (
+              <li key={index}>
+                <a
+                  href={item.href}
+                  className="hover:text-[#932929]"
+                  onClick={() => {
+                    document.getElementById("my-drawer").checked = false;
+                  }}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
 
           {/* Full-width Hire Me Button */}
           <div className="mt-6">
-            <a className="btn bg-primary text-white w-full rounded-[0.5rem] py-3 text-center text-lg">
+            <a
+              href="#contact"
+              onClick={() => {
+                document.getElementById("my-drawer").checked = false;
+              }}
+              className="btn bg-primary text-white w-full rounded-[0.5rem] py-3 text-center text-lg"
+            >
               Hire Me
             </a>
           </div>
