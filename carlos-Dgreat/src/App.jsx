@@ -6,6 +6,7 @@ import Timeline from './components/Timeline';
 import Footer from './components/Footer';
 import MyTechStack from './components/MyTechStack';
 import AboutMe from './components/AboutMe';
+import Contact from "./components/Contact";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Portfolio />
         <MyTechStack />
         <Timeline />
+        <Contact />
         <Footer />
       </div>
     </div>
