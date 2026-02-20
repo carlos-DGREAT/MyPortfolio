@@ -162,97 +162,127 @@ export default function Portfolio() {
         ))}
       </div>
 
-      {/* Modal / Lightbox */}
-      {selected && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
-          onClick={() => setSelected(null)}
-          aria-modal="true"
-          role="dialog"
-        >
-          <div
-            className="bg-white rounded-lg p-4 max-w-[1000px] w-full max-h-[90vh] shadow-lg relative overflow-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setSelected(null)}
-              aria-label="Close"
-              className="absolute top-3 right-3 text-gray-700 hover:text-black bg-gray-100 hover:bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center"
-            >
-              ×
-            </button>
+{/* Modal / Lightbox */}
+{selected && (
+  <div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 md:p-8"
+    onClick={() => setSelected(null)}
+    aria-modal="true"
+    role="dialog"
+  >
+    <div
+      className="bg-white rounded-2xl w-full max-w-6xl max-h-[92vh] shadow-2xl relative overflow-hidden"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Close */}
+      <button
+        onClick={() => setSelected(null)}
+        aria-label="Close"
+        className="absolute top-4 right-4 z-10 text-gray-700 hover:text-black bg-gray-100 hover:bg-gray-200 rounded-full w-9 h-9 flex items-center justify-center text-xl"
+      >
+        ×
+      </button>
 
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="md:w-1/2 flex flex-col items-center">
-                <div className="w-full flex items-center justify-center">
-                  {((selected.gallery && selected.gallery.length) || 1) > 1 && (
-                    <button
-                      onClick={() => setGalleryIndex((i) => Math.max(0, i - 1))}
-                      className="p-2 mr-2 hidden md:inline-flex"
-                      aria-label="Previous image"
-                    >
-                      ‹
-                    </button>
-                  )}
+      <div className="flex flex-col md:flex-row gap-8 p-6 md:p-10 overflow-y-auto">
 
-                  <img
-                    src={`/${(selected.gallery && selected.gallery[galleryIndex]) || selected.image}`}
-                    alt={selected.title}
-                    className="object-contain max-h-[65vh] mx-auto rounded"
-                  />
+        {/* IMAGE CONTAINER */}
+        <div className="md:w-3/5">
+          <div className="bg-gray-50 rounded-xl p-6 shadow-inner flex flex-col items-center">
 
-                  {((selected.gallery && selected.gallery.length) || 1) > 1 && (
-                    <button
-                      onClick={() =>
-                        setGalleryIndex((i) =>
-                          Math.min(((selected.gallery && selected.gallery.length) || 1) - 1, i + 1)
-                        )
-                      }
-                      className="p-2 ml-2 hidden md:inline-flex"
-                      aria-label="Next image"
-                    >
-                      ›
-                    </button>
-                  )}
-                </div>
+            <div className="relative w-full flex items-center justify-center">
+              {((selected.gallery && selected.gallery.length) || 1) > 1 && (
+                <button
+                  onClick={() => setGalleryIndex((i) => Math.max(0, i - 1))}
+                  className="absolute left-0 -translate-x-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center text-xl"
+                  aria-label="Previous image"
+                >
+                  ‹
+                </button>
+              )}
 
-                {/* Thumbnails */}
-                {selected.gallery && selected.gallery.length > 1 && (
-                  <div className="flex gap-2 mt-4 overflow-x-auto w-full px-2">
-                    {selected.gallery.map((img, i) => (
-                      <button
-                        key={img + i}
-                        onClick={() => setGalleryIndex(i)}
-                        className={`rounded overflow-hidden border ${i === galleryIndex ? "ring-2 ring-primary" : "border-base-content/20"}`}
-                        aria-label={`View image ${i + 1}`}
-                      >
-                        <img src={`/${img}`} alt={`${selected.title} ${i + 1}`} className="h-16 w-28 object-cover" />
-                      </button>
-                    ))}
-                  </div>
-                )}
+              <img
+                src={`/${(selected.gallery && selected.gallery[galleryIndex]) || selected.image}`}
+                alt={selected.title}
+                className="object-contain max-h-[65vh] w-full rounded-lg"
+              />
+
+              {((selected.gallery && selected.gallery.length) || 1) > 1 && (
+                <button
+                  onClick={() =>
+                    setGalleryIndex((i) =>
+                      Math.min(((selected.gallery && selected.gallery.length) || 1) - 1, i + 1)
+                    )
+                  }
+                  className="absolute right-0 translate-x-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center text-xl"
+                  aria-label="Next image"
+                >
+                  ›
+                </button>
+              )}
+            </div>
+
+            {/* Thumbnails */}
+            {selected.gallery && selected.gallery.length > 1 && (
+              <div className="flex gap-3 mt-6 overflow-x-auto w-full justify-center">
+                {selected.gallery.map((img, i) => (
+                  <button
+                    key={img + i}
+                    onClick={() => setGalleryIndex(i)}
+                    className={`rounded-lg overflow-hidden border ${
+                      i === galleryIndex
+                        ? "ring-2 ring-primary"
+                        : "border-base-content/20"
+                    }`}
+                    aria-label={`View image ${i + 1}`}
+                  >
+                    <img
+                      src={`/${img}`}
+                      alt={`${selected.title} ${i + 1}`}
+                      className="h-20 w-32 object-cover"
+                    />
+                  </button>
+                ))}
               </div>
+            )}
+          </div>
+        </div>
 
-              <div className="md:w-1/2">
-                <h3 className="font-semibold text-xl">{selected.title}</h3>
-                <p className="text-sm text-gray-500 mb-3">{selected.category}</p>
+        {/* DESCRIPTION CONTAINER */}
+        <div className="md:w-2/5">
+          <div className="bg-gray-50 rounded-xl p-6 shadow-inner flex flex-col gap-4 h-full">
+            <div>
+              <h3 className="font-semibold text-2xl mb-1">
+                {selected.title}
+              </h3>
+              <p className="text-sm text-gray-500">
+                {selected.category}
+              </p>
+            </div>
 
-                <div className="text-sm text-gray-700">{selected.description}</div>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              {selected.description}
+            </p>
 
-                <div className="mt-4">
-                  <h4 className="text-sm font-medium mb-2">Tools used</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selected.tools && selected.tools.map((t) => (
-                      <span key={t} className="badge badge-outline">{t}</span>
-                    ))}
-                  </div>
-                </div>
-
+            <div>
+              <h4 className="text-sm font-medium mb-2">
+                Tools used
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {selected.tools &&
+                  selected.tools.map((t) => (
+                    <span key={t} className="badge badge-outline">
+                      {t}
+                    </span>
+                  ))}
               </div>
             </div>
           </div>
         </div>
-      )}
+
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 }
