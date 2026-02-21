@@ -10,33 +10,34 @@ export default function Portfolio() {
       category: "Web App",
       image: "project-2-mobile.png",
       description:
-        "A responsive landing page built with modern CSS and accessible patterns. Includes animations and optimized images.",
+        "This project was part of my role as a web developer at Dan Gordon Enterprise. It involved rebuilding a client’s mediation website from scratch. The site was designed in Figma and implemented using WordPress with custom CSS. The focus was on creating a clean, professional landing page that clearly presents services and encourages client inquiries.",
       role: "Frontend Developer",
-      tools: ["React", "Tailwind", "Vite"],
+      tools: ["WordPress", "CSS", "Figma"],
       deliverables: ["Landing page", "Responsive assets", "Accessibility review"],
       gallery: ["project-2-desktop.png", "project-2-details.png", "project-2-mobile.png"],
     },
     {
       id: 2,
-      title: "Website Landing Page",
+      title: "Plan & Services page",
+      category: "Web Design",
+      image: "project-4-mobile.png",
+      description: "Developed and rebuilt the Services and Plans & Pricing pages for the LArealtor website as part of my role at Dan Gordon Enterprise. The pages were designed in Figma and implemented using WordPress with custom HTML, CSS, and JavaScript. Focused on creating clear layouts, interactive elements, and responsive design to improve usability and present services effectively.",
+      role: "Frontend Developer",
+      tools: ["Wordpress", "Javascript", "Figma", "CSS"],
+      deliverables: ["Portfolio site", "Animations", "Deployment"],
+      gallery: ["project-4-desktop.png", "project-4-mobile.png"],
+
+    },
+    {
+      id: 3,
+      title: "Outsourcing Website",
       category: "Web Design",
       image: "project-3-mobile.png",
-      description: "Design-forward landing page with an emphasis on typography and layout.",
+      description: "This project was a freelance gig for Seva Solutions, where I built their website entirely from scratch. I managed the project end-to-end, including setting up hosting via cPanel, designing and implementing the site in WordPress, and customizing it with CSS to match the client’s branding and functional needs. The focus was on creating a fully responsive, user-friendly website that effectively showcases their services and provides a seamless experience for visitors.",
       role: "UI/UX Designer",
       tools: ["Figma", "Illustrator"],
       deliverables: ["Figma prototype", "Exported assets", "Design spec"],
       gallery: ["project-3-desktop.png", "project-3-mobile.png"],
-    },
-    {
-      id: 3,
-      title: "Portfolio Website",
-      category: "Web Design",
-      image: "project-4-mobile.png",
-      description: "Personal portfolio showcasing projects, animations and responsive design.",
-      role: "Full-stack Designer",
-      tools: ["React", "Tailwind", "GSAP"],
-      deliverables: ["Portfolio site", "Animations", "Deployment"],
-      gallery: ["project-4-desktop.png", "project-4-mobile.png"],
     },
     {
       id: 4,
@@ -65,7 +66,7 @@ export default function Portfolio() {
       title: "Web Application Utilizing a Deep Learning Model",
       category: "Web App",
       image: "EcoSense.png",
-      description: "A proof-of-concept web app that integrates a deep learning model for image analysis.",
+      description: "This thesis project involved developing a web application that integrates a deep learning model to conduct pine tree and crop plot census using drone-captured imagery for DENR-CAR. The application automates image analysis, providing accurate and efficient mapping of vegetation. I handled both the backend model integration with TensorFlow and Flask, and the frontend interface using React, ensuring a seamless experience for users to visualize and interpret results.",
       role: "ML Engineer / Frontend",
       tools: ["Python", "Flask", "TensorFlow", "React"],
       deliverables: ["Model integration", "Inference UI", "Performance report"],
@@ -127,40 +128,43 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 mt-8">
-        {filteredItems.map((item) => (
-          <div
-            key={item.id}
-            role="button"
-            tabIndex={0}
-            onClick={() => setSelected(item)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") setSelected(item);
-            }}
-            className="card bg-base-100 p-6 shadow-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300 w-full rounded-xl overflow-hidden h-full flex flex-col border border-base-content/25 cursor-pointer"
-          >
-            <figure className="flex items-center justify-center">
-              <img
-                src={`/${item.image}`}
-                alt={item.title}
-                className="rounded-lg object-contain mx-auto max-h-40"
-              />
-            </figure>
-            <div className="card-body flex-1 flex flex-col justify-between">
-              <div>
-                <h2 className="card-title">{item.title}</h2>
-                <p className="mt-2 text-sm text-gray-600">This project falls under the category: {item.category}</p>
-              </div>
+{/* Cards */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 mt-8">
+  {filteredItems.map((item) => (
+    <div
+      key={item.id}
+      role="button"
+      tabIndex={0}
+      onClick={() => setSelected(item)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") setSelected(item);
+      }}
+      className="card bg-base-100 p-6 shadow-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300 w-full rounded-xl overflow-hidden h-full flex flex-col border border-base-content/25 cursor-pointer"
+    >
+      <figure className="flex items-center justify-center">
+        <img
+          src={`/${item.image}`}
+          alt={item.title}
+          className="rounded-lg object-contain mx-auto max-h-40"
+        />
+      </figure>
+      <div className="card-body flex-1 flex flex-col justify-between">
+        <div>
+          <h2 className="card-title">{item.title}</h2>
+          {/* Truncated description */}
+          <p className="mt-2 text-sm text-gray-600 line-clamp-4">
+            {item.description}
+          </p>
+        </div>
 
-              <div className="card-actions justify-end mt-4">
-                <div className="badge">{item.category}</div>
-                <div className="badge">Project</div>
-              </div>
-            </div>
-          </div>
-        ))}
+        <div className="card-actions justify-end mt-4">
+          <div className="badge">{item.category}</div>
+          <div className="badge">Project</div>
+        </div>
       </div>
+    </div>
+  ))}
+</div>
 
 {/* Modal / Lightbox */}
 {selected && (
