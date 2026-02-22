@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function Portfolio() {
   const [filter, setFilter] = useState("All");
+  const [showAll, setShowAll] = useState(false);
 
   const portfolioItems = [
     {
@@ -13,27 +15,36 @@ export default function Portfolio() {
         "This project was part of my role as a web developer at Dan Gordon Enterprise. It involved rebuilding a client’s mediation website from scratch. The site was designed in Figma and implemented using WordPress with custom CSS. The focus was on creating a clean, professional landing page that clearly presents services and encourages client inquiries.",
       role: "Frontend Developer",
       tools: ["WordPress", "CSS", "Figma"],
-      deliverables: ["Landing page", "Responsive assets", "Accessibility review"],
-      gallery: ["project-2-desktop.png", "project-2-details.png", "project-2-mobile.png"],
+      deliverables: [
+        "Landing page",
+        "Responsive assets",
+        "Accessibility review",
+      ],
+      gallery: [
+        "project-2-desktop.png",
+        "project-2-details.png",
+        "project-2-mobile.png",
+      ],
     },
     {
       id: 2,
       title: "Plan & Services page",
       category: "Web Design",
       image: "project-4-mobile.png",
-      description: "Developed and rebuilt the Services and Plans & Pricing pages for the LArealtor website as part of my role at Dan Gordon Enterprise. The pages were designed in Figma and implemented using WordPress with custom HTML, CSS, and JavaScript. Focused on creating clear layouts, interactive elements, and responsive design to improve usability and present services effectively.",
+      description:
+        "Developed and rebuilt the Services and Plans & Pricing pages for the LArealtor website as part of my role at Dan Gordon Enterprise. The pages were designed in Figma and implemented using WordPress with custom HTML, CSS, and JavaScript. Focused on creating clear layouts, interactive elements, and responsive design to improve usability and present services effectively.",
       role: "Frontend Developer",
       tools: ["Wordpress", "Javascript", "Figma", "CSS"],
       deliverables: ["Portfolio site", "Animations", "Deployment"],
       gallery: ["project-4-desktop.png", "project-4-mobile.png"],
-
     },
     {
       id: 3,
       title: "Outsourcing Website",
       category: "Web Design",
       image: "project-3-mobile.png",
-      description: "This project was a freelance gig for Seva Solutions, where I built their website entirely from scratch. I managed the project end-to-end, including setting up hosting via cPanel, designing and implementing the site in WordPress, and customizing it with CSS to match the client’s branding and functional needs. The focus was on creating a fully responsive, user-friendly website that effectively showcases their services and provides a seamless experience for visitors.",
+      description:
+        "This project was a freelance gig for Seva Solutions, where I built their website entirely from scratch. I managed the project end-to-end, including setting up hosting via cPanel, designing and implementing the site in WordPress, and customizing it with CSS to match the client’s branding and functional needs. The focus was on creating a fully responsive, user-friendly website that effectively showcases their services and provides a seamless experience for visitors.",
       role: "UI/UX Designer",
       tools: ["Figma", "Illustrator"],
       deliverables: ["Figma prototype", "Exported assets", "Design spec"],
@@ -44,7 +55,8 @@ export default function Portfolio() {
       title: "My Portfolio",
       category: "Figma Design",
       image: "MyPortfolio.PNG",
-      description: "Figma mockups and prototypes for a portfolio site with interactive states.",
+      description:
+        "Figma mockups and prototypes for a portfolio site with interactive states.",
       role: "Product Designer",
       tools: ["Figma"],
       deliverables: ["Interactive prototype", "Design system"],
@@ -55,7 +67,8 @@ export default function Portfolio() {
       title: "DENR-Reservation System",
       category: "Web App",
       image: "DENR-reservation System.PNG",
-      description: "Reservation system built for managing bookings and schedules with validation and admin panel.",
+      description:
+        "Reservation system built for managing bookings and schedules with validation and admin panel.",
       role: "Full-stack Engineer",
       tools: ["React", "Node", "Express", "MongoDB"],
       deliverables: ["Reservation UI", "Admin dashboard", "API integration"],
@@ -66,11 +79,36 @@ export default function Portfolio() {
       title: "Web Application Utilizing a Deep Learning Model",
       category: "Web App",
       image: "EcoSense.png",
-      description: "This thesis project involved developing a web application that integrates a deep learning model to conduct pine tree and crop plot census using drone-captured imagery for DENR-CAR. The application automates image analysis, providing accurate and efficient mapping of vegetation. I handled both the backend model integration with TensorFlow and Flask, and the frontend interface using React, ensuring a seamless experience for users to visualize and interpret results.",
+      description:
+        "This thesis project involved developing a web application that integrates a deep learning model to conduct pine tree and crop plot census using drone-captured imagery for DENR-CAR. The application automates image analysis, providing accurate and efficient mapping of vegetation. I handled both the backend model integration with TensorFlow and Flask, and the frontend interface using React, ensuring a seamless experience for users to visualize and interpret results.",
       role: "ML Engineer / Frontend",
       tools: ["Python", "Flask", "TensorFlow", "React"],
       deliverables: ["Model integration", "Inference UI", "Performance report"],
       gallery: ["EcoSense-result.png", "EcoSense.png"],
+    },
+    {
+      id: 7,
+      title: "Personal Portfolio V1",
+      category: "Web Design",
+      image: "portfolio-1.PNG",
+      description:
+        "First version of my personal portfolio website showcasing my frontend development projects and UI design skills. Built with responsive layout principles and focused on clean visual hierarchy.",
+      role: "Frontend Developer",
+      tools: ["React", "Tailwind CSS"],
+      deliverables: ["Portfolio UI", "Responsive layout"],
+      gallery: ["portfolio-1.PNG"],
+    },
+    {
+      id: 8,
+      title: "Portfolio Redesign Concept",
+      category: "Figma Design",
+      image: "portfolio-2.PNG",
+      description:
+        "A redesigned concept of my portfolio focusing on modern UI trends, improved user flow, and better content structure. Designed fully in Figma with interactive prototype.",
+      role: "UI/UX Designer",
+      tools: ["Figma"],
+      deliverables: ["Design prototype", "Component system"],
+      gallery: ["portfolio-2.PNG"],
     },
   ];
 
@@ -78,6 +116,8 @@ export default function Portfolio() {
     filter === "All"
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === filter);
+
+  const displayedItems = !showAll ? filteredItems.slice(0, 6) : filteredItems;
 
   const [selected, setSelected] = useState(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
@@ -107,6 +147,10 @@ export default function Portfolio() {
     setGalleryIndex(0);
   }, [selected]);
 
+  useEffect(() => {
+    setShowAll(false);
+  }, [filter]);
+
   return (
     <div>
       <p className="text-center text-4xl mb-14 font-bold">My Recent Projects</p>
@@ -119,7 +163,9 @@ export default function Portfolio() {
               key={cat}
               onClick={() => setFilter(cat)}
               className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                filter === cat ? "bg-primary text-white" : "bg-gray-200 text-black"
+                filter === cat
+                  ? "bg-primary text-white"
+                  : "bg-gray-200 text-black"
               }`}
             >
               {cat}
@@ -128,165 +174,177 @@ export default function Portfolio() {
         </div>
       </div>
 
-{/* Cards */}
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 mt-8">
-  {filteredItems.map((item) => (
-    <div
-      key={item.id}
-      role="button"
-      tabIndex={0}
-      onClick={() => setSelected(item)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") setSelected(item);
-      }}
-      className="card bg-base-100 p-6 shadow-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300 w-full rounded-xl overflow-hidden h-full flex flex-col border border-base-content/25 cursor-pointer"
-    >
-      <figure className="flex items-center justify-center">
-        <img
-          src={`/${item.image}`}
-          alt={item.title}
-          className="rounded-lg object-contain mx-auto max-h-40"
-        />
-      </figure>
-      <div className="card-body flex-1 flex flex-col justify-between">
-        <div>
-          <h2 className="card-title">{item.title}</h2>
-          {/* Truncated description */}
-          <p className="mt-2 text-sm text-gray-600 line-clamp-4">
-            {item.description}
-          </p>
-        </div>
-
-        <div className="card-actions justify-end mt-4">
-          <div className="badge">{item.category}</div>
-          <div className="badge">Project</div>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
-
-{/* Modal / Lightbox */}
-{selected && (
-  <div
-    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 md:p-8"
-    onClick={() => setSelected(null)}
-    aria-modal="true"
-    role="dialog"
-  >
-    <div
-      className="bg-white rounded-2xl w-full max-w-6xl max-h-[92vh] shadow-2xl relative overflow-hidden"
-      onClick={(e) => e.stopPropagation()}
-    >
-      {/* Close */}
-      <button
-        onClick={() => setSelected(null)}
-        aria-label="Close"
-        className="absolute top-4 right-4 z-10 text-gray-700 hover:text-black bg-gray-100 hover:bg-gray-200 rounded-full w-9 h-9 flex items-center justify-center text-xl"
-      >
-        ×
-      </button>
-
-      <div className="flex flex-col md:flex-row gap-8 p-6 md:p-10 overflow-y-auto">
-
-        {/* IMAGE CONTAINER */}
-        <div className="md:w-3/5">
-          <div className="bg-gray-50 rounded-xl p-6 shadow-inner flex flex-col items-center">
-
-            <div className="relative w-full flex items-center justify-center">
-              {((selected.gallery && selected.gallery.length) || 1) > 1 && (
-                <button
-                  onClick={() => setGalleryIndex((i) => Math.max(0, i - 1))}
-                  className="absolute left-0 -translate-x-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center text-xl"
-                  aria-label="Previous image"
-                >
-                  ‹
-                </button>
-              )}
-
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 mt-8">
+        {displayedItems.map((item) => (
+          <div
+            key={item.id}
+            role="button"
+            tabIndex={0}
+            onClick={() => setSelected(item)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") setSelected(item);
+            }}
+            className="card bg-base-100 p-6 shadow-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300 w-full rounded-xl overflow-hidden h-full flex flex-col border border-base-content/25 cursor-pointer"
+          >
+            <figure className="flex items-center justify-center">
               <img
-                src={`/${(selected.gallery && selected.gallery[galleryIndex]) || selected.image}`}
-                alt={selected.title}
-                className="object-contain max-h-[65vh] w-full rounded-lg"
+                src={`/${item.image}`}
+                alt={item.title}
+                className="rounded-lg object-contain mx-auto max-h-40"
               />
-
-              {((selected.gallery && selected.gallery.length) || 1) > 1 && (
-                <button
-                  onClick={() =>
-                    setGalleryIndex((i) =>
-                      Math.min(((selected.gallery && selected.gallery.length) || 1) - 1, i + 1)
-                    )
-                  }
-                  className="absolute right-0 translate-x-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center text-xl"
-                  aria-label="Next image"
-                >
-                  ›
-                </button>
-              )}
-            </div>
-
-            {/* Thumbnails */}
-            {selected.gallery && selected.gallery.length > 1 && (
-              <div className="flex gap-3 mt-6 overflow-x-auto w-full justify-center">
-                {selected.gallery.map((img, i) => (
-                  <button
-                    key={img + i}
-                    onClick={() => setGalleryIndex(i)}
-                    className={`rounded-lg overflow-hidden border ${
-                      i === galleryIndex
-                        ? "ring-2 ring-primary"
-                        : "border-base-content/20"
-                    }`}
-                    aria-label={`View image ${i + 1}`}
-                  >
-                    <img
-                      src={`/${img}`}
-                      alt={`${selected.title} ${i + 1}`}
-                      className="h-20 w-32 object-cover"
-                    />
-                  </button>
-                ))}
+            </figure>
+            <div className="card-body flex-1 flex flex-col justify-between">
+              <div>
+                <h2 className="card-title">{item.title}</h2>
+                <p className="mt-2 text-sm text-gray-600 line-clamp-4">
+                  {item.description}
+                </p>
               </div>
-            )}
-          </div>
-        </div>
 
-        {/* DESCRIPTION CONTAINER */}
-        <div className="md:w-2/5">
-          <div className="bg-gray-50 rounded-xl p-6 shadow-inner flex flex-col gap-4 h-full">
-            <div>
-              <h3 className="font-semibold text-2xl mb-1">
-                {selected.title}
-              </h3>
-              <p className="text-sm text-gray-500">
-                {selected.category}
-              </p>
-            </div>
-
-            <p className="text-sm text-gray-700 leading-relaxed">
-              {selected.description}
-            </p>
-
-            <div>
-              <h4 className="text-sm font-medium mb-2">
-                Tools used
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {selected.tools &&
-                  selected.tools.map((t) => (
-                    <span key={t} className="badge badge-outline">
-                      {t}
-                    </span>
-                  ))}
+              <div className="card-actions justify-end mt-4">
+                <div className="badge">{item.category}</div>
+                <div className="badge">Project</div>
               </div>
             </div>
           </div>
-        </div>
-
+        ))}
       </div>
-    </div>
-  </div>
-)}
+
+      {filteredItems.length > 6 && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="btn btn-circle btn-outline"
+            aria-label={showAll ? "Show less" : "Show all"}
+          >
+            {showAll ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+          </button>
+        </div>
+      )}
+
+      {/* Modal / Lightbox */}
+      {selected && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 md:p-8"
+          onClick={() => setSelected(null)}
+          aria-modal="true"
+          role="dialog"
+        >
+          <div
+            className="bg-white rounded-2xl w-full max-w-6xl max-h-[92vh] shadow-2xl relative overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close */}
+            <button
+              onClick={() => setSelected(null)}
+              aria-label="Close"
+              className="absolute top-4 right-4 z-10 text-gray-700 hover:text-black bg-gray-100 hover:bg-gray-200 rounded-full w-9 h-9 flex items-center justify-center text-xl"
+            >
+              ×
+            </button>
+
+            <div className="flex flex-col md:flex-row gap-8 p-6 md:p-10 overflow-y-auto">
+              {/* IMAGE CONTAINER */}
+              <div className="md:w-3/5">
+                <div className="bg-gray-50 rounded-xl p-6 shadow-inner flex flex-col items-center">
+                  <div className="relative w-full flex items-center justify-center">
+                    {((selected.gallery && selected.gallery.length) || 1) >
+                      1 && (
+                      <button
+                        onClick={() =>
+                          setGalleryIndex((i) => Math.max(0, i - 1))
+                        }
+                        className="absolute left-0 -translate-x-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center text-xl"
+                        aria-label="Previous image"
+                      >
+                        ‹
+                      </button>
+                    )}
+
+                    <img
+                      src={`/${(selected.gallery && selected.gallery[galleryIndex]) || selected.image}`}
+                      alt={selected.title}
+                      className="object-contain max-h-[65vh] w-full rounded-lg"
+                    />
+
+                    {((selected.gallery && selected.gallery.length) || 1) >
+                      1 && (
+                      <button
+                        onClick={() =>
+                          setGalleryIndex((i) =>
+                            Math.min(
+                              ((selected.gallery && selected.gallery.length) ||
+                                1) - 1,
+                              i + 1,
+                            ),
+                          )
+                        }
+                        className="absolute right-0 translate-x-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center text-xl"
+                        aria-label="Next image"
+                      >
+                        ›
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Thumbnails */}
+                  {selected.gallery && selected.gallery.length > 1 && (
+                    <div className="flex gap-3 mt-6 overflow-x-auto w-full justify-center">
+                      {selected.gallery.map((img, i) => (
+                        <button
+                          key={img + i}
+                          onClick={() => setGalleryIndex(i)}
+                          className={`rounded-lg overflow-hidden border ${
+                            i === galleryIndex
+                              ? "ring-2 ring-primary"
+                              : "border-base-content/20"
+                          }`}
+                          aria-label={`View image ${i + 1}`}
+                        >
+                          <img
+                            src={`/${img}`}
+                            alt={`${selected.title} ${i + 1}`}
+                            className="h-20 w-32 object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* DESCRIPTION CONTAINER */}
+              <div className="md:w-2/5">
+                <div className="bg-gray-50 rounded-xl p-6 shadow-inner flex flex-col gap-4 h-full">
+                  <div>
+                    <h3 className="font-semibold text-2xl mb-1">
+                      {selected.title}
+                    </h3>
+                    <p className="text-sm text-gray-500">{selected.category}</p>
+                  </div>
+
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    {selected.description}
+                  </p>
+
+                  <div>
+                    <h4 className="text-sm font-medium mb-2">Tools used</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selected.tools &&
+                        selected.tools.map((t) => (
+                          <span key={t} className="badge badge-outline">
+                            {t}
+                          </span>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
