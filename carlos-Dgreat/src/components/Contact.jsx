@@ -20,25 +20,25 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
     console.log("Form submitted:", formData);
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
   };
 
   return (
-    <section id="contact" className="relative bg-gradient-to-b from-gray-50 to-white py-24 overflow-hidden">
-      {/* Background decorative elements */}
+    <section>
+      
+      {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[#932929]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#932929]/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold mb-4">
+          <span className="inline-block px-4 py-2 bg-[#932929]/10 text-[#932929] rounded-full text-sm font-semibold mb-4">
             Get In Touch
           </span>
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-4">
@@ -49,23 +49,23 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Main Container - Two equal columns */}
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
           
-          {/* LEFT COLUMN - CONTACT INFO CARD */}
+          {/* LEFT COLUMN */}
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300 h-full">
             <div className="p-8">
               <h3 className="text-2xl font-semibold text-gray-800 mb-8">Contact Information</h3>
               
               <div className="space-y-8">
+                
                 {/* Phone */}
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-blue-600" />
+                  <div className="flex-shrink-0 w-14 h-14 bg-[#932929]/10 rounded-xl flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-[#932929]" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Phone</p>
-                    <a href="tel:+639123456789" className="text-lg text-gray-800 font-medium hover:text-blue-600 transition-colors">
+                    <a href="tel:+639123456789" className="text-lg text-gray-800 font-medium hover:text-[#932929] transition-colors">
                       +63 (912) 345-6789
                     </a>
                   </div>
@@ -73,12 +73,12 @@ export default function Contact() {
 
                 {/* Email */}
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-blue-600" />
+                  <div className="flex-shrink-0 w-14 h-14 bg-[#932929]/10 rounded-xl flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-[#932929]" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Email</p>
-                    <a href="mailto:carlos@example.com" className="text-lg text-gray-800 font-medium hover:text-blue-600 transition-colors">
+                    <a href="mailto:carlos@example.com" className="text-lg text-gray-800 font-medium hover:text-[#932929] transition-colors">
                       carlos@example.com
                     </a>
                   </div>
@@ -86,8 +86,8 @@ export default function Contact() {
 
                 {/* Location */}
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-blue-600" />
+                  <div className="flex-shrink-0 w-14 h-14 bg-[#932929]/10 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-[#932929]" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Location</p>
@@ -98,7 +98,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Availability Status */}
+              {/* Availability */}
               <div className="mt-10 pt-6 border-t border-gray-100">
                 <div className="flex items-center gap-3">
                   <div className="relative">
@@ -115,7 +115,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN - CONTACT FORM CARD */}
+          {/* RIGHT COLUMN */}
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300 h-full">
             <div className="p-8">
               <h3 className="text-2xl font-semibold text-gray-800 mb-2">Send a Message</h3>
@@ -129,8 +129,9 @@ export default function Contact() {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Name and Email on same line */}
+                
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Full name <span className="text-red-500">*</span>
@@ -144,8 +145,8 @@ export default function Contact() {
                       onBlur={() => setFocusedField(null)}
                       required
                       className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-all ${
-                        focusedField === 'name' 
-                          ? 'border-blue-500 ring-4 ring-blue-50' 
+                        focusedField === 'name'
+                          ? 'border-[#932929] ring-4 ring-[#932929]/10'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                       placeholder="John Doe"
@@ -165,8 +166,8 @@ export default function Contact() {
                       onBlur={() => setFocusedField(null)}
                       required
                       className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-all ${
-                        focusedField === 'email' 
-                          ? 'border-blue-500 ring-4 ring-blue-50' 
+                        focusedField === 'email'
+                          ? 'border-[#932929] ring-4 ring-[#932929]/10'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                       placeholder="john@example.com"
@@ -187,8 +188,8 @@ export default function Contact() {
                     onBlur={() => setFocusedField(null)}
                     required
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-all ${
-                      focusedField === 'subject' 
-                        ? 'border-blue-500 ring-4 ring-blue-50' 
+                      focusedField === 'subject'
+                        ? 'border-[#932929] ring-4 ring-[#932929]/10'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                     placeholder="What's this about?"
@@ -208,8 +209,8 @@ export default function Contact() {
                     onBlur={() => setFocusedField(null)}
                     required
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-all resize-none ${
-                      focusedField === 'message' 
-                        ? 'border-blue-500 ring-4 ring-blue-50' 
+                      focusedField === 'message'
+                        ? 'border-[#932929] ring-4 ring-[#932929]/10'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                     placeholder="Tell me about your project..."
@@ -218,7 +219,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 group"
+                  className="w-full px-6 py-4 bg-gradient-to-r from-[#932929] to-[#7a2222] hover:from-[#7a2222] hover:to-[#5e1919] text-white rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#932929]/30 flex items-center justify-center gap-2 group"
                 >
                   <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   Send Message
