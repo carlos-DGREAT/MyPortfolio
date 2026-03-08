@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import FadeIn from './FadeIn';
 
 export default function Contact() {
@@ -11,6 +12,9 @@ export default function Contact() {
   });
   const [focusedField, setFocusedField] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const formRef = useRef(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -19,18 +23,33 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    
-    // Construct mailto link
-    const mailtoLink = `mailto:openacarlos@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-    
-    // Open default email client
-    window.location.href = mailtoLink;
-    
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    setIsLoading(true);
+
+    try {
+      await emailjs.sendForm(
+        "service_9bemwx6",
+        "template_qg3hcpy",
+        formRef.current,
+        "4oRDTxbXXClvyPKLZ"           
+      );
+
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 3000);
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      alert("Sorry, failed to send message. Please try again or email me directly at openacarlos@gmail.com");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -86,8 +105,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Email</p>
-                    <a href="mailto:carlos@example.com" className="text-lg text-gray-800 font-medium hover:text-[#932929] transition-colors">
-                      carlos@example.com
+                    <a href="mailto:openacarlos@gmail.com" className="text-lg text-gray-800 font-medium hover:text-[#932929] transition-colors">
+                      openacarlos@gmail.com
                     </a>
                   </div>
                 </div>
@@ -136,7 +155,11 @@ export default function Contact() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form 
+                ref={formRef}
+                onSubmit={handleSubmit} 
+                className="space-y-5"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -225,10 +248,11 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-4 bg-gradient-to-r from-[#932929] to-[#7a2222] hover:from-[#7a2222] hover:to-[#5e1919] text-white rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#932929]/30 flex items-center justify-center gap-2 group"
+                  disabled={isLoading}
+                  className={`w-full px-6 py-4 bg-gradient-to-r from-[#932929] to-[#7a2222] hover:from-[#7a2222] hover:to-[#5e1919] text-white rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#932929]/30 flex items-center justify-center gap-2 group ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
                 >
                   <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  Send Message
+                  {isLoading ? "Sending..." : "Send Message"}
                 </button>
 
                 <p className="text-xs text-gray-400 text-center mt-4">
