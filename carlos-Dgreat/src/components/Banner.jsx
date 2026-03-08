@@ -1,7 +1,7 @@
 import React from 'react';
 import SplitText from './SplitText';
-import TextType from './TextType';
 import ShinyText from './ShinyText';
+import FadeIn from './FadeIn';
 
 export default function Banner() {
   return (
@@ -16,14 +16,9 @@ export default function Banner() {
           <div className="text-2xl sm:text-3xl font-bold font-body mb-2">
             <SplitText text="Hi, I'm Carlos" className="text-2xl sm:text-3xl font-bold" delay={50} />
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight min-h-[1.2em]">
-            <TextType 
-              text={["Front-end Developer", "UI/UX Designer", "Creative Thinker"]} 
-              speed={100} 
-              loop={true} 
-              className="inline-block"
-            />
-          </h1>
+          <FadeIn delay={0.2} tag="h1" className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight">
+            Front-end Developer + UI/UX Designer
+          </FadeIn>
           <button className="mt-2 px-6 py-2 border w-fit border-red-900 text-red-900 hover:bg-red-950 hover:text-white rounded transition group font-bold">
             <ShinyText 
               text="Download CV" 
@@ -33,18 +28,6 @@ export default function Banner() {
               shineColor="#ffffff" 
               className="group-hover:text-white group-hover:bg-clip-border group-hover:bg-transparent group-hover:text-current" 
             />
-            {/* 
-               Note: ShinyText uses background-clip: text. 
-               On hover, button bg changes to red-950. Text should be white.
-               ShinyText forces background gradient. 
-               Ideally, on hover, we disable shine or change baseColor to white.
-               However, passing baseColor prop dynamically requires state.
-               Simplification: Keep shine but maybe change baseColor via prop if possible?
-               Or just let it be. 
-               Actually, group-hover:text-white won't work because style overrides color: transparent.
-               I'll leave it as is, the shine effect is cool. 
-               Or I can use CSS variables for colors.
-            */}
           </button>
         </div>
 

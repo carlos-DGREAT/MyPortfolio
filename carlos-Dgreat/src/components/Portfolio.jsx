@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Link as LinkIcon } from 'lucide-react';
+import FadeIn from './FadeIn';
+import ScrollFloat from './ScrollFloat';
 
 export default function Portfolio() {
   const [filter, setFilter] = useState("All");
@@ -98,249 +100,203 @@ export default function Portfolio() {
       deliverables: ["Portfolio UI", "Responsive layout"],
       gallery: ["portfolio-1.PNG"],
     },
-    {
-      id: 8,
-      title: "Portfolio Redesign Concept",
-      category: "Figma Design",
-      image: "portfolio-2.PNG",
-      description:
-        "A redesigned concept of my portfolio focusing on modern UI trends, improved user flow, and better content structure. Designed fully in Figma with interactive prototype.",
-      role: "UI/UX Designer",
-      tools: ["Figma"],
-      deliverables: ["Design prototype", "Component system"],
-      gallery: ["portfolio-2.PNG"],
-    },
   ];
 
+  // Filtering logic
   const filteredItems =
     filter === "All"
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === filter);
 
-  const displayedItems = !showAll ? filteredItems.slice(0, 6) : filteredItems;
+  // Show only first 6 items unless 'showAll' is true
+  const displayedItems = showAll ? filteredItems : filteredItems.slice(0, 6);
 
-  const [selected, setSelected] = useState(null);
-  const [galleryIndex, setGalleryIndex] = useState(0);
-
-  const prevImage = () => {
-    const len = (selected?.gallery || [selected?.image]).length;
-    setGalleryIndex((i) => (i - 1 + len) % len);
-  };
-
-  const nextImage = () => {
-    const len = (selected?.gallery || [selected?.image]).length;
-    setGalleryIndex((i) => (i + 1) % len);
-  };
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") setSelected(null);
-      if (!selected) return;
-      if (e.key === "ArrowLeft") prevImage();
-      if (e.key === "ArrowRight") nextImage();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [selected]);
-
-  useEffect(() => {
-    setGalleryIndex(0);
-  }, [selected]);
-
-  useEffect(() => {
-    setShowAll(false);
-  }, [filter]);
+  // Modal State
+  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <div>
-      <p className="text-center text-4xl mb-14 font-bold">My Recent Projects</p>
-
-      {/* Tabs */}
-      <div className="flex justify-center">
-        <div className="flex flex-wrap justify-center gap-3 rounded-xl p-2">
-          {["All", "Web App", "Web Design", "Figma Design"].map((cat) => (
+    <div className="flex flex-col items-center justify-center w-full py-16 px-6 bg-gray-50">
+      
+      {/* Title */}
+      <FadeIn className="text-center mb-10">
+        <h2 className="text-4xl sm:text-5xl font-bold text-red-900 mb-4">
+          My Recent Projects
+        </h2>
+        <div className="flex justify-center space-x-4">
+          {["All", "Web Design", "Web App", "Figma Design"].map((cat) => (
             <button
               key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium ${
+              onClick={() => {
+                setFilter(cat);
+                setShowAll(false); // Reset to show limited items on filter change
+              }}
+              className={`px-4 py-2 rounded-full border transition-colors ${
                 filter === cat
-                  ? "bg-primary text-white"
-                  : "bg-gray-200 text-black"
+                  ? "bg-red-900 text-white border-red-900"
+                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
               }`}
             >
               {cat}
             </button>
           ))}
         </div>
-      </div>
+      </FadeIn>
 
-      {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 mt-8">
-        {displayedItems.map((item) => (
-          <div
-            key={item.id}
-            role="button"
-            tabIndex={0}
-            onClick={() => setSelected(item)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") setSelected(item);
-            }}
-            className="card bg-base-100 p-6 shadow-sm hover:shadow-lg transform hover:scale-105 transition-all duration-300 w-full rounded-xl overflow-hidden h-full flex flex-col border border-base-content/25 cursor-pointer"
+      {/* Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
+        {displayedItems.map((item, index) => (
+          <div 
+            key={item.id} 
+            className="group relative bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 h-full flex flex-col"
+            onClick={() => setSelectedProject(item)}
           >
-            <figure className="flex items-center justify-center">
-              <img
-                src={`/${item.image}`}
-                alt={item.title}
-                className="rounded-lg object-contain mx-auto max-h-40"
-              />
-            </figure>
-            <div className="card-body flex-1 flex flex-col justify-between">
-              <div>
-                <h2 className="card-title">{item.title}</h2>
-                <p className="mt-2 text-sm text-gray-600 line-clamp-4">
+            <div className="flex flex-col h-full">
+              {/* Image */}
+              <div className="h-64 overflow-hidden relative">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute top-4 right-4 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <LinkIcon className="w-5 h-5 text-red-900" />
+                </div>
+              </div>
+              {/* Content */}
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex justify-between items-start">
+                  <span className="text-xs font-bold text-red-900 uppercase tracking-wider bg-red-100 px-2 py-1 rounded">
+                    {item.category}
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold mt-3 text-gray-900 group-hover:text-red-900 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 mt-2 line-clamp-3 text-sm flex-1">
                   {item.description}
                 </p>
-              </div>
-
-              <div className="card-actions justify-end mt-4">
-                <div className="badge">{item.category}</div>
-                <div className="badge">Project</div>
               </div>
             </div>
           </div>
         ))}
       </div>
 
+      {/* See More Button */}
       {filteredItems.length > 6 && (
-        <div className="flex justify-center mt-6">
+        <div className="mt-10">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="btn btn-circle btn-outline"
-            aria-label={showAll ? "Show less" : "Show all"}
+            className="flex items-center gap-2 px-6 py-3 bg-red-900 text-white rounded-full hover:bg-red-950 transition-all shadow-md"
           >
-            {showAll ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+            {showAll ? (
+              <>
+                See Less <ChevronUp size={20} />
+              </>
+            ) : (
+              <>
+                See More <ChevronDown size={20} />
+              </>
+            )}
           </button>
         </div>
       )}
 
-      {/* Modal / Lightbox */}
-      {selected && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 md:p-8"
-          onClick={() => setSelected(null)}
-          aria-modal="true"
-          role="dialog"
-        >
-          <div
-            className="bg-white rounded-2xl w-full max-w-6xl max-h-[92vh] shadow-2xl relative overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
+      {/* Modal Overlay */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+          
+          {/* Modal Content */}
+          <div 
+            className="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl relative animate-in fade-in zoom-in duration-300"
+            onClick={(e) => e.stopPropagation()} 
           >
-            {/* Close */}
+            {/* Close Button */}
             <button
-              onClick={() => setSelected(null)}
-              aria-label="Close"
-              className="absolute top-4 right-4 z-10 text-gray-700 hover:text-black bg-gray-100 hover:bg-gray-200 rounded-full w-9 h-9 flex items-center justify-center text-xl"
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-4 right-4 p-2 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 transition z-10"
             >
-              ×
+              ✕
             </button>
 
-            <div className="flex flex-col md:flex-row gap-8 p-6 md:p-10 overflow-y-auto">
-              {/* IMAGE CONTAINER */}
-              <div className="md:w-3/5">
-                <div className="bg-gray-50 rounded-xl p-6 shadow-inner flex flex-col items-center">
-                  <div className="relative w-full flex items-center justify-center">
-                    {((selected.gallery && selected.gallery.length) || 1) >
-                      1 && (
-                      <button
-                        onClick={() =>
-                          setGalleryIndex((i) => Math.max(0, i - 1))
-                        }
-                        className="absolute left-0 -translate-x-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center text-xl"
-                        aria-label="Previous image"
-                      >
-                        ‹
-                      </button>
-                    )}
+            <div className="flex flex-col lg:flex-row">
+              
+              {/* Left: Image Gallery */}
+              <div className="lg:w-3/5 bg-gray-100 p-6 flex flex-col gap-4 sticky top-0">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="w-full h-auto rounded-lg shadow-md object-contain max-h-[500px]"
+                />
+                {/* Thumbnails (if any extra images exist in gallery) */}
+                {selectedProject.gallery && selectedProject.gallery.length > 1 && (
+                  <div className="flex gap-2 overflow-x-auto py-2">
+                    {selectedProject.gallery.map((img, idx) => (
+                      <img
+                        key={idx}
+                        src={img}
+                        alt={`screenshot-${idx}`}
+                        className="w-24 h-24 object-cover rounded-md cursor-pointer hover:opacity-80 border border-gray-300"
+                        onClick={(e) => {
+                          // Optional: Click thumbnail to swap main image logic could go here
+                          // For now just displaying them
+                        }}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
 
-                    <img
-                      src={`/${(selected.gallery && selected.gallery[galleryIndex]) || selected.image}`}
-                      alt={selected.title}
-                      className="object-contain max-h-[65vh] w-full rounded-lg"
-                    />
+              {/* Right: Project Details */}
+              <div className="lg:w-2/5 p-8 lg:p-10 flex flex-col gap-6">
+                <div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-2">{selectedProject.title}</h2>
+                  <p className="text-red-900 font-medium text-lg">{selectedProject.category}</p>
+                </div>
 
-                    {((selected.gallery && selected.gallery.length) || 1) >
-                      1 && (
-                      <button
-                        onClick={() =>
-                          setGalleryIndex((i) =>
-                            Math.min(
-                              ((selected.gallery && selected.gallery.length) ||
-                                1) - 1,
-                              i + 1,
-                            ),
-                          )
-                        }
-                        className="absolute right-0 translate-x-1/2 bg-white shadow-md rounded-full w-10 h-10 flex items-center justify-center text-xl"
-                        aria-label="Next image"
-                      >
-                        ›
-                      </button>
-                    )}
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wide">Role</h4>
+                    <p className="text-gray-800">{selectedProject.role}</p>
                   </div>
 
-                  {/* Thumbnails */}
-                  {selected.gallery && selected.gallery.length > 1 && (
-                    <div className="flex gap-3 mt-6 overflow-x-auto w-full justify-center">
-                      {selected.gallery.map((img, i) => (
-                        <button
-                          key={img + i}
-                          onClick={() => setGalleryIndex(i)}
-                          className={`rounded-lg overflow-hidden border ${
-                            i === galleryIndex
-                              ? "ring-2 ring-primary"
-                              : "border-base-content/20"
-                          }`}
-                          aria-label={`View image ${i + 1}`}
-                        >
-                          <img
-                            src={`/${img}`}
-                            alt={`${selected.title} ${i + 1}`}
-                            className="h-20 w-32 object-cover"
-                          />
-                        </button>
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wide">Tools</h4>
+                    <div className="flex flex-wrap gap-2 mt-1">
+                      {selectedProject.tools.map((tool) => (
+                        <span key={tool} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+                          {tool}
+                        </span>
                       ))}
                     </div>
-                  )}
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wide">About</h4>
+                    <p className="text-gray-600 leading-relaxed mt-1">
+                      {selectedProject.description}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wide">Deliverables</h4>
+                    <ul className="list-disc list-inside text-gray-600 mt-1 space-y-1">
+                      {selectedProject.deliverables.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-auto pt-6">
+                  <a
+                    href="#"
+                    className="block w-full text-center bg-red-900 text-white font-bold py-3 rounded-lg hover:bg-red-950 transition-colors shadow-md"
+                  >
+                    View Live Project
+                  </a>
                 </div>
               </div>
 
-              {/* DESCRIPTION CONTAINER */}
-              <div className="md:w-2/5">
-                <div className="bg-gray-50 rounded-xl p-6 shadow-inner flex flex-col gap-4 h-full">
-                  <div>
-                    <h3 className="font-semibold text-2xl mb-1">
-                      {selected.title}
-                    </h3>
-                    <p className="text-sm text-gray-500">{selected.category}</p>
-                  </div>
-
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    {selected.description}
-                  </p>
-
-                  <div>
-                    <h4 className="text-sm font-medium mb-2">Tools used</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selected.tools &&
-                        selected.tools.map((t) => (
-                          <span key={t} className="badge badge-outline">
-                            {t}
-                          </span>
-                        ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

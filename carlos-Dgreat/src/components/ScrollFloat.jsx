@@ -14,6 +14,8 @@ const ScrollFloat = ({
   containerClassName = '',
   textClassName = '',
   containerTag = 'div',
+  scrub = true,
+  delay = 0,
 }) => {
   const containerRef = useRef(null);
 
@@ -21,13 +23,18 @@ const ScrollFloat = ({
     const el = containerRef.current;
     if (!el) return;
     
-    const chars = el.querySelectorAll('.split-char');
-    if (chars.length === 0) return; 
-    // If no chars found, maybe animate the container itself or children? 
-    // But for now, stick to split-char logic.
+    // Check if we have split characters (text mode) or just children (block mode)
+    let targets = el.querySelectorAll('.split-char');
+    
+    // If no split chars found, animate the container itself (or children if needed, but here let's animate container)
+    // However, if we animate container, we might want to animate its direct children if it's a list?
+    // Let's assume if no split-char, we animate the element itself as a block float.
+    if (targets.length === 0) {
+      targets = [el];
+    }
     
     const animation = gsap.fromTo(
-      chars,
+      targets,
       {
         y: 100,
         opacity: 0
@@ -38,11 +45,13 @@ const ScrollFloat = ({
         duration: animationDuration,
         ease: ease,
         stagger: stagger,
+        delay: delay, // Apply delay prop
         scrollTrigger: {
           trigger: el,
           start: scrollStart,
           end: scrollEnd,
-          scrub: true,
+          scrub: scrub, // Use scrub prop
+          toggleActions: scrub ? undefined : 'play none none reverse', // Enable toggleActions if scrub is false
         }
       }
     );
@@ -51,7 +60,7 @@ const ScrollFloat = ({
       if (animation.scrollTrigger) animation.scrollTrigger.kill();
       animation.kill();
     };
-  }, [animationDuration, ease, scrollStart, scrollEnd, stagger]);
+  }, [animationDuration, ease, scrollStart, scrollEnd, stagger, children, scrub, delay]); // Added children dependency to re-run if content changes
 
   const splitText = (text) => {
     return text.split('').map((char, index) => (
@@ -64,7 +73,7 @@ const ScrollFloat = ({
   const Tag = containerTag;
 
   return (
-    <Tag ref={containerRef} className={`overflow-hidden ${containerClassName}`}>
+    <Tag ref={containerRef} className={`${containerClassName}`}>
       <span className={textClassName}>
         {typeof children === 'string' ? splitText(children) : children}
       </span>

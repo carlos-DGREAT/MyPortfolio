@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import FadeIn from './FadeIn';
 import ScrollFloat from './ScrollFloat';
 
 export default function Services() {
@@ -51,15 +52,13 @@ export default function Services() {
       >
         {/* Title */}
         <div className="text-center justify-center text-white">
-          <ScrollFloat 
-            containerTag="p" 
-            containerClassName="text-[28px] font-bold"
-            animationDuration={1}
-            scrollStart="top bottom-=10%"
-            scrollEnd="bottom center"
+          <FadeIn 
+            tag="p" 
+            className="text-[28px] font-bold"
+            direction="up"
           >
             What I can provide?
-          </ScrollFloat>
+          </FadeIn>
           <hr className="bg-primary my-3 border-2 w-[220px] mx-auto" />
         </div>
 

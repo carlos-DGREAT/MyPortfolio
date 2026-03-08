@@ -85,6 +85,17 @@
   }
 }
 
+/* Ensure background-clip works for gradient text */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Fix for potential cut-off text with custom fonts or line-heights */
+h1, h2, h3, h4, h5, h6, .text-transparent {
+  padding-bottom: 0.1em; /* Add slight padding to avoid clipping descenders or custom glyphs */
+}
+
 /* Global font settings: titles use Montserrat semi-bold, body uses serif */
 body {
   font-family: var(--font-body);
