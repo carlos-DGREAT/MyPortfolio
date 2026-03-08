@@ -1,3 +1,6 @@
+import React from 'react';
+import ScrollFloat from './ScrollFloat';
+
 export default function AboutMe() {
   return (
     <div className="relative flex flex-col w-full bg-white">
@@ -14,12 +17,28 @@ export default function AboutMe() {
 
           {/* Text Right (desktop), always first on mobile/tablet */}
           <div className="w-full md:w-1/2 flex flex-col justify-center p-8 text-gray-900 order-1 md:order-2">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight">
+            <ScrollFloat 
+              animationDuration={1} 
+              ease='back.inOut(2)' 
+              scrollStart='center bottom+=50%' 
+              scrollEnd='bottom bottom-=40%' 
+              stagger={0.03}
+              containerTag="h2"
+              containerClassName="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight"
+            >
               ABOUT ME
-            </h2>
-            <p className="text-base sm:text-lg leading-relaxed max-w-2xl">
+            </ScrollFloat>
+            <ScrollFloat 
+              animationDuration={1} 
+              ease='back.inOut(2)' 
+              scrollStart='center bottom+=50%' 
+              scrollEnd='bottom bottom-=40%' 
+              stagger={0.01}
+              containerTag="p"
+              containerClassName="text-base sm:text-lg leading-relaxed max-w-2xl"
+            >
               Hi, I’m Carlos Opena, a Web Developer specializing in responsive and user-friendly websites. I’m passionate about improving my skills and working toward becoming a Software Engineer. I create websites and applications that are reliable, efficient, and easy to use.
-            </p>
+            </ScrollFloat>
           </div>
         </div>
       </div>
@@ -28,12 +47,28 @@ export default function AboutMe() {
       <div className="relative flex justify-center w-full mb-16">
         <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-10 px-4 md:px-6">
           <div className="w-full md:w-1/2 flex flex-col justify-center p-8 text-gray-900 order-1">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight">
+            <ScrollFloat 
+              animationDuration={1} 
+              ease='back.inOut(2)' 
+              scrollStart='center bottom+=50%' 
+              scrollEnd='bottom bottom-=40%' 
+              stagger={0.03}
+              containerTag="h2"
+              containerClassName="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight"
+            >
               GOALS
-            </h2>
-            <p className="text-base sm:text-lg leading-relaxed max-w-2xl">
+            </ScrollFloat>
+            <ScrollFloat 
+              animationDuration={1} 
+              ease='back.inOut(2)' 
+              scrollStart='center bottom+=50%' 
+              scrollEnd='bottom bottom-=40%' 
+              stagger={0.01}
+              containerTag="p"
+              containerClassName="text-base sm:text-lg leading-relaxed max-w-2xl"
+            >
               I help bring your ideas to life by building websites and applications that are reliable, efficient, and easy to use. I focus on understanding your needs and delivering results that achieve your objectives and meet user expectations.
-            </p>
+            </ScrollFloat>
           </div>
             <div className="w-full md:w-1/2 flex items-center justify-center p-6 order-2">
               <img

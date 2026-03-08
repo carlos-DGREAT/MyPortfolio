@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ScrollFloat from './ScrollFloat';
 
 export default function Services() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,7 +51,15 @@ export default function Services() {
       >
         {/* Title */}
         <div className="text-center justify-center text-white">
-          <p className="text-[28px] font-bold">What I can provide?</p>
+          <ScrollFloat 
+            containerTag="p" 
+            containerClassName="text-[28px] font-bold"
+            animationDuration={1}
+            scrollStart="top bottom-=10%"
+            scrollEnd="bottom center"
+          >
+            What I can provide?
+          </ScrollFloat>
           <hr className="bg-primary my-3 border-2 w-[220px] mx-auto" />
         </div>
 
@@ -59,7 +68,7 @@ export default function Services() {
           {/* Card 1 */}
           <div className="flex flex-col items-center text-center max-w-xs flex-1 min-h-[220px]">
             <img src="/icon-3.png" alt="icon1" className="w-[60px] h-[60px] mb-4" />
-            <p className="font-semibold text-2xl py-3">UI/UX DESIGN</p>
+            <ScrollFloat containerTag="p" containerClassName="font-semibold text-2xl py-3">UI/UX DESIGN</ScrollFloat>
             <p className="text-[18px]">
               I create user-friendly designs using Figma and can also use Photoshop to edit photos.
             </p>
@@ -68,7 +77,7 @@ export default function Services() {
           {/* Card 2 */}
           <div className="flex flex-col items-center text-center max-w-xs flex-1 min-h-[220px]">
             <img src="/icon-1.png" alt="icon2" className="w-[60px] h-[60px] mb-4" />
-            <p className="font-semibold text-2xl py-3">Front-end Development</p>
+            <ScrollFloat containerTag="p" containerClassName="font-semibold text-2xl py-3">Front-end Development</ScrollFloat>
             <p className="text-[18px]">
     I develop dynamic and responsive web applications with clean, maintainable code that performs reliably on any device.
             </p>
@@ -77,7 +86,7 @@ export default function Services() {
           {/* Card 3 */}
           <div className="flex flex-col items-center text-center max-w-xs flex-1 min-h-[220px]">
             <img src="/icon-2.png" alt="icon3" className="w-[60px] h-[60px] mb-4" />
-            <p className="font-semibold text-2xl py-3">Responsiveness</p>
+            <ScrollFloat containerTag="p" containerClassName="font-semibold text-2xl py-3">Responsiveness</ScrollFloat>
             <p className="text-[18px]">
   I ensure designs and applications adapt to different screen sizes, delivering a consistent and efficient experience for all users.
             </p>

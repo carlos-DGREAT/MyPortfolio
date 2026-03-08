@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ShinyText from './ShinyText';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,9 +32,9 @@ export default function Navbar() {
       >
         <div className="w-full flex items-center justify-between px-6 md:px-24">
           {/* Logo */}
-          <a href="#home" className="flex items-center space-x-2 text-xl font-bold text-black">
+          <a href="#home" className="flex items-center space-x-2 text-xl font-bold text-black group">
             <img src="/logo-5.png" alt="Logo" className="h-13 w-13" />
-            <span>CARLOS.DGREAT</span>
+            <ShinyText text="CARLOS.DGREAT" speed={3} baseColor="#000000" shineColor="#932929" className="group-hover:text-primary" />
           </a>
 
           {/* Desktop Nav */}
@@ -52,9 +53,9 @@ export default function Navbar() {
           {/* Hire Me Button */}
           <a
             href="#contact"
-            className="hidden lg:inline-flex btn bg-primary text-white px-10 py-3 rounded-full"
+            className="hidden lg:inline-flex btn bg-primary text-white px-10 py-3 rounded-full hover:bg-red-950 border-none"
           >
-            Hire Me
+            <ShinyText text="Hire Me" baseColor="#ffffff" shineColor="#ffcccc" speed={3} />
           </a>
 
           {/* Mobile Drawer Toggle */}
@@ -99,35 +100,14 @@ export default function Navbar() {
           >
             ✕
           </label>
-
-          <ul className="menu mt-10">
-            {navItems.map((item, index) => (
-              <li key={index}>
-                <a
-                  href={item.href}
-                  className="hover:text-[#932929]"
-                  onClick={() => {
-                    document.getElementById("my-drawer").checked = false;
-                  }}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          {/* Full-width Hire Me Button */}
-          <div className="mt-6">
-            <a
-              href="#contact"
-              onClick={() => {
-                document.getElementById("my-drawer").checked = false;
-              }}
-              className="btn bg-primary text-white w-full rounded-[0.5rem] py-3 text-center text-lg"
-            >
-              Hire Me
-            </a>
-          </div>
+            {/* Mobile Nav Links */}
+             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content mt-10">
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  <a href={item.href} className="text-lg mb-2">{item.label}</a>
+                </li>
+              ))}
+            </ul>
         </div>
       </div>
     </div>
