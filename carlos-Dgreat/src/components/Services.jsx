@@ -63,9 +63,9 @@ export default function Services() {
         </div>
 
         {/* Services Cards */}
-        <div className="flex flex-row max-[1024px]:flex-col items-start justify-between gap-12 mt-16 text-white">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mt-16 text-white w-full">
           {/* Card 1 */}
-          <div className="flex flex-col items-center text-center max-w-xs flex-1 min-h-[220px]">
+          <div className="flex flex-col items-center text-center max-w-xs w-full min-h-[220px]">
             <img src="/icon-3.png" alt="icon1" className="w-[60px] h-[60px] mb-4" />
             <ScrollFloat containerTag="p" containerClassName="font-semibold text-2xl py-3">UI/UX DESIGN</ScrollFloat>
             <p className="text-[18px]">
@@ -74,7 +74,7 @@ export default function Services() {
           </div>
 
           {/* Card 2 */}
-          <div className="flex flex-col items-center text-center max-w-xs flex-1 min-h-[220px]">
+          <div className="flex flex-col items-center text-center max-w-xs w-full min-h-[220px]">
             <img src="/icon-1.png" alt="icon2" className="w-[60px] h-[60px] mb-4" />
             <ScrollFloat containerTag="p" containerClassName="font-semibold text-2xl py-3">Front-end Development</ScrollFloat>
             <p className="text-[18px]">
@@ -83,7 +83,7 @@ export default function Services() {
           </div>
 
           {/* Card 3 */}
-          <div className="flex flex-col items-center text-center max-w-xs flex-1 min-h-[220px]">
+          <div className="flex flex-col items-center text-center max-w-xs w-full min-h-[220px]">
             <img src="/icon-2.png" alt="icon3" className="w-[60px] h-[60px] mb-4" />
             <ScrollFloat containerTag="p" containerClassName="font-semibold text-2xl py-3">Responsiveness</ScrollFloat>
             <p className="text-[18px]">

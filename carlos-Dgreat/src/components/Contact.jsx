@@ -22,6 +22,13 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    
+    // Construct mailto link
+    const mailtoLink = `mailto:openacarlos@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
   };

@@ -102,14 +102,8 @@ export default function Portfolio() {
     },
   ];
 
-  // Filtering logic
-  const filteredItems =
-    filter === "All"
-      ? portfolioItems
-      : portfolioItems.filter((item) => item.category === filter);
-
   // Show only first 6 items unless 'showAll' is true
-  const displayedItems = showAll ? filteredItems : filteredItems.slice(0, 6);
+  const displayedItems = showAll ? portfolioItems : portfolioItems.slice(0, 6);
 
   // Modal State
   const [selectedProject, setSelectedProject] = useState(null);
@@ -122,24 +116,6 @@ export default function Portfolio() {
         <h2 className="text-4xl sm:text-5xl font-bold text-red-900 mb-4">
           My Recent Projects
         </h2>
-        <div className="flex justify-center space-x-4">
-          {["All", "Web Design", "Web App", "Figma Design"].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                setFilter(cat);
-                setShowAll(false); // Reset to show limited items on filter change
-              }}
-              className={`px-4 py-2 rounded-full border transition-colors ${
-                filter === cat
-                  ? "bg-red-900 text-white border-red-900"
-                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
       </FadeIn>
 
       {/* Grid */}
@@ -164,11 +140,6 @@ export default function Portfolio() {
               </div>
               {/* Content */}
               <div className="p-6 flex-1 flex flex-col">
-                <div className="flex justify-between items-start">
-                  <span className="text-xs font-bold text-red-900 uppercase tracking-wider bg-red-100 px-2 py-1 rounded">
-                    {item.category}
-                  </span>
-                </div>
                 <h3 className="text-xl font-bold mt-3 text-gray-900 group-hover:text-red-900 transition-colors">
                   {item.title}
                 </h3>
@@ -182,7 +153,7 @@ export default function Portfolio() {
       </div>
 
       {/* See More Button */}
-      {filteredItems.length > 6 && (
+      {portfolioItems.length > 6 && (
         <div className="mt-10">
           <button
             onClick={() => setShowAll(!showAll)}
