@@ -20,14 +20,14 @@ export default function Banner() {
             Front-end Developer + UI/UX Designer
           </FadeIn>
           <button className="mt-2 px-6 py-2 border w-fit border-red-900 text-red-900 hover:bg-red-950 hover:text-white rounded transition group font-bold">
-            <ShinyText 
-              text="Download CV" 
-              disabled={false} 
-              speed={3} 
-              baseColor="#7f1d1d" 
-              shineColor="#ffffff" 
-              className="group-hover:text-white group-hover:bg-clip-border group-hover:bg-transparent" 
-            />
+            <span className="relative inline-block">
+              <span className="block transition-opacity duration-200 group-hover:opacity-0">
+                <ShinyText text="Download CV" disabled={false} speed={3} baseColor="#7f1d1d" shineColor="#ffffff" />
+              </span>
+              <span className="absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                <ShinyText text="Download CV" disabled={false} speed={2.2} baseColor="#ffffff" shineColor="#fecaca" />
+              </span>
+            </span>
           </button>
         </div>
 

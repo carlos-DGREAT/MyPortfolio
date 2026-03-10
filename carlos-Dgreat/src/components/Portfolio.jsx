@@ -172,11 +172,14 @@ export default function Portfolio() {
 
       {/* Modal Overlay */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setSelectedProject(null)}
+        >
           
           {/* Modal Content */}
           <div 
-            className="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl relative animate-in fade-in zoom-in duration-300"
+            className="bg-white w-full max-w-6xl max-h-[92vh] overflow-y-auto shadow-2xl relative rounded-2xl animate-in fade-in zoom-in duration-200"
             onClick={(e) => e.stopPropagation()} 
           >
             {/* Close Button */}
@@ -188,15 +191,12 @@ export default function Portfolio() {
             </button>
 
             <div className="flex flex-col lg:flex-row">
-              
-              {/* Left: Image Gallery */}
-              <div className="lg:w-3/5 bg-gray-100 p-6 flex flex-col gap-4 sticky top-0">
+              <div className="lg:w-3/5 bg-gray-100 p-6 sm:p-8 flex flex-col gap-4 lg:sticky lg:top-0">
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  className="w-full h-auto rounded-lg shadow-md object-contain max-h-[500px]"
+                  className="w-full h-auto rounded-lg shadow-md object-contain max-h-[520px]"
                 />
-                {/* Thumbnails (if any extra images exist in gallery) */}
                 {selectedProject.gallery && selectedProject.gallery.length > 1 && (
                   <div className="flex gap-2 overflow-x-auto py-2">
                     {selectedProject.gallery.map((img, idx) => (
@@ -204,17 +204,18 @@ export default function Portfolio() {
                         key={idx}
                         src={img}
                         alt={`screenshot-${idx}`}
-                        className="w-24 h-24 object-cover rounded-md cursor-pointer hover:opacity-80 border border-gray-300"
+                        className="w-24 h-24 object-cover rounded-md cursor-pointer hover:opacity-80 border border-gray-300 flex-shrink-0"
                       />
                     ))}
                   </div>
                 )}
               </div>
 
-              {/* Right: Project Details */}
-              <div className="lg:w-2/5 p-8 lg:p-10 flex flex-col gap-6">
+              <div className="lg:w-2/5 p-6 sm:p-8 lg:p-10 flex flex-col gap-6">
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-2">{selectedProject.title}</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                    {selectedProject.title}
+                  </h2>
                   <p className="text-red-900 font-medium text-lg">{selectedProject.category}</p>
                 </div>
 
@@ -228,7 +229,10 @@ export default function Portfolio() {
                     <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wide">Tools</h4>
                     <div className="flex flex-wrap gap-2 mt-1">
                       {selectedProject.tools.map((tool) => (
-                        <span key={tool} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+                        <span
+                          key={tool}
+                          className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                        >
                           {tool}
                         </span>
                       ))}
@@ -261,7 +265,6 @@ export default function Portfolio() {
                   </a>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

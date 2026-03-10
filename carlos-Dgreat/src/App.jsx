@@ -7,10 +7,60 @@ import Footer from './components/Footer';
 import MyTechStack from './components/MyTechStack';
 import AboutMe from './components/AboutMe';
 import Contact from "./components/Contact";
+import LoadingScreen from "./components/LoadingScreen";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
+  const startedRef = useRef(false);
+  const [loaderPhase, setLoaderPhase] = useState("enter");
+
+  useEffect(() => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+
+    const start = performance.now();
+    const minMs = 1100;
+    const exitMs = 520;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const preloadImage = (src) =>
+      new Promise((resolve) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = resolve;
+        img.src = src;
+      });
+
+    const preload = async () => {
+      await Promise.all([
+        document.fonts?.ready ?? Promise.resolve(),
+        preloadImage("/Banner.png"),
+        preloadImage("/Profile 1.png"),
+        preloadImage("/logo-5.png"),
+      ]);
+
+      const elapsed = performance.now() - start;
+      const remaining = Math.max(0, minMs - elapsed);
+      if (remaining) await new Promise((r) => setTimeout(r, remaining));
+
+      setLoaderPhase("exit");
+      setTimeout(() => {
+        setLoaderPhase("done");
+        document.body.style.overflow = previousOverflow;
+      }, exitMs);
+    };
+
+    preload();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, []);
+
   return (
     <div className="relative">
+      {loaderPhase !== "done" && <LoadingScreen phase={loaderPhase} />}
       <div className="relative z-10 bg-white">
         <Navbar />
 

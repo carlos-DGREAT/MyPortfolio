@@ -55,7 +55,14 @@ export default function Navbar() {
             href="#contact"
             className="hidden lg:inline-flex btn bg-transparent border border-red-900 text-red-900 px-6 py-2 rounded hover:bg-red-950 hover:text-white transition-all duration-300 font-bold group"
           >
-            <ShinyText text="Hire Me" baseColor="#7f1d1d" shineColor="#ffffff" speed={3} className="group-hover:text-white group-hover:bg-clip-border group-hover:bg-transparent" />
+            <span className="relative inline-block">
+              <span className="block transition-opacity duration-200 group-hover:opacity-0">
+                <ShinyText text="Hire Me" baseColor="#7f1d1d" shineColor="#ffffff" speed={3} />
+              </span>
+              <span className="absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                <ShinyText text="Hire Me" baseColor="#ffffff" shineColor="#fecaca" speed={2.2} />
+              </span>
+            </span>
           </a>
 
           {/* Mobile Drawer Toggle */}
