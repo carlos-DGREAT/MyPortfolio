@@ -53,7 +53,7 @@ export default function Contact() {
   };
 
   return (
-    <section>
+    <section className="relative pb-24 sm:pb-28 md:pb-32">
       
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">

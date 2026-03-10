@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ChevronDown, ChevronUp, Link as LinkIcon } from 'lucide-react';
 import FadeIn from './FadeIn';
-import ScrollFloat from './ScrollFloat';
 
 export default function Portfolio() {
-  const [filter, setFilter] = useState("All");
   const [showAll, setShowAll] = useState(false);
 
   const portfolioItems = [
@@ -120,7 +118,7 @@ export default function Portfolio() {
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
-        {displayedItems.map((item, index) => (
+        {displayedItems.map((item) => (
           <div 
             key={item.id} 
             className="group relative bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 h-full flex flex-col"
@@ -207,10 +205,6 @@ export default function Portfolio() {
                         src={img}
                         alt={`screenshot-${idx}`}
                         className="w-24 h-24 object-cover rounded-md cursor-pointer hover:opacity-80 border border-gray-300"
-                        onClick={(e) => {
-                          // Optional: Click thumbnail to swap main image logic could go here
-                          // For now just displaying them
-                        }}
                       />
                     ))}
                   </div>

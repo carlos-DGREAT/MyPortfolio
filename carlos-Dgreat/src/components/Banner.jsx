@@ -26,7 +26,7 @@ export default function Banner() {
               speed={3} 
               baseColor="#7f1d1d" 
               shineColor="#ffffff" 
-              className="group-hover:text-white group-hover:bg-clip-border group-hover:bg-transparent group-hover:text-current" 
+              className="group-hover:text-white group-hover:bg-clip-border group-hover:bg-transparent" 
             />
           </button>
         </div>

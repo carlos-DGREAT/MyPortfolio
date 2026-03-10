@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 const TextType = ({
   text,
@@ -13,7 +13,7 @@ const TextType = ({
   const [isDeleting, setIsDeleting] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
 
-  const textArray = Array.isArray(text) ? text : [text];
+  const textArray = useMemo(() => (Array.isArray(text) ? text : [text]), [text]);
   const currentText = textArray[textIndex];
 
   useEffect(() => {

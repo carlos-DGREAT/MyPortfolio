@@ -10,40 +10,48 @@ import Contact from "./components/Contact";
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    <div className="relative">
+      <div className="relative z-10 bg-white">
+        <Navbar />
 
-      <section id="home">
-        <Banner />
-      </section>
-
-      <section id="services">
-        <Services />
-      </section>
-
-      <div className="space-y-20">
-        <section id="about">
-          <AboutMe />
+        <section id="home">
+          <Banner />
         </section>
 
-        <section id="portfolio">
-          <Portfolio />
+        <section id="services">
+          <Services />
         </section>
 
-        <section id="skills">
-          <MyTechStack />
-        </section>
+        <div className="space-y-20">
+          <section id="about">
+            <AboutMe />
+          </section>
 
-        <section id="resume">
-          <Timeline />
-        </section>
+          <section id="portfolio">
+            <Portfolio />
+          </section>
 
-        <section id="contact">
-          <Contact />
-        </section>
+          <section id="skills">
+            <MyTechStack />
+          </section>
 
-        <Footer />
+          <section id="resume">
+            <Timeline />
+          </section>
+
+          <section id="contact">
+            <Contact />
+          </section>
+        </div>
       </div>
+
+      <div
+        id="footer-reveal"
+        aria-hidden="true"
+        className="relative z-10 h-[260px] sm:h-[280px] md:h-[320px]"
+      />
+
+      <Footer />
     </div>
   );
 }

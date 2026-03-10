@@ -50,8 +50,8 @@ const SplitText = ({
     if (el._rbsplitInstance) {
       try {
         el._rbsplitInstance.revert();
-      } catch (_) {
-        /* noop */
+      } catch {
+        void 0;
       }
       el._rbsplitInstance = null;
     }
@@ -117,8 +117,8 @@ const SplitText = ({
       });
       try {
         splitInstance.revert();
-      } catch (_) {
-        /* noop */
+      } catch {
+        void 0;
       }
       el._rbsplitInstance = null;
     };
