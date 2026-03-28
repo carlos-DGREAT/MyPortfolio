@@ -108,20 +108,25 @@ export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full py-16 px-6 bg-gray-50">
-      
+    <div className="relative flex flex-col w-full bg-gray-50">
       {/* GitHub Contributions 2026 Section */}
-      <GitHubContributions2026 username="Carlos-Opena" />
+      <div className="relative flex justify-center w-full py-16">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-6">
+          <GitHubContributions2026 username="Carlos-Opena" />
+        </div>
+      </div>
       
       {/* Title */}
-      <FadeIn className="text-center mt-16 mb-10">
-        <h2 className="text-4xl sm:text-5xl font-bold text-red-900 mb-4">
-          My Recent Projects
-        </h2>
-      </FadeIn>
+      <div className="relative flex justify-center w-full py-16">
+        <div className="flex flex-col w-full max-w-6xl mx-auto px-4 md:px-6">
+          <FadeIn className="text-center mb-10">
+            <h2 className="text-4xl sm:text-5xl font-bold text-red-900 mb-4">
+              My Recent Projects
+            </h2>
+          </FadeIn>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
+          {/* Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
         {displayedItems.map((item) => (
           <div 
             key={item.id} 
@@ -173,6 +178,8 @@ export default function Portfolio() {
           </button>
         </div>
       )}
+        </div>
+      </div>
 
       {/* Modal Overlay */}
       {selectedProject && (

@@ -24,9 +24,16 @@ export default function Banner() {
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
             <a
               href="#contact"
-              className="px-6 py-2 border border-red-900 text-red-900 hover:bg-red-950 hover:text-white rounded transition font-bold text-center"
+              className="px-6 py-2 border border-red-900 text-red-900 hover:bg-red-950 hover:text-white rounded transition font-bold text-center group"
             >
-              Hire Me
+              <span className="relative inline-block">
+                <span className="block transition-opacity duration-200 group-hover:opacity-0">
+                  <ShinyText text="Hire Me" disabled={false} speed={3} baseColor="#7f1d1d" shineColor="#ffffff" />
+                </span>
+                <span className="absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                  <ShinyText text="Hire Me" disabled={false} speed={2.2} baseColor="#ffffff" shineColor="#fecaca" />
+                </span>
+              </span>
             </a>
             
             <button className="px-6 py-2 border w-fit border-red-900 text-red-900 hover:bg-red-950 hover:text-white rounded transition group font-bold">

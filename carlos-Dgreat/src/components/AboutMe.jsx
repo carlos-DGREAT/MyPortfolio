@@ -43,7 +43,7 @@ export default function AboutMe() {
       </div>
 
       {/* GOALS Section */}
-      <div className="relative flex justify-center w-full mb-16">
+      <div className="relative flex justify-center w-full">
         <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-10 px-4 md:px-6">
           <div className="w-full md:w-1/2 flex flex-col justify-center p-8 text-gray-900 order-1">
             <ScrollFloat 

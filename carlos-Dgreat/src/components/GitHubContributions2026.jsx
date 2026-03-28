@@ -137,7 +137,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
   }
 
   return (
-    <div className="w-full max-w-7xl mx-auto mt-16 py-16">
+    <div className="w-full max-w-7xl mx-auto py-16">
       <FadeIn className="mb-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
