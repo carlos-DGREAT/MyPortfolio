@@ -57,15 +57,15 @@ export default function Contact() {
       
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[#932929]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#932929]/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center mb-16">
-          <FadeIn tag="span" className="inline-block px-4 py-2 bg-[#932929]/10 text-[#932929] rounded-full text-sm font-semibold mb-4">
+          <FadeIn tag="span" className="inline-block px-4 py-2 bg-black/10 text-black rounded-full text-sm font-semibold mb-4">
             Get In Touch
           </FadeIn>
           <FadeIn tag="h2" delay={0.1} className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-4 py-2 leading-tight">
@@ -87,12 +87,12 @@ export default function Contact() {
                 
                 {/* Phone */}
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-14 h-14 bg-[#932929]/10 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-[#932929]" />
+                  <div className="flex-shrink-0 w-14 h-14 bg-black/10 rounded-xl flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-black" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Phone</p>
-                    <a href="tel:+639123456789" className="text-lg text-gray-800 font-medium hover:text-[#932929] transition-colors">
+                    <a href="tel:+639123456789" className="text-lg text-gray-800 font-medium hover:text-black transition-colors">
                       +63 (912) 345-6789
                     </a>
                   </div>
@@ -100,12 +100,12 @@ export default function Contact() {
 
                 {/* Email */}
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-14 h-14 bg-[#932929]/10 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-[#932929]" />
+                  <div className="flex-shrink-0 w-14 h-14 bg-black/10 rounded-xl flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-black" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Email</p>
-                    <a href="mailto:openacarlos@gmail.com" className="text-lg text-gray-800 font-medium hover:text-[#932929] transition-colors">
+                    <a href="mailto:openacarlos@gmail.com" className="text-lg text-gray-800 font-medium hover:text-black transition-colors">
                       openacarlos@gmail.com
                     </a>
                   </div>
@@ -113,8 +113,8 @@ export default function Contact() {
 
                 {/* Location */}
                 <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-14 h-14 bg-[#932929]/10 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-[#932929]" />
+                  <div className="flex-shrink-0 w-14 h-14 bg-black/10 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-black" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Location</p>
@@ -163,7 +163,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Full name <span className="text-red-500">*</span>
+                      Full name <span className="text-black">*</span>
                     </label>
                     <input
                       type="text"
@@ -175,7 +175,7 @@ export default function Contact() {
                       required
                       className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-all ${
                         focusedField === 'name'
-                          ? 'border-[#932929] ring-4 ring-[#932929]/10'
+                          ? 'border-black ring-4 ring-black/10'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                       placeholder="John Doe"
@@ -184,7 +184,7 @@ export default function Contact() {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Email <span className="text-red-500">*</span>
+                      Email <span className="text-black">*</span>
                     </label>
                     <input
                       type="email"
@@ -196,7 +196,7 @@ export default function Contact() {
                       required
                       className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-all ${
                         focusedField === 'email'
-                          ? 'border-[#932929] ring-4 ring-[#932929]/10'
+                          ? 'border-black ring-4 ring-black/10'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                       placeholder="john@example.com"
@@ -206,7 +206,7 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Subject <span className="text-red-500">*</span>
+                    Subject <span className="text-black">*</span>
                   </label>
                   <input
                     type="text"
@@ -218,7 +218,7 @@ export default function Contact() {
                     required
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-all ${
                       focusedField === 'subject'
-                        ? 'border-[#932929] ring-4 ring-[#932929]/10'
+                        ? 'border-black ring-4 ring-black/10'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                     placeholder="What's this about?"
@@ -227,7 +227,7 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Message <span className="text-red-500">*</span>
+                    Message <span className="text-black">*</span>
                   </label>
                   <textarea
                     name="message"
@@ -239,7 +239,7 @@ export default function Contact() {
                     required
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none transition-all resize-none ${
                       focusedField === 'message'
-                        ? 'border-[#932929] ring-4 ring-[#932929]/10'
+                        ? 'border-black ring-4 ring-black/10'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
                     placeholder="Tell me about your project..."
@@ -249,7 +249,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full px-6 py-4 bg-gradient-to-r from-[#932929] to-[#7a2222] hover:from-[#7a2222] hover:to-[#5e1919] text-white rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-[#932929]/30 flex items-center justify-center gap-2 group ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
+                  className={`w-full px-6 py-4 bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-black/30 flex items-center justify-center gap-2 group ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
                 >
                   <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   {isLoading ? "Sending..." : "Send Message"}

@@ -45,7 +45,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
         }
         
         //Try the original ghchart service
-        const chartUrl = `https://ghchart.rshah.org/${username}`;
+        const chartUrl = `https://ghchart.rshah.org/000000/${username}`;
         
         try {
           // Direct fetch to test if URL is accessible
@@ -128,7 +128,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
       <div className="w-full max-w-7xl mx-auto">
         <div className="flex justify-center items-center py-8">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-900 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black mx-auto mb-4"></div>
             <p className="text-gray-600">Loading GitHub contributions...</p>
           </div>
         </div>
@@ -141,8 +141,8 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
       <FadeIn className="mb-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Github className="w-6 h-6 text-red-900" />
-            <h2 className="text-3xl sm:text-4xl font-bold text-red-900">
+            <Github className="w-6 h-6 text-black" />
+            <h2 className="text-3xl sm:text-4xl font-bold text-black">
               GitHub Contributions
             </h2>
           </div>
@@ -150,7 +150,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
             href={`https://github.com/${username}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-red-900 text-white rounded-full hover:bg-red-950 transition-all shadow-md text-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-all shadow-md text-sm"
           >
             <Github className="w-4 h-4" />
             View GitHub Profile
@@ -160,7 +160,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
           Contribution activity for <span className="font-medium">{username}</span>
         </p>
         <div className="mt-2 text-sm text-gray-500">
-          <span className="font-bold text-red-900">{totalContributions}</span> contributions this year
+          <span className="font-bold text-black">{totalContributions}</span> contributions this year
         </div>
       </FadeIn>
 
@@ -188,10 +188,10 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
               <span>Less</span>
               <div className="flex gap-1">
                 <div className="w-3 h-3 rounded-sm bg-gray-100 border border-gray-300"></div>
-                <div className="w-3 h-3 rounded-sm bg-green-200 border border-gray-300"></div>
-                <div className="w-3 h-3 rounded-sm bg-green-300 border border-gray-300"></div>
-                <div className="w-3 h-3 rounded-sm bg-green-400 border border-gray-300"></div>
-                <div className="w-3 h-3 rounded-sm bg-green-500 border border-gray-300"></div>
+                <div className="w-3 h-3 rounded-sm bg-gray-300 border border-gray-300"></div>
+                <div className="w-3 h-3 rounded-sm bg-gray-500 border border-gray-300"></div>
+                <div className="w-3 h-3 rounded-sm bg-gray-700 border border-gray-300"></div>
+                <div className="w-3 h-3 rounded-sm bg-black border border-gray-300"></div>
               </div>
               <span>More</span>
             </div>

@@ -22,7 +22,7 @@ export default function AboutMe() {
           <div className="w-full md:w-1/2 flex flex-col justify-center p-8 text-gray-900 order-1 md:order-2">
             <ScrollFloat 
               containerTag="h2"
-              containerClassName="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight"
+              containerClassName="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-black leading-tight"
               animationDuration={1}
               ease='back.inOut(2)'
               scrollStart='center bottom+=50%'
@@ -48,7 +48,7 @@ export default function AboutMe() {
           <div className="w-full md:w-1/2 flex flex-col justify-center p-8 text-gray-900 order-1">
             <ScrollFloat 
               containerTag="h2"
-              containerClassName="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight"
+              containerClassName="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-black leading-tight"
               animationDuration={1}
               ease='back.inOut(2)'
               scrollStart='center bottom+=50%'
