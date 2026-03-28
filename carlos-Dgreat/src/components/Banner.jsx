@@ -2,6 +2,7 @@ import React from 'react';
 import SplitText from './SplitText';
 import ShinyText from './ShinyText';
 import FadeIn from './FadeIn';
+import { Linkedin, Github, Mail } from 'lucide-react';
 
 export default function Banner() {
   return (
@@ -17,18 +18,28 @@ export default function Banner() {
             <SplitText text="Hi, I'm Carlos" className="text-2xl sm:text-3xl font-bold" delay={50} />
           </div>
           <FadeIn delay={0.2} tag="h1" className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight">
-            Front-end Developer + UI/UX Designer
+            Full stack Developer + Web Designer
           </FadeIn>
-          <button className="mt-2 px-6 py-2 border w-fit border-red-900 text-red-900 hover:bg-red-950 hover:text-white rounded transition group font-bold">
-            <span className="relative inline-block">
-              <span className="block transition-opacity duration-200 group-hover:opacity-0">
-                <ShinyText text="Download CV" disabled={false} speed={3} baseColor="#7f1d1d" shineColor="#ffffff" />
+          
+          <div className="flex flex-col sm:flex-row gap-4 mt-2">
+            <a
+              href="#contact"
+              className="px-6 py-2 border border-red-900 text-red-900 hover:bg-red-950 hover:text-white rounded transition font-bold text-center"
+            >
+              Hire Me
+            </a>
+            
+            <button className="px-6 py-2 border w-fit border-red-900 text-red-900 hover:bg-red-950 hover:text-white rounded transition group font-bold">
+              <span className="relative inline-block">
+                <span className="block transition-opacity duration-200 group-hover:opacity-0">
+                  <ShinyText text="Download CV" disabled={false} speed={3} baseColor="#7f1d1d" shineColor="#ffffff" />
+                </span>
+                <span className="absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                  <ShinyText text="Download CV" disabled={false} speed={2.2} baseColor="#ffffff" shineColor="#fecaca" />
+                </span>
               </span>
-              <span className="absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                <ShinyText text="Download CV" disabled={false} speed={2.2} baseColor="#ffffff" shineColor="#fecaca" />
-              </span>
-            </span>
-          </button>
+            </button>
+          </div>
         </div>
 
         {/* Right div (hidden below 1024px) */}

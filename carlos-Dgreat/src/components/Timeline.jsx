@@ -12,16 +12,22 @@ export default function Timeline() {
           <div className="space-y-5">
             {[
               {
-                title: "Web Developer",
-                company: "Dan Gordon Enterprise, LLC. Virtual Assistant",
-                date: "Sept 2023 - Oct 2024 · Part-time",
-                location: "United States · Remote"
+                title: "Web Application Developer",
+                company: "DENR - Department of Environment and Natural Resources",
+                date: "January 2026 - Present · Intern",
+                location: "Philippines · Hybrid"
               },
               {
                 title: "Web Developer",
                 company: "Seva Solutions",
                 date: "Nov 2024 - January 2025  ·  Gig",
                 location: "Philippines · Remote"
+              },
+              {
+                title: "Web Developer",
+                company: "Dan Gordon Enterprise, LLC. Virtual Assistant",
+                date: "Sept 2023 - Oct 2024 · Part-time",
+                location: "United States · Remote"
               }
             ].map((exp, idx) => (
               <FadeIn 

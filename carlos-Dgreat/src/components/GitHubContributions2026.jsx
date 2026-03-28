@@ -125,7 +125,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
 
   if (loading) {
     return (
-      <div className="w-full max-w-7xl mx-auto mt-16">
+      <div className="w-full max-w-7xl mx-auto">
         <div className="flex justify-center items-center py-8">
           <div className="text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-900 mx-auto mb-4"></div>

@@ -114,7 +114,7 @@ export default function Portfolio() {
       <GitHubContributions2026 username="Carlos-Opena" />
       
       {/* Title */}
-      <FadeIn className="text-center mb-10">
+      <FadeIn className="text-center mt-16 mb-10">
         <h2 className="text-4xl sm:text-5xl font-bold text-red-900 mb-4">
           My Recent Projects
         </h2>
