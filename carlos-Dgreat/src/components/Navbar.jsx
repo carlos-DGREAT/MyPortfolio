@@ -34,7 +34,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#home" className={`flex items-center space-x-2 text-xl font-bold group ${isScrolled ? 'text-white' : 'text-black'}`}>
             <img src="/logo-5.png" alt="Logo" className="h-13 w-13" />
-            <ShinyText text="CARLOS.DGREAT" speed={3} baseColor={isScrolled ? '#ffffff' : '#000000'} shineColor={isScrolled ? '#aaaaaa' : '#555555'} className="group-hover:text-primary" />
+            <ShinyText text="CARLOS.DGREAT" speed={3} baseColor={isScrolled ? '#ffffff' : '#000000'} shineColor={isScrolled ? '#fca5a5' : '#7f1d1d'} className="group-hover:text-primary" />
           </a>
 
           {/* Desktop Nav */}
@@ -43,7 +43,7 @@ export default function Navbar() {
               <a
                 key={index}
                 href={item.href}
-                className={`transition-colors ${isScrolled ? 'hover:text-gray-300' : 'hover:text-gray-600'}`}
+                className={`transition-colors ${isScrolled ? 'hover:text-red-300' : 'hover:text-red-900'}`}
               >
                 {item.label}
               </a>
@@ -56,7 +56,7 @@ export default function Navbar() {
               href="https://www.linkedin.com/in/carlosopeña"
               target="_blank"
               rel="noopener noreferrer"
-              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}
+              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-red-300' : 'text-black hover:text-red-900'}`}
               title="LinkedIn"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -67,7 +67,7 @@ export default function Navbar() {
               href="https://github.com/Carlos-Opena"
               target="_blank"
               rel="noopener noreferrer"
-              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}
+              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-red-300' : 'text-black hover:text-gray-600'}`}
               title="GitHub"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -76,7 +76,7 @@ export default function Navbar() {
             </a>
             <a
               href="mailto:openacarlos@gmail.com"
-              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}
+              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-red-300' : 'text-black hover:text-gray-600'}`}
               title="Gmail"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">

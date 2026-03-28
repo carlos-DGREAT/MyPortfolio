@@ -66,10 +66,10 @@ export default function Contact() {
         
         {/* Section Header */}
         <div className="text-center mb-16">
-          <FadeIn tag="span" className="inline-block px-4 py-2 bg-black/10 text-black rounded-full text-sm font-semibold mb-4">
+          <FadeIn tag="span" className="inline-block px-4 py-2 bg-red-900/10 text-red-900 rounded-full text-sm font-semibold mb-4">
             Get In Touch
           </FadeIn>
-          <FadeIn tag="h2" delay={0.1} className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent mb-4 py-2 leading-tight">
+          <FadeIn tag="h2" delay={0.1} className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4 py-2 leading-tight">
             Let's Work Together
           </FadeIn>
           <FadeIn tag="p" delay={0.2} className="text-xl text-gray-600 max-w-2xl mx-auto">

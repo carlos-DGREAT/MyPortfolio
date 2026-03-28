@@ -160,6 +160,20 @@ html {
   animation: icon-shine 2.5s ease-in-out infinite;
 }
 
+.gradient-text-split {
+  display: inline-block;
+}
+
+.gradient-text-split .split-char {
+  background: linear-gradient(to right, #7f1d1d, #374151);
+  background-attachment: fixed;
+  background-size: 40vw 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 /* Apply Montserrat semi-bold for common title classes */
 .font-bold,
 .card-title,

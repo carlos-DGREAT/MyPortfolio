@@ -141,8 +141,8 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
       <FadeIn className="mb-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Github className="w-6 h-6 text-black" />
-            <h2 className="text-3xl sm:text-4xl font-bold text-black">
+            <Github className="w-6 h-6 text-red-900" />
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">
               GitHub Contributions
             </h2>
           </div>
@@ -160,7 +160,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
           Contribution activity for <span className="font-medium">{username}</span>
         </p>
         <div className="mt-2 text-sm text-gray-500">
-          <span className="font-bold text-black">{totalContributions}</span> contributions this year
+          <span className="font-bold text-red-900">{totalContributions}</span> contributions this year
         </div>
       </FadeIn>
 

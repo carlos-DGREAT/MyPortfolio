@@ -120,7 +120,7 @@ export default function Portfolio() {
       <div className="relative flex justify-center w-full py-16">
         <div className="flex flex-col w-full max-w-6xl mx-auto px-4 md:px-6">
           <FadeIn className="text-center mb-10">
-            <h2 className="text-4xl sm:text-5xl font-bold text-black mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4">
               My Recent Projects
             </h2>
           </FadeIn>
@@ -147,7 +147,7 @@ export default function Portfolio() {
               </div>
               {/* Content */}
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold mt-3 text-gray-900 group-hover:text-black transition-colors">
+                <h3 className="text-xl font-bold mt-3 text-gray-900 group-hover:text-red-900 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-gray-600 mt-2 line-clamp-3 text-sm flex-1">
