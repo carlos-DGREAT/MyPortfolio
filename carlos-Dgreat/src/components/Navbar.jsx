@@ -27,23 +27,23 @@ export default function Navbar() {
 
       <div
         className={`drawer-content transition-all duration-300 ${
-          isScrolled ? "bg-white shadow-md" : "bg-transparent"
+          isScrolled ? "bg-black shadow-md" : "bg-transparent"
         } h-20 flex items-center`}
       >
         <div className="w-full flex items-center justify-between px-6 md:px-24">
           {/* Logo */}
-          <a href="#home" className="flex items-center space-x-2 text-xl font-bold text-black group">
+          <a href="#home" className={`flex items-center space-x-2 text-xl font-bold group ${isScrolled ? 'text-white' : 'text-black'}`}>
             <img src="/logo-5.png" alt="Logo" className="h-13 w-13" />
-            <ShinyText text="CARLOS.DGREAT" speed={3} baseColor="#000000" shineColor="#932929" className="group-hover:text-primary" />
+            <ShinyText text="CARLOS.DGREAT" speed={3} baseColor={isScrolled ? '#ffffff' : '#000000'} shineColor={isScrolled ? '#fca5a5' : '#7f1d1d'} className="group-hover:text-primary" />
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex space-x-8 text-lg font-display text-black">
+          <div className={`hidden lg:flex space-x-8 text-lg font-display ${isScrolled ? 'text-white' : 'text-black'}`}>
             {navItems.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
-                className="hover:text-[#932929] transition-colors"
+                className={`transition-colors ${isScrolled ? 'hover:text-red-300' : 'hover:text-red-900'}`}
               >
                 {item.label}
               </a>
@@ -56,7 +56,7 @@ export default function Navbar() {
               href="https://www.linkedin.com/in/carlosopeña"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-red-900 hover:text-red-950 transition-colors hover:scale-110 transform"
+              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-red-300' : 'text-black hover:text-red-900'}`}
               title="LinkedIn"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -67,7 +67,7 @@ export default function Navbar() {
               href="https://github.com/Carlos-Opena"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-red-900 hover:text-red-950 transition-colors hover:scale-110 transform"
+              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-red-300' : 'text-black hover:text-gray-600'}`}
               title="GitHub"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -76,7 +76,7 @@ export default function Navbar() {
             </a>
             <a
               href="mailto:openacarlos@gmail.com"
-              className="text-red-900 hover:text-red-950 transition-colors hover:scale-110 transform"
+              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-red-300' : 'text-black hover:text-gray-600'}`}
               title="Gmail"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -94,10 +94,10 @@ export default function Navbar() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-black"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                stroke={isScrolled ? '#ffffff' : '#000000'}
               >
                 <path
                   strokeLinecap="round"
@@ -123,7 +123,7 @@ export default function Navbar() {
           {/* Logo at Top */}
           <div className="flex items-center space-x-2 text-xl font-bold text-black group mb-8">
             <img src="/logo-5.png" alt="Logo" className="h-10 w-10" />
-            <ShinyText text="CARLOS.DGREAT" speed={3} baseColor="#000000" shineColor="#932929" className="group-hover:text-primary" />
+            <ShinyText text="CARLOS.DGREAT" speed={3} baseColor="#000000" shineColor="#555555" className="group-hover:text-primary" />
           </div>
 
           {/* Close Button */}
@@ -149,7 +149,7 @@ export default function Navbar() {
                     href="https://www.linkedin.com/in/carlosopeña"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-red-900 hover:text-red-950 transition-colors"
+                    className="text-black hover:text-gray-700 transition-colors"
                     title="LinkedIn"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -160,7 +160,7 @@ export default function Navbar() {
                     href="https://github.com/Carlos-Opena"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-red-900 hover:text-red-950 transition-colors"
+                    className="text-black hover:text-gray-700 transition-colors"
                     title="GitHub"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -169,7 +169,7 @@ export default function Navbar() {
                   </a>
                   <a
                     href="mailto:openacarlos@gmail.com"
-                    className="text-red-900 hover:text-red-950 transition-colors"
+                    className="text-black hover:text-gray-700 transition-colors"
                     title="Gmail"
                   >
                     <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">

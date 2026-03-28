@@ -4,11 +4,11 @@ import FadeIn from './FadeIn';
 export default function Timeline() {
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <FadeIn tag="p" className="text-center text-4xl font-bold my-14">My Timeline</FadeIn>
+      <FadeIn tag="p" className="text-center text-4xl font-bold my-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">My Timeline</FadeIn>
       <div className="flex flex-col md:flex-row w-full gap-10">
         {/* Experience Section */}
         <div className="flex-1 text-center">
-          <FadeIn tag="h2" className="text-3xl font-bold mb-2 pb-10 text-primary">Experience</FadeIn>
+          <FadeIn tag="h2" className="text-3xl font-bold mb-2 pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Experience</FadeIn>
           <div className="space-y-5">
             {[
               {
@@ -36,7 +36,7 @@ export default function Timeline() {
                 className="max-w-md w-full h-[178px] bg-base-100 p-6 shadow rounded border border-base-content/25 mx-auto text-left"
               >
                 <div className="text-sm space-y-1">
-                  <p className="font-semibold text-lg text-primary">{exp.title}</p>
+                  <p className="font-semibold text-lg text-black">{exp.title}</p>
                   <p className="text-base">{exp.company}</p>
                   <p>{exp.date}</p>
                   <p className="mt-5">{exp.location}</p>
@@ -48,7 +48,7 @@ export default function Timeline() {
 
         {/* Education Section */}
         <div className="flex-1 text-center">
-          <FadeIn tag="h2" className="text-3xl font-bold mb-2 pb-10 text-primary" delay={0.2}>Education</FadeIn>
+          <FadeIn tag="h2" className="text-3xl font-bold mb-2 pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent" delay={0.2}>Education</FadeIn>
           <div className="space-y-5">
             {[
               {
@@ -73,7 +73,7 @@ export default function Timeline() {
                 className="max-w-md w-full h-[178px] bg-base-100 p-6 shadow rounded border border-base-content/10 mx-auto text-left"
               >
                 <div className="text-sm space-y-1">
-                    <p className="font-semibold text-lg text-primary">{item.title}</p>
+                    <p className="font-semibold text-lg text-black">{item.title}</p>
                     <p className="text-base">{item.desc}</p>
                     <p className="mt-5">{item.date}</p>
                   </div>

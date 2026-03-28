@@ -31,7 +31,7 @@ export default function Services() {
   }, [isWideScreen]);
 
   return (
-    <div className="flex justify-center items-center w-full min-h-[70vh] bg-gradient-to-b from-red-950 via-stone-950 to-red-950">
+    <div className="flex justify-center items-center w-full min-h-[70vh] bg-gradient-to-b from-gray-900 via-black to-gray-900">
       <div
         className={`z-10 w-full max-w-7xl px-6 md:px-10 py-10 transition-all duration-700 ease-out
           ${
@@ -44,8 +44,8 @@ export default function Services() {
           ${isWideScreen ? "rounded-[80px]" : "rounded-none"}
           ${
             isWideScreen
-              ? "bg-[radial-gradient(ellipse_70.11%_336.83%_at_50.00%_50.00%,_#932929_0%,_#0B0B0B_50%,_#581E1E_100%)]"
-              : "bg-gradient-to-b from-red-950 via-stone-950 to-red-950"
+              ? "bg-gradient-to-b from-gray-900 via-black to-red-950/50"
+              : "bg-gradient-to-b from-gray-900 via-black to-red-950/50"
           }
           shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]`}
       >

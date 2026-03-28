@@ -20,17 +20,9 @@ export default function AboutMe() {
 
           {/* Text Right (desktop), always first on mobile/tablet */}
           <div className="w-full md:w-1/2 flex flex-col justify-center p-8 text-gray-900 order-1 md:order-2">
-            <ScrollFloat 
-              containerTag="h2"
-              containerClassName="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight"
-              animationDuration={1}
-              ease='back.inOut(2)'
-              scrollStart='center bottom+=50%'
-              scrollEnd='bottom bottom-=40%'
-              stagger={0.03}
-            >
+            <FadeIn tag="h2" className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent leading-tight">
               ABOUT ME
-            </ScrollFloat>
+            </FadeIn>
             <FadeIn 
               tag="p"
               className="text-base sm:text-lg leading-relaxed max-w-2xl"
@@ -46,17 +38,9 @@ export default function AboutMe() {
       <div className="relative flex justify-center w-full">
         <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-10 px-4 md:px-6">
           <div className="w-full md:w-1/2 flex flex-col justify-center p-8 text-gray-900 order-1">
-            <ScrollFloat 
-              containerTag="h2"
-              containerClassName="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 text-red-900 leading-tight"
-              animationDuration={1}
-              ease='back.inOut(2)'
-              scrollStart='center bottom+=50%'
-              scrollEnd='bottom bottom-=40%'
-              stagger={0.03}
-            >
+            <FadeIn tag="h2" className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent leading-tight">
               GOALS
-            </ScrollFloat>
+            </FadeIn>
             <FadeIn 
               tag="p"
               className="text-base sm:text-lg leading-relaxed max-w-2xl"

@@ -15,13 +15,16 @@ export default function MyTechStack() {
     { name: "Photoshop", img: "/photoshop.svg" },
     { name: "Canva", img: "/canva.svg" },
     { name: "WordPress", img: "/wordpress.svg" },
+    { name: "TypeScript", img: "/typescript.svg" },
+    { name: "Next.js", img: "/nextjs.svg" },
+    { name: "Elementor Pro", img: "/elementor.svg" },
   ];
 
   return (
     <div className="w-full py-10">
       <div className="flex justify-center">
         <div className="w-full max-w-6xl px-4">
-          <h2 className="text-center text-3xl font-bold mb-14">Tech Stack & Proficiencies</h2>
+          <h2 className="text-center text-3xl font-bold mb-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Tech Stack & Proficiencies</h2>
 
           <div className="flex flex-wrap gap-6 justify-center">
             {allTechs.map((tech, idx) => (

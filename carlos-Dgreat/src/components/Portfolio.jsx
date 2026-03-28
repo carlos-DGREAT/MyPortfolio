@@ -120,7 +120,7 @@ export default function Portfolio() {
       <div className="relative flex justify-center w-full py-16">
         <div className="flex flex-col w-full max-w-6xl mx-auto px-4 md:px-6">
           <FadeIn className="text-center mb-10">
-            <h2 className="text-4xl sm:text-5xl font-bold text-red-900 mb-4">
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4">
               My Recent Projects
             </h2>
           </FadeIn>
@@ -142,7 +142,7 @@ export default function Portfolio() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-4 right-4 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <LinkIcon className="w-5 h-5 text-red-900" />
+                  <LinkIcon className="w-5 h-5 text-black" />
                 </div>
               </div>
               {/* Content */}
@@ -161,20 +161,12 @@ export default function Portfolio() {
 
       {/* See More Button */}
       {portfolioItems.length > 6 && (
-        <div className="mt-10">
+        <div className="mt-10 flex justify-center">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="flex items-center gap-2 px-6 py-3 bg-red-900 text-white rounded-full hover:bg-red-950 transition-all shadow-md"
+            className="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition-all shadow-md"
           >
-            {showAll ? (
-              <>
-                See Less <ChevronUp size={20} />
-              </>
-            ) : (
-              <>
-                See More <ChevronDown size={20} />
-              </>
-            )}
+            {showAll ? <ChevronUp size={22} /> : <ChevronDown size={22} />}
           </button>
         </div>
       )}
@@ -270,7 +262,7 @@ export default function Portfolio() {
                 <div className="mt-auto pt-6">
                   <a
                     href="#"
-                    className="block w-full text-center bg-red-900 text-white font-bold py-3 rounded-lg hover:bg-red-950 transition-colors shadow-md"
+                    className="block w-full text-center bg-black text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition-colors shadow-md"
                   >
                     View Live Project
                   </a>

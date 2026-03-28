@@ -129,7 +129,7 @@ body {
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: #932929 #f3f4f6;
+  scrollbar-color: #1f2937 #e5e7eb;
 }
 
 ::-webkit-scrollbar {
@@ -138,17 +138,40 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: #e5e7eb;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #932929;
+  background: linear-gradient(to bottom, #1f2937, #7f1d1d);
   border-radius: 9999px;
-  border: 3px solid #f3f4f6;
+  border: 3px solid #e5e7eb;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #7a2222;
+  background: linear-gradient(to bottom, #111827, #991b1b);
+}
+
+@keyframes icon-shine {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.5) drop-shadow(0 0 4px rgba(255,255,255,0.8)); }
+}
+
+.animate-icon-shine {
+  animation: icon-shine 2.5s ease-in-out infinite;
+}
+
+.gradient-text-split {
+  display: inline-block;
+}
+
+.gradient-text-split .split-char {
+  background: linear-gradient(to right, #7f1d1d, #374151);
+  background-attachment: fixed;
+  background-size: 40vw 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* Apply Montserrat semi-bold for common title classes */

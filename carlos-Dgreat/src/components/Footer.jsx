@@ -63,7 +63,7 @@ export default function Footer() {
     <>
       <footer
         ref={footerRef}
-        className="footer footer-horizontal footer-center fixed bottom-0 left-0 z-0 w-full h-[260px] sm:h-[280px] md:h-[320px] overflow-hidden bg-gradient-to-b from-red-950 via-stone-950 to-red-950 text-primary-content"
+        className="footer footer-horizontal footer-center fixed bottom-0 left-0 z-0 w-full h-[260px] sm:h-[280px] md:h-[320px] overflow-hidden bg-gradient-to-b from-gray-900 via-black to-gray-900 text-primary-content"
       >
         <div
           aria-hidden="true"
