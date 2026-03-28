@@ -56,7 +56,7 @@ export default function Navbar() {
               href="https://www.linkedin.com/in/carlosopeña"
               target="_blank"
               rel="noopener noreferrer"
-              className={`transition-colors hover:scale-110 transform ${isScrolled ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}
+              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}
               title="LinkedIn"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -67,7 +67,7 @@ export default function Navbar() {
               href="https://github.com/Carlos-Opena"
               target="_blank"
               rel="noopener noreferrer"
-              className={`transition-colors hover:scale-110 transform ${isScrolled ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}
+              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}
               title="GitHub"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -76,7 +76,7 @@ export default function Navbar() {
             </a>
             <a
               href="mailto:openacarlos@gmail.com"
-              className={`transition-colors hover:scale-110 transform ${isScrolled ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}
+              className={`transition-colors hover:scale-110 transform animate-icon-shine ${isScrolled ? 'text-white hover:text-gray-300' : 'text-black hover:text-gray-600'}`}
               title="Gmail"
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">

@@ -151,6 +151,15 @@ html {
   background-color: #333333;
 }
 
+@keyframes icon-shine {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.5) drop-shadow(0 0 4px rgba(255,255,255,0.8)); }
+}
+
+.animate-icon-shine {
+  animation: icon-shine 2.5s ease-in-out infinite;
+}
+
 /* Apply Montserrat semi-bold for common title classes */
 .font-bold,
 .card-title,

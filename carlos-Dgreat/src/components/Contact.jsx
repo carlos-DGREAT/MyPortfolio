@@ -2,6 +2,7 @@ import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import FadeIn from './FadeIn';
+import ShinyText from './ShinyText';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -252,7 +253,7 @@ export default function Contact() {
                   className={`w-full px-6 py-4 bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-black/30 flex items-center justify-center gap-2 group ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
                 >
                   <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  {isLoading ? "Sending..." : "Send Message"}
+                  {isLoading ? "Sending..." : <ShinyText text="Send Message" speed={3} baseColor="#ffffff" shineColor="#aaaaaa" />}
                 </button>
 
                 <p className="text-xs text-gray-400 text-center mt-4">

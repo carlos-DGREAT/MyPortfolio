@@ -15,6 +15,9 @@ export default function MyTechStack() {
     { name: "Photoshop", img: "/photoshop.svg" },
     { name: "Canva", img: "/canva.svg" },
     { name: "WordPress", img: "/wordpress.svg" },
+    { name: "TypeScript", img: "/typescript.svg" },
+    { name: "Next.js", img: "/nextjs.svg" },
+    { name: "Elementor Pro", img: "/elementor.svg" },
   ];
 
   return (
