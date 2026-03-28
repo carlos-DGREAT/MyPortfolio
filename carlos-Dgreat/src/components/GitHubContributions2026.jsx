@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Github } from 'lucide-react';
 import FadeIn from './FadeIn';
+import ShinyText from './ShinyText';
 
 export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
   const [loading, setLoading] = useState(true);
@@ -45,7 +46,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
         }
         
         //Try the original ghchart service
-        const chartUrl = `https://ghchart.rshah.org/000000/${username}`;
+        const chartUrl = `https://ghchart.rshah.org/7f1d1d/${username}`;
         
         try {
           // Direct fetch to test if URL is accessible
@@ -150,10 +151,10 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
             href={`https://github.com/${username}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-all shadow-md text-sm"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-900 to-gray-800 hover:from-gray-800 hover:to-red-900 text-white rounded-full transition-all shadow-md text-sm"
           >
             <Github className="w-4 h-4" />
-            View GitHub Profile
+            <ShinyText text="View GitHub Profile" speed={3} baseColor="#ffffff" shineColor="#fca5a5" />
           </a>
         </div>
         <p className="text-gray-600">
@@ -188,10 +189,10 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
               <span>Less</span>
               <div className="flex gap-1">
                 <div className="w-3 h-3 rounded-sm bg-gray-100 border border-gray-300"></div>
-                <div className="w-3 h-3 rounded-sm bg-gray-300 border border-gray-300"></div>
-                <div className="w-3 h-3 rounded-sm bg-gray-500 border border-gray-300"></div>
-                <div className="w-3 h-3 rounded-sm bg-gray-700 border border-gray-300"></div>
-                <div className="w-3 h-3 rounded-sm bg-black border border-gray-300"></div>
+                <div className="w-3 h-3 rounded-sm bg-red-200 border border-red-200"></div>
+                <div className="w-3 h-3 rounded-sm bg-red-500 border border-red-500"></div>
+                <div className="w-3 h-3 rounded-sm bg-red-700 border border-red-700"></div>
+                <div className="w-3 h-3 rounded-sm bg-red-900 border border-red-900"></div>
               </div>
               <span>More</span>
             </div>

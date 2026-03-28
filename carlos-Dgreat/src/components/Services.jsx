@@ -44,8 +44,8 @@ export default function Services() {
           ${isWideScreen ? "rounded-[80px]" : "rounded-none"}
           ${
             isWideScreen
-              ? "bg-[radial-gradient(ellipse_70.11%_336.83%_at_50.00%_50.00%,_#333333_0%,_#0B0B0B_50%,_#111111_100%)]"
-              : "bg-gradient-to-b from-gray-900 via-black to-gray-900"
+              ? "bg-gradient-to-b from-gray-900 via-black to-red-950/50"
+              : "bg-gradient-to-b from-gray-900 via-black to-red-950/50"
           }
           shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]`}
       >
