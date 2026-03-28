@@ -14,36 +14,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
       try {
         setLoading(true);
         
-        // Fetch real total contributions from GitHub API
-        try {
-          // GitHub's GraphQL API for contributions (most accurate)
-          const currentYear = new Date().getFullYear();
-          const startDate = `${currentYear}-01-01T00:00:00Z`;
-          const endDate = `${currentYear}-12-31T23:59:59Z`;
-          
-          // Use the contributions API endpoint that exists
-          const contributionsResponse = await fetch(`https://api.github.com/search/issues?q=author:${username}+created:${startDate}..${endDate}`, {
-            headers: {
-              'Accept': 'application/vnd.github.v3+json',
-            }
-          });
-          
-          if (contributionsResponse.ok) {
-            const searchData = await contributionsResponse.json();
-            console.log('GitHub search data:', searchData);
-            
-            // Count contributions from issues, PRs, etc.
-            const contributionCount = searchData.total_count || 163;
-            setTotalContributions(contributionCount);
-          } else {
-            // Use your known actual contributions
-            setTotalContributions(163); // Your actual 2026 contributions
-          }
-        } catch (apiError) {
-          console.log('API fetch failed, using actual count');
-          // Use your known actual contributions as fallback
-          setTotalContributions(163); // Your actual 2026 contributions
-        }
+        setTotalContributions(175);
         
         //Try the original ghchart service
         const chartUrl = `https://ghchart.rshah.org/7f1d1d/${username}`;
@@ -140,7 +111,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
   return (
     <div className="w-full max-w-7xl mx-auto py-16">
       <FadeIn className="mb-8">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <Github className="w-6 h-6 text-red-900" />
             <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">
