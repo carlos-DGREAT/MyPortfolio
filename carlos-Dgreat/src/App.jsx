@@ -8,6 +8,7 @@ import MyTechStack from './components/MyTechStack';
 import AboutMe from './components/AboutMe';
 import Contact from "./components/Contact";
 import LoadingScreen from "./components/LoadingScreen";
+import GitHubContributions2026 from "./components/GitHubContributions";
 import { useEffect, useRef, useState } from "react";
 
 function App() {
@@ -79,6 +80,10 @@ function App() {
 
           <section id="portfolio">
             <Portfolio />
+          </section>
+
+          <section id="github" className="px-4 md:px-10 max-w-7xl mx-auto w-full">
+            <GitHubContributions2026 username="Carlos-Opena" />
           </section>
 
           <section id="skills">
