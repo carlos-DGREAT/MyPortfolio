@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Link as LinkIcon } from 'lucide-react';
 import FadeIn from './FadeIn';
+import GitHubContributions2026 from './GitHubContributions2026';
 
 export default function Portfolio() {
   const [showAll, setShowAll] = useState(false);
@@ -108,6 +109,9 @@ export default function Portfolio() {
 
   return (
     <div className="flex flex-col items-center justify-center w-full py-16 px-6 bg-gray-50">
+      
+      {/* GitHub Contributions 2026 Section */}
+      <GitHubContributions2026 username="Carlos-Opena" />
       
       {/* Title */}
       <FadeIn className="text-center mb-10">
