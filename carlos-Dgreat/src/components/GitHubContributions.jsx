@@ -111,7 +111,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
   return (
     <div className="w-full max-w-7xl mx-auto py-16">
       <FadeIn className="mb-8">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Github className="w-6 h-6 text-red-900" />
             <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">
@@ -122,7 +122,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
             href={`https://github.com/${username}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-900 to-gray-800 hover:from-gray-800 hover:to-red-900 text-white rounded-full transition-all shadow-md text-sm"
+            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-900 to-gray-800 hover:from-gray-800 hover:to-red-900 text-white rounded-full transition-all shadow-md text-sm"
           >
             <Github className="w-4 h-4" />
             <ShinyText text="View GitHub Profile" speed={3} baseColor="#ffffff" shineColor="#fca5a5" />
@@ -172,6 +172,17 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
             <p className="text-xs text-gray-400 mt-4 text-center">
               {error ? 'This is a sample chart showing typical contribution patterns' : 'This chart shows your actual GitHub contribution activity'}
             </p>
+
+            {/* Mobile-only button below chart */}
+            <a
+              href={`https://github.com/${username}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sm:hidden inline-flex items-center gap-2 px-4 py-2 mt-4 bg-gradient-to-r from-red-900 to-gray-800 hover:from-gray-800 hover:to-red-900 text-white rounded-full transition-all shadow-md text-sm"
+            >
+              <Github className="w-4 h-4" />
+              <ShinyText text="View GitHub Profile" speed={3} baseColor="#ffffff" shineColor="#fca5a5" />
+            </a>
           </div>
         </div>
       </FadeIn>

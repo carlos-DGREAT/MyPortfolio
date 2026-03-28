@@ -8,7 +8,7 @@ import MyTechStack from './components/MyTechStack';
 import AboutMe from './components/AboutMe';
 import Contact from "./components/Contact";
 import LoadingScreen from "./components/LoadingScreen";
-import GitHubContributions2026 from "./components/GitHubContributions2026";
+import GitHubContributions2026 from "./components/GitHubContributions";
 import { useEffect, useRef, useState } from "react";
 
 function App() {
