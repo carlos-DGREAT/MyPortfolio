@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ShinyText from './ShinyText';
+import ShinyText from './ui/ShinyText';
 
 const navItems = [
   { label: "Services", href: "#services", offset: 311 },

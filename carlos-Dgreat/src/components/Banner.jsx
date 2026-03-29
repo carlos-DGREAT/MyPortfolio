@@ -1,8 +1,8 @@
 import React from 'react';
-import SplitText from './SplitText';
-import ShinyText from './ShinyText';
-import FadeIn from './FadeIn';
-import ParticlesWeb from './ParticlesWeb';
+import SplitText from './ui/SplitText';
+import ShinyText from './ui/ShinyText';
+import FadeIn from './ui/FadeIn';
+import ParticlesWeb from './ui/ParticlesWeb';
 import { Linkedin, Github, Mail } from 'lucide-react';
 
 export default function Banner() {

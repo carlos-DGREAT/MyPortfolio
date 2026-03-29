@@ -1,6 +1,6 @@
 import React from 'react';
-import FadeIn from './FadeIn';
-import ScrollFloat from './ScrollFloat';
+import FadeIn from './ui/FadeIn';
+import ScrollFloat from './ui/ScrollFloat';
 
 export default function AboutMe() {
   return (

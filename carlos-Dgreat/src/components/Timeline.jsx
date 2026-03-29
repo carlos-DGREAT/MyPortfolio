@@ -1,5 +1,5 @@
 import React from 'react';
-import FadeIn from './FadeIn';
+import FadeIn from './ui/FadeIn';
 
 export default function Timeline() {
   return (

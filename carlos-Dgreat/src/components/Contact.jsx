@@ -1,8 +1,8 @@
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import FadeIn from './FadeIn';
-import ShinyText from './ShinyText';
+import FadeIn from './ui/FadeIn';
+import ShinyText from './ui/ShinyText';
 
 export default function Contact() {
   const [formData, setFormData] = useState({

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import FadeIn from './FadeIn';
+import FadeIn from './ui/FadeIn';
 
 export default function Services() {
   const [scrolled, setScrolled] = useState(false);

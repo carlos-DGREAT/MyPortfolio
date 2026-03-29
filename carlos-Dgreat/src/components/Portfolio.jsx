@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Link as LinkIcon } from 'lucide-react';
-import FadeIn from './FadeIn';
+import FadeIn from './ui/FadeIn';
 
 export default function Portfolio() {
   const [showAll, setShowAll] = useState(false);

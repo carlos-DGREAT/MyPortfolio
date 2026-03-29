@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Github } from 'lucide-react';
-import FadeIn from './FadeIn';
-import ShinyText from './ShinyText';
+import FadeIn from './ui/FadeIn';
+import ShinyText from './ui/ShinyText';
 
 export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
   const [loading, setLoading] = useState(true);

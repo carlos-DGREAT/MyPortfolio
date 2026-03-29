@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import BlurText from "./BlurText";
+import BlurText from "./ui/BlurText";
 
 gsap.registerPlugin(ScrollTrigger);
 
