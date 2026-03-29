@@ -156,7 +156,7 @@ html {
 
 @keyframes icon-shine {
   0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.5) drop-shadow(0 0 4px rgba(255,255,255,0.8)); }
+  50% { filter: brightness(1.4); }
 }
 
 .animate-icon-shine {

@@ -36,7 +36,7 @@ export default function Timeline() {
               <FadeIn 
                 key={idx} 
                 delay={idx * 0.1}
-                className="max-w-md w-full min-h-[148px] sm:min-h-[178px] bg-base-100 p-4 sm:p-6 shadow rounded border border-base-content/25 mx-auto text-left"
+                className="max-w-md w-full min-h-[148px] sm:min-h-[178px] bg-base-100 p-4 sm:p-6 shadow rounded border border-base-content/10 mx-auto text-left"
               >
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center">

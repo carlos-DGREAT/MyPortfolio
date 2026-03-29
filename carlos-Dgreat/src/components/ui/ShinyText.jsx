@@ -13,6 +13,7 @@ const ShinyText = ({ text, disabled = false, speed = 3, className = '', baseColo
         backgroundClip: 'text',
         color: 'transparent',
         animationDuration: animationDuration,
+        willChange: 'background-position',
       }}
     >
       {text}

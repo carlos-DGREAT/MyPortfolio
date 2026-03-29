@@ -4,6 +4,7 @@ import { loadSlim } from '@tsparticles/slim';
 
 export default function ParticlesWeb() {
   const [init, setInit] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -11,14 +12,20 @@ export default function ParticlesWeb() {
     }).then(() => setInit(true));
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const options = useMemo(() => ({
     fullScreen: { enable: false },
     background: { color: { value: 'transparent' } },
-    fpsLimit: 120,
+    fpsLimit: isMobile ? 30 : 60,
     interactivity: {
       events: {
-        onHover: { enable: true, mode: 'grab' },
-        onClick: { enable: true, mode: 'push' },
+        onHover: { enable: !isMobile, mode: 'grab' },
+        onClick: { enable: !isMobile, mode: 'push' },
       },
       modes: {
         grab: { distance: 160, links: { opacity: 0.6 } },
@@ -29,26 +36,26 @@ export default function ParticlesWeb() {
       color: { value: '#7f1d1d' },
       links: {
         color: '#7f1d1d',
-        distance: 140,
+        distance: isMobile ? 100 : 140,
         enable: true,
-        opacity: 0.25,
+        opacity: isMobile ? 0.2 : 0.25,
         width: 1,
       },
       move: {
         enable: true,
-        speed: 1.2,
+        speed: isMobile ? 0.6 : 1.2,
         direction: 'none',
         random: false,
         straight: false,
-        outModes: { default: 'bounce' },
+        outModes: { default: 'out' },
       },
-      number: { value: 70, density: { enable: true } },
-      opacity: { value: 0.4 },
+      number: { value: isMobile ? 30 : 60, density: { enable: true } },
+      opacity: { value: isMobile ? 0.3 : 0.4 },
       shape: { type: 'circle' },
-      size: { value: { min: 1, max: 3 } },
+      size: { value: { min: 1, max: isMobile ? 2 : 3 } },
     },
-    detectRetina: true,
-  }), []);
+    detectRetina: !isMobile,
+  }), [isMobile]);
 
   if (!init) return null;
 

@@ -23,6 +23,7 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (e, item) => {
+    if (window.innerWidth < 1024) return;
     e.preventDefault();
     const el = document.getElementById(item.href.slice(1));
     if (!el) return;
