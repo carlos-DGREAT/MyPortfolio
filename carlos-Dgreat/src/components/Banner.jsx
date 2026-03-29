@@ -2,15 +2,25 @@ import React from 'react';
 import SplitText from './SplitText';
 import ShinyText from './ShinyText';
 import FadeIn from './FadeIn';
+import ParticlesWeb from './ParticlesWeb';
 import { Linkedin, Github, Mail } from 'lucide-react';
 
 export default function Banner() {
   return (
-    <div
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat flex w-full z-0"
-      style={{ backgroundImage: 'url("/Banner.png")' }}
-    >
-      <div className="flex flex-col lg:flex-row w-full">
+    <div className="relative min-h-screen flex w-full z-0 overflow-hidden">
+      {/* Particles — bottom layer */}
+      <div className="absolute inset-0 z-0">
+        <ParticlesWeb />
+      </div>
+
+      {/* Banner image — above particles */}
+      <div
+        className="absolute inset-0 z-[1] bg-cover bg-center bg-no-repeat pointer-events-none"
+        style={{ backgroundImage: 'url("/Banner-nobg.png")' }}
+      />
+
+      {/* Content — top layer */}
+      <div className="relative z-10 flex flex-col lg:flex-row w-full">
         
         {/* Left div */}
         <div className="flex-1 flex flex-col justify-center items-center text-center lg:items-start lg:text-left text-black px-6 sm:px-10 md:px-16 lg:pl-20 xl:pl-40 py-10">

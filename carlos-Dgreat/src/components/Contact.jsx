@@ -94,7 +94,7 @@ export default function Contact() {
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Phone</p>
                     <a href="tel:+639123456789" className="text-lg text-gray-800 font-medium hover:text-black transition-colors">
-                      +63 (912) 345-6789
+                      +63 948 594-2455
                     </a>
                   </div>
                 </div>
@@ -120,7 +120,7 @@ export default function Contact() {
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Location</p>
                     <p className="text-lg text-gray-800 font-medium">
-                      Metro Manila, Philippines
+                      Baguio City, Philippines
                     </p>
                   </div>
                 </div>
