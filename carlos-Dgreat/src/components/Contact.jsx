@@ -54,25 +54,25 @@ export default function Contact() {
   };
 
   return (
-    <section className="relative pb-24 sm:pb-28 md:pb-32">
+    <section className="relative pt-8 sm:pt-12 pb-16 sm:pb-24 md:pb-32 overflow-hidden">
       
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-black/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-black/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-black/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-16">
           <FadeIn tag="span" className="inline-block px-4 py-2 bg-red-900/10 text-red-900 rounded-full text-sm font-semibold mb-4">
             Get In Touch
           </FadeIn>
-          <FadeIn tag="h2" delay={0.1} className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4 py-2 leading-tight">
+          <FadeIn tag="h2" delay={0.1} className="text-2xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4 py-2 leading-tight">
             Let's Work Together
           </FadeIn>
-          <FadeIn tag="p" delay={0.2} className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <FadeIn tag="p" delay={0.2} className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
             Have a project in mind? I'd love to hear about it. Let's discuss how we can bring your ideas to life.
           </FadeIn>
         </div>
@@ -81,45 +81,45 @@ export default function Contact() {
           
           {/* LEFT COLUMN */}
           <FadeIn delay={0.3} className="bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300 h-full">
-            <div className="p-8">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-8">Contact Information</h3>
+            <div className="p-5 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-5 sm:mb-8">Contact Information</h3>
               
-              <div className="space-y-8">
+              <div className="space-y-5 sm:space-y-8">
                 
                 {/* Phone */}
-                <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-14 h-14 bg-black/10 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-black" />
+                <div className="flex items-start gap-3 sm:gap-5">
+                  <div className="flex-shrink-0 w-11 h-11 sm:w-14 sm:h-14 bg-black/10 rounded-xl flex items-center justify-center">
+                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Phone</p>
-                    <a href="tel:+639123456789" className="text-lg text-gray-800 font-medium hover:text-black transition-colors">
+                    <a href="tel:+639123456789" className="text-base sm:text-lg text-gray-800 font-medium hover:text-black transition-colors">
                       +63 948 594-2455
                     </a>
                   </div>
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-14 h-14 bg-black/10 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-black" />
+                <div className="flex items-start gap-3 sm:gap-5">
+                  <div className="flex-shrink-0 w-11 h-11 sm:w-14 sm:h-14 bg-black/10 rounded-xl flex items-center justify-center">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-sm text-gray-500 mb-1">Email</p>
-                    <a href="mailto:openacarlos@gmail.com" className="text-lg text-gray-800 font-medium hover:text-black transition-colors">
+                    <a href="mailto:openacarlos@gmail.com" className="text-base sm:text-lg text-gray-800 font-medium hover:text-black transition-colors break-all">
                       openacarlos@gmail.com
                     </a>
                   </div>
                 </div>
 
                 {/* Location */}
-                <div className="flex items-start gap-5">
-                  <div className="flex-shrink-0 w-14 h-14 bg-black/10 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-black" />
+                <div className="flex items-start gap-3 sm:gap-5">
+                  <div className="flex-shrink-0 w-11 h-11 sm:w-14 sm:h-14 bg-black/10 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Location</p>
-                    <p className="text-lg text-gray-800 font-medium">
+                    <p className="text-base sm:text-lg text-gray-800 font-medium">
                       Baguio City, Philippines
                     </p>
                   </div>
@@ -127,7 +127,7 @@ export default function Contact() {
               </div>
 
               {/* Availability */}
-              <div className="mt-10 pt-6 border-t border-gray-100">
+              <div className="mt-6 sm:mt-10 pt-4 sm:pt-6 border-t border-gray-100">
                 <div className="flex items-center gap-3">
                   <div className="relative">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
@@ -145,9 +145,9 @@ export default function Contact() {
 
           {/* RIGHT COLUMN */}
           <FadeIn delay={0.4} className="bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300 h-full">
-            <div className="p-8">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-2">Send a Message</h3>
-              <p className="text-gray-500 mb-6">Fill out the form below and I'll get back to you shortly.</p>
+            <div className="p-5 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">Send a Message</h3>
+              <p className="text-sm sm:text-base text-gray-500 mb-4 sm:mb-6">Fill out the form below and I'll get back to you shortly.</p>
 
               {submitted && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3 text-green-700 animate-slideDown">

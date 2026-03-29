@@ -71,7 +71,7 @@ export default function Footer() {
         >
           <div
             ref={bgTextRef}
-            className="select-none tracking-tight leading-none text-[18vw] sm:text-[14vw] md:text-[11vw] lg:text-[8vw] [font-family:Montserrat] [font-weight:900] text-white/20"
+            className="select-none tracking-tight leading-none text-[9vw] sm:text-[14vw] md:text-[11vw] lg:text-[8vw] [font-family:Montserrat] [font-weight:900] text-white/20"
           >
             <BlurText
               key={blurKey}
@@ -85,12 +85,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-6 p-10">
+        <div className="relative z-10 w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-10">
           <aside className="flex flex-col items-center space-y-3">
             <img
               src="/footer-2.png"
               alt="Logo"
-              className="h-25 w-25 object-contain"
+              className="h-14 w-14 sm:h-20 sm:w-20 md:h-25 md:w-25 object-contain"
             />
             <p className="text-center text-white">
               Copyright © {new Date().getFullYear()} - All rights reserved

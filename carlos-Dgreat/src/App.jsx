@@ -73,7 +73,7 @@ function App() {
           <Services />
         </section>
 
-        <div className="space-y-20">
+        <div className="space-y-10 sm:space-y-16 md:space-y-20">
           <section id="about">
             <AboutMe />
           </section>

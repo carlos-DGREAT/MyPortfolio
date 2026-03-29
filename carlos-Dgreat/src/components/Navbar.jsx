@@ -3,6 +3,7 @@ import ShinyText from './ShinyText';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeItem, setActiveItem] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,10 +31,10 @@ export default function Navbar() {
           isScrolled ? "bg-black shadow-md" : "bg-transparent"
         } h-20 flex items-center`}
       >
-        <div className="w-full flex items-center justify-between px-6 md:px-24">
+        <div className="w-full flex items-center justify-between px-4 sm:px-6 md:px-24">
           {/* Logo */}
-          <a href="#home" className={`flex items-center space-x-2 text-xl font-bold group ${isScrolled ? 'text-white' : 'text-black'}`}>
-            <img src="/logo-5.png" alt="Logo" className="h-13 w-13" />
+          <a href="#home" className={`flex items-center space-x-2 text-sm sm:text-base md:text-xl font-bold group ${isScrolled ? 'text-white' : 'text-black'}`}>
+            <img src="/logo-5.png" alt="Logo" className="h-8 w-8 sm:h-10 sm:w-10 md:h-13 md:w-13" />
             <ShinyText text="CARLOS.DGREAT" speed={3} baseColor={isScrolled ? '#ffffff' : '#000000'} shineColor={isScrolled ? '#fca5a5' : '#7f1d1d'} className="group-hover:text-primary" />
           </a>
 
@@ -119,11 +120,13 @@ export default function Navbar() {
           className="drawer-overlay"
         ></label>
 
-        <div className="bg-base-200 min-h-full w-80 p-4 text-black relative">
+        <div className="bg-base-200 min-h-full w-[85vw] sm:w-80 p-4 text-black relative">
           {/* Logo at Top */}
-          <div className="flex items-center space-x-2 text-xl font-bold text-black group mb-8">
-            <img src="/logo-5.png" alt="Logo" className="h-10 w-10" />
-            <ShinyText text="CARLOS.DGREAT" speed={3} baseColor="#000000" shineColor="#555555" className="group-hover:text-primary" />
+          <div className="flex items-center space-x-2 font-bold text-black group mb-4 sm:mb-6">
+            <img src="/logo-5.png" alt="Logo" className="h-7 w-7 sm:h-10 sm:w-10" />
+            <span className="text-sm sm:text-base">
+              <ShinyText text="CARLOS.DGREAT" speed={3} baseColor="#000000" shineColor="#555555" className="group-hover:text-primary" />
+            </span>
           </div>
 
           {/* Close Button */}
@@ -134,10 +137,29 @@ export default function Navbar() {
             ✕
           </label>
             {/* Mobile Nav Links */}
+            <div className="flex items-center gap-2 mb-2 px-1">
+              <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Menu</span>
+              <div className="flex-1 h-px bg-gray-200" />
+            </div>
              <ul className="menu text-base-content">
               {navItems.map((item, index) => (
                 <li key={index}>
-                  <a href={item.href} className="text-lg mb-2">{item.label}</a>
+                  <a
+                    href={item.href}
+                    onClick={() => setActiveItem(item.href)}
+                    className={`text-base sm:text-lg mb-1 border-l-4 transition-all duration-200 rounded-none rounded-r-lg ${
+                      activeItem === item.href
+                        ? 'border-red-900 bg-red-900/10 text-red-900 font-semibold'
+                        : 'border-transparent hover:border-red-900 hover:bg-red-900/5 hover:text-red-900'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      {activeItem === item.href && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-900 inline-block" />
+                      )}
+                      {item.label}
+                    </span>
+                  </a>
                 </li>
               ))}
               

@@ -23,7 +23,7 @@ export default function Banner() {
       <div className="relative z-10 flex flex-col lg:flex-row w-full">
         
         {/* Left div */}
-        <div className="flex-1 flex flex-col justify-center items-center text-center lg:items-start lg:text-left text-black px-6 sm:px-10 md:px-16 lg:pl-20 xl:pl-40 py-10">
+        <div className="flex-1 flex flex-col justify-center items-center text-center lg:items-start lg:text-left text-black px-6 sm:px-10 md:px-16 lg:pl-20 xl:pl-40 pt-24 pb-10 lg:py-10">
           <div className="text-2xl sm:text-3xl font-bold font-body mb-2">
             <SplitText text="Hi, I'm Carlos" className="text-2xl sm:text-3xl font-bold" delay={50} />
           </div>
@@ -31,10 +31,10 @@ export default function Banner() {
             Full stack Developer + Web Designer
           </FadeIn>
           
-          <div className="flex flex-col sm:flex-row gap-4 mt-2">
+          <div className="flex flex-col min-[600px]:flex-row gap-4 mt-2">
             <a
               href="#contact"
-              className="px-6 py-2 border border-red-900 text-red-900 hover:bg-red-900 hover:text-white rounded transition font-bold text-center group"
+              className="px-6 py-2 border border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded transition font-bold text-center group"
             >
               <span className="relative inline-block">
                 <span className="block transition-opacity duration-200 group-hover:opacity-0">
@@ -46,7 +46,7 @@ export default function Banner() {
               </span>
             </a>
             
-            <button className="px-6 py-2 border w-fit border-red-900 text-red-900 hover:bg-red-900 hover:text-white rounded transition group font-bold">
+            <button className="px-6 py-2 border w-fit border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded transition group font-bold">
               <span className="relative inline-block">
                 <span className="block transition-opacity duration-200 group-hover:opacity-0">
                   <ShinyText text="Download CV" disabled={false} speed={3} baseColor="#7f1d1d" shineColor="#fca5a5" />

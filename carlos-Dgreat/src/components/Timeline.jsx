@@ -3,12 +3,12 @@ import FadeIn from './FadeIn';
 
 export default function Timeline() {
   return (
-    <div className="max-w-6xl mx-auto px-4">
-      <FadeIn tag="p" className="text-center text-4xl font-bold my-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">My Timeline</FadeIn>
+    <div className="max-w-6xl mx-auto px-4 py-4 sm:py-8">
+      <FadeIn tag="p" className="text-center text-2xl sm:text-3xl md:text-4xl font-bold my-8 sm:my-10 md:my-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">My Timeline</FadeIn>
       <div className="flex flex-col md:flex-row w-full gap-10">
         {/* Experience Section */}
         <div className="flex-1 text-center">
-          <FadeIn tag="h2" className="text-3xl font-bold mb-2 pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Experience</FadeIn>
+          <FadeIn tag="h2" className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 pb-5 sm:pb-8 md:pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Experience</FadeIn>
           <div className="space-y-5">
             {[
               {
@@ -33,7 +33,7 @@ export default function Timeline() {
               <FadeIn 
                 key={idx} 
                 delay={idx * 0.1}
-                className="max-w-md w-full h-[178px] bg-base-100 p-6 shadow rounded border border-base-content/25 mx-auto text-left"
+                className="max-w-md w-full min-h-[148px] sm:min-h-[178px] bg-base-100 p-4 sm:p-6 shadow rounded border border-base-content/25 mx-auto text-left"
               >
                 <div className="text-sm space-y-1">
                   <p className="font-semibold text-lg text-black">{exp.title}</p>
@@ -48,7 +48,7 @@ export default function Timeline() {
 
         {/* Education Section */}
         <div className="flex-1 text-center">
-          <FadeIn tag="h2" className="text-3xl font-bold mb-2 pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent" delay={0.2}>Education</FadeIn>
+          <FadeIn tag="h2" className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 pb-5 sm:pb-8 md:pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent" delay={0.2}>Education</FadeIn>
           <div className="space-y-5">
             {[
               {
@@ -70,7 +70,7 @@ export default function Timeline() {
               <FadeIn 
                 key={idx} 
                 delay={idx * 0.1 + 0.2}
-                className="max-w-md w-full h-[178px] bg-base-100 p-6 shadow rounded border border-base-content/10 mx-auto text-left"
+                className="max-w-md w-full min-h-[148px] sm:min-h-[178px] bg-base-100 p-4 sm:p-6 shadow rounded border border-base-content/10 mx-auto text-left"
               >
                 <div className="text-sm space-y-1">
                     <p className="font-semibold text-lg text-black">{item.title}</p>

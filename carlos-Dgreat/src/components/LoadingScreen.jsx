@@ -13,7 +13,7 @@ export default function LoadingScreen({ phase = "enter" }) {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
       >
-        <div className="select-none tracking-tight leading-none text-[18vw] sm:text-[14vw] md:text-[11vw] lg:text-[8vw] [font-family:Montserrat] [font-weight:900] text-[#932929]/10">
+        <div className="select-none tracking-tight leading-none text-[7vw] sm:text-[14vw] md:text-[11vw] lg:text-[8vw] [font-family:Montserrat] [font-weight:900] text-[#932929]/10">
           CARLOS.DGREAT
         </div>
       </div>
@@ -28,13 +28,13 @@ export default function LoadingScreen({ phase = "enter" }) {
       />
 
       <div className="relative flex flex-col items-center px-6 text-center">
-        <div className="relative h-32 w-32">
+        <div className="relative h-24 w-24 sm:h-32 sm:w-32">
           <div className="absolute inset-0 rounded-full animate-loader-spin [background:conic-gradient(from_180deg,rgba(147,41,41,0.0),rgba(147,41,41,0.92),rgba(147,41,41,0.12),rgba(147,41,41,0.0))]" />
           <div className="absolute inset-[5px] rounded-full bg-white ring-1 ring-black/10 flex items-center justify-center">
             <img
               src="/logo-5.png"
               alt="Logo"
-              className="h-14 w-14 object-contain opacity-95"
+              className="h-10 w-10 sm:h-14 sm:w-14 object-contain opacity-95"
             />
           </div>
         </div>

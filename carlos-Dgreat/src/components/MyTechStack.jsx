@@ -24,16 +24,16 @@ export default function MyTechStack() {
     <div className="w-full py-10">
       <div className="flex justify-center">
         <div className="w-full max-w-6xl px-4">
-          <h2 className="text-center text-3xl font-bold mb-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Tech Stack & Proficiencies</h2>
+          <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-10 md:mb-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Tech Stack & Proficiencies</h2>
 
-          <div className="flex flex-wrap gap-6 justify-center">
+          <div className="flex flex-wrap gap-3 sm:gap-5 md:gap-6 justify-center">
             {allTechs.map((tech, idx) => (
               <div
                 key={idx}
                 className="group relative flex items-center justify-center"
               >
-                    <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer hover:scale-110">
-                      <img src={tech.img} alt={tech.name} className="w-12 h-12" />
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-white rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg cursor-pointer hover:scale-110">
+                      <img src={tech.img} alt={tech.name} className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
                     </div>
 
                     {/* Tooltip */}
