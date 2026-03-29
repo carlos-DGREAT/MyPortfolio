@@ -69,32 +69,32 @@ function App() {
           <Banner />
         </section>
 
-        <section id="services">
+        <section id="services" className="scroll-mt-20">
           <Services />
         </section>
 
         <div className="space-y-10 sm:space-y-16 md:space-y-20">
-          <section id="about">
+          <section id="about" className="scroll-mt-20">
             <AboutMe />
           </section>
 
-          <section id="portfolio">
+          <section id="portfolio" className="scroll-mt-20">
             <Portfolio />
           </section>
 
-          <section id="github" className="px-4 md:px-10 max-w-7xl mx-auto w-full">
+          <section id="github" className="scroll-mt-20 px-4 md:px-10 max-w-7xl mx-auto w-full">
             <GitHubContributions2026 username="Carlos-Opena" />
           </section>
 
-          <section id="skills">
+          <section id="skills" className="scroll-mt-20">
             <MyTechStack />
           </section>
 
-          <section id="resume">
+          <section id="resume" className="scroll-mt-20">
             <Timeline />
           </section>
 
-          <section id="contact">
+          <section id="contact" className="scroll-mt-20">
             <Contact />
           </section>
         </div>

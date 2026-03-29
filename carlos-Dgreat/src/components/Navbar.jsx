@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
 import ShinyText from './ShinyText';
 
+const navItems = [
+  { label: "Services", href: "#services", offset: 311 },
+  { label: "About",    href: "#about",    offset: 0   },
+  { label: "Portfolio",href: "#portfolio", offset: 61  },
+  { label: "Resume",   href: "#resume",   offset: 31  },
+  { label: "Contact",  href: "#contact",  offset: 61  },
+];
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeItem, setActiveItem] = useState('');
@@ -8,19 +16,37 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      if (window.scrollY < 300) setActiveItem('');
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "Resume", href: "#resume" },
-    { label: "Contact", href: "#contact" },
-  ];
+  const scrollToSection = (e, item) => {
+    e.preventDefault();
+    const el = document.getElementById(item.href.slice(1));
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - (item.offset ?? 96);
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveItem(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: '-80px 0px -55% 0px', threshold: 0 }
+    );
+    navItems.forEach(({ href }) => {
+      const el = document.getElementById(href.slice(1));
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="drawer fixed top-0 left-0 w-full z-50">
@@ -28,7 +54,7 @@ export default function Navbar() {
 
       <div
         className={`drawer-content transition-all duration-300 ${
-          isScrolled ? "bg-black shadow-md" : "bg-transparent"
+          isScrolled ? "bg-gradient-to-r from-gray-900 via-black to-red-950 shadow-md" : "bg-transparent"
         } h-20 flex items-center`}
       >
         <div className="w-full flex items-center justify-between px-4 sm:px-6 md:px-24">
@@ -44,7 +70,12 @@ export default function Navbar() {
               <a
                 key={index}
                 href={item.href}
-                className={`transition-colors ${isScrolled ? 'hover:text-red-300' : 'hover:text-red-900'}`}
+                onClick={(e) => scrollToSection(e, item)}
+                className={`transition-all duration-200 ${
+                  activeItem === item.href
+                    ? 'text-red-400 font-semibold'
+                    : `${isScrolled ? 'hover:text-red-300' : 'hover:text-red-900'}`
+                }`}
               >
                 {item.label}
               </a>
@@ -146,7 +177,7 @@ export default function Navbar() {
                 <li key={index}>
                   <a
                     href={item.href}
-                    onClick={() => setActiveItem(item.href)}
+                    onClick={(e) => scrollToSection(e, item)}
                     className={`text-base sm:text-lg mb-1 border-l-4 transition-all duration-200 rounded-none rounded-r-lg ${
                       activeItem === item.href
                         ? 'border-red-900 bg-red-900/10 text-red-900 font-semibold'
