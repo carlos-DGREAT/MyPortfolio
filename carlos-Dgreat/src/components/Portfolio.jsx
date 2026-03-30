@@ -15,7 +15,7 @@ export default function Portfolio() {
       description:
         "This project was part of my role as a web developer at Dan Gordon Enterprise. It involved rebuilding a client's mediation website from scratch. The site was designed in Figma and implemented using WordPress with custom CSS. The focus was on creating a clean, professional landing page that clearly presents services and encourages client inquiries.",
       role: "Frontend Developer",
-      tools: ["WordPress", "CSS", "Figma"],
+      tools: ["WordPress", "Elementor Pro", "CSS", "Figma"],
       deliverables: ["Landing page", "Responsive assets", "Accessibility review"],
       figmaUrl: "https://www.figma.com/proto/7XZtjjZKFRjrmW3bLavcBt/My-Portfolio?node-id=1-632&t=yDUtjLGUuU7zacPT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A632&show-proto-sidebar=1",
     },
@@ -27,7 +27,7 @@ export default function Portfolio() {
       description:
         "Developed and rebuilt the Services and Plans & Pricing pages for the LArealtor website as part of my role at Dan Gordon Enterprise. The pages were designed in Figma and implemented using WordPress with custom HTML, CSS, and JavaScript. Focused on creating clear layouts, interactive elements, and responsive design to improve usability and present services effectively.",
       role: "Frontend Developer",
-      tools: ["Wordpress", "Javascript", "Figma", "CSS"],
+      tools: ["Wordpress", "Elementor Pro", "Javascript", "CSS", "Figma"],
       deliverables: ["Portfolio site", "Animations", "Deployment"],
       figmaUrl: "https://www.figma.com/proto/7XZtjjZKFRjrmW3bLavcBt/My-Portfolio?node-id=1-1489&t=yDUtjLGUuU7zacPT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A1489&show-proto-sidebar=1",
     },
@@ -38,8 +38,8 @@ export default function Portfolio() {
       image: "project-3-mobile.png",
       description:
         "This project was a freelance gig for Seva Solutions, where I built their website entirely from scratch. I managed the project end-to-end, including setting up hosting via cPanel, designing and implementing the site in WordPress, and customizing it with CSS to match the client's branding and functional needs. The focus was on creating a fully responsive, user-friendly website that effectively showcases their services and provides a seamless experience for visitors.",
-      role: "UI/UX Designer",
-      tools: ["Figma", "Illustrator"],
+      role: "Fullstack Developer",
+      tools: ["Wordpress", "Elementor Pro", "cPanel", "CSS", "Figma"],
       deliverables: ["Figma prototype", "Exported assets", "Design spec"],
       liveUrl: "https://seva.com.co/",
       figmaUrl: "https://www.figma.com/proto/7XZtjjZKFRjrmW3bLavcBt/My-Portfolio?node-id=1-2&t=yDUtjLGUuU7zacPT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1",
@@ -52,7 +52,7 @@ export default function Portfolio() {
       description:
         "Reservation system built for managing bookings and schedules with validation and admin panel.",
       role: "Full-stack Engineer",
-      tools: ["React", "Node", "Express", "MongoDB"],
+      tools: ["NextJS", "Tailwind", "Postgres DB", "Node", "TypeScript", "Figma"],
       deliverables: ["Reservation UI", "Admin dashboard", "API integration"],
       liveUrl: "https://denr-car-reservation.vercel.app/",
       imageFit: "cover",
@@ -65,7 +65,7 @@ export default function Portfolio() {
       description:
         "This thesis project involved developing a web application that integrates a deep learning model to conduct pine tree and crop plot census using drone-captured imagery for DENR-CAR. The application automates image analysis, providing accurate and efficient mapping of vegetation. I handled both the backend model integration with TensorFlow and Flask, and the frontend interface using React, ensuring a seamless experience for users to visualize and interpret results.",
       role: "ML Engineer / Frontend",
-      tools: ["Python", "Flask", "TensorFlow", "React"],
+      tools: ["Python", "Flask", "TensorFlow", "React", "TypeScript", "Figma"],
       deliverables: ["Model integration", "Inference UI", "Performance report"],
       figmaUrl: "#",
       imageFit: "cover",
@@ -78,7 +78,7 @@ export default function Portfolio() {
       description:
         "First version of my personal portfolio website showcasing my frontend development projects and UI design skills. Built with responsive layout principles and focused on clean visual hierarchy.",
       role: "Frontend Developer",
-      tools: ["React", "Tailwind CSS"],
+      tools: ["HTML", "CSS", "Bootstrap"],
       deliverables: ["Portfolio UI", "Responsive layout"],
       liveUrl: "https://smart-waste-bin-ph.vercel.app/",
       imageFit: "cover",
@@ -91,7 +91,7 @@ export default function Portfolio() {
       description:
         "Figma mockups and prototypes for a portfolio site with interactive states.",
       role: "Product Designer",
-      tools: ["Figma"],
+      tools: ["React", "Javascript", "Tailwind", "Figma"],
       deliverables: ["Interactive prototype", "Design system"],
       imageFit: "cover",
     },
@@ -119,6 +119,14 @@ export default function Portfolio() {
     Figma:        { bg: 'bg-purple-50',  border: 'border-purple-200',  text: 'text-purple-700',  dot: 'bg-purple-400' },
     CSS:          { bg: 'bg-indigo-50',  border: 'border-indigo-200',  text: 'text-indigo-700',  dot: 'bg-indigo-400' },
     Illustrator:  { bg: 'bg-orange-50',  border: 'border-orange-200',  text: 'text-orange-700',  dot: 'bg-orange-400' },
+    'Elementor Pro': { bg: 'bg-pink-50',   border: 'border-pink-200',    text: 'text-pink-700',    dot: 'bg-pink-400' },
+    cPanel:       { bg: 'bg-slate-100',  border: 'border-slate-300',   text: 'text-slate-700',   dot: 'bg-slate-500' },
+    NextJS:       { bg: 'bg-gray-900',   border: 'border-gray-700',    text: 'text-gray-100',    dot: 'bg-gray-400' },
+    Tailwind:     { bg: 'bg-cyan-50',    border: 'border-cyan-200',    text: 'text-cyan-700',    dot: 'bg-cyan-400' },
+    'Postgres DB':{ bg: 'bg-blue-50',    border: 'border-blue-200',    text: 'text-blue-700',    dot: 'bg-blue-400' },
+    Bootstrap:    { bg: 'bg-purple-50',  border: 'border-purple-200',  text: 'text-purple-700',  dot: 'bg-purple-400' },
+    HTML:         { bg: 'bg-orange-50',  border: 'border-orange-200',  text: 'text-orange-700',  dot: 'bg-orange-500' },
+    Javascript:   { bg: 'bg-yellow-50',  border: 'border-yellow-200',  text: 'text-yellow-700',  dot: 'bg-yellow-400' },
   };
   const getToolStyle = (tool) => toolColors[tool] ?? { bg: 'bg-gray-50', border: 'border-gray-200', text: 'text-gray-700', dot: 'bg-gray-400' };
 

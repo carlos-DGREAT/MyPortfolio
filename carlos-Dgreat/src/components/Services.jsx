@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import FadeIn from './ui/FadeIn';
+import SplitText from './ui/SplitText';
 
 export default function Services() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,13 +51,16 @@ export default function Services() {
       >
         {/* Title */}
         <div className="text-center justify-center text-white">
-          <FadeIn 
-            tag="p" 
+          <SplitText
+            text="What I can provide?"
+            tag="p"
             className="text-xl sm:text-[28px] font-bold"
-            direction="up"
-          >
-            What I can provide?
-          </FadeIn>
+            splitType="chars"
+            delay={40}
+            duration={0.6}
+            from={{ opacity: 0, y: 20 }}
+            to={{ opacity: 1, y: 0 }}
+          />
           <hr className="bg-primary my-3 border-2 w-[220px] mx-auto" />
         </div>
 
@@ -81,7 +84,7 @@ export default function Services() {
               Front-end Development
             </p>
             <p className="text-sm sm:text-[18px]">
-    I develop dynamic and responsive web applications with clean, maintainable code that performs reliably on any device.
+              I develop dynamic and responsive web applications with clean, maintainable code that performs reliably on any device.
             </p>
           </div>
 
@@ -92,7 +95,7 @@ export default function Services() {
               Responsiveness
             </p>
             <p className="text-sm sm:text-[18px]">
-  I ensure designs and applications adapt to different screen sizes, delivering a consistent and efficient experience for all users.
+              I ensure designs and applications adapt to different screen sizes, delivering a consistent and efficient experience for all users.
             </p>
           </div>
         </div>

@@ -54,10 +54,16 @@ export default function Navbar() {
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
 
       <div
-        className={`drawer-content transition-all duration-300 ${
+        className={`drawer-content relative transition-all duration-300 ${
           isScrolled ? "bg-gradient-to-r from-gray-900 via-black to-red-950 shadow-md" : "bg-transparent"
         } h-20 flex items-center`}
       >
+        {/* Running glow border — visible only when scrolled */}
+        {isScrolled && (
+          <div className="absolute bottom-0 left-0 w-full h-[2px] overflow-hidden pointer-events-none">
+            <div className="absolute top-0 h-full w-1/3 animate-navbar-glow" style={{ background: 'linear-gradient(90deg, transparent, #ef4444, #fca5a5, #ef4444, transparent)' }} />
+          </div>
+        )}
         <div className="w-full flex items-center justify-between px-4 sm:px-6 md:px-24">
           {/* Logo */}
           <a href="#home" className={`flex items-center space-x-2 text-sm sm:text-base md:text-xl font-bold group ${isScrolled ? 'text-white' : 'text-black'}`}>
