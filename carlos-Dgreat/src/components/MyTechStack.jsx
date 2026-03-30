@@ -21,7 +21,7 @@ export default function MyTechStack() {
   ];
 
   return (
-    <div className="w-full py-10">
+    <div className="w-full py-12 sm:py-16 md:py-20">
       <div className="flex justify-center">
         <div className="w-full max-w-6xl px-4">
           <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-10 md:mb-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Tech Stack & Proficiencies</h2>

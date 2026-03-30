@@ -4,7 +4,8 @@ import ScrollFloat from './ui/ScrollFloat';
 
 export default function AboutMe() {
   return (
-    <div className="relative flex flex-col w-full bg-white">
+    <div className="relative flex flex-col w-full" style={{ backgroundImage: "url('/backdrop-3.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+      <div className="absolute inset-0 bg-white/70 pointer-events-none" />
       {/* ABOUT ME Section */}
       <div className="relative flex justify-center w-full py-8 sm:py-12 md:py-16">
         <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-4 sm:gap-8 md:gap-10 px-4 md:px-6">
@@ -13,7 +14,7 @@ export default function AboutMe() {
               <img
                 src="/About-me1.png"
                 alt="About Me"
-                className="w-4/6 md:w-5/6 lg:w-full"
+                className="w-full"
               />
             </FadeIn>
           </div>
@@ -35,7 +36,7 @@ export default function AboutMe() {
       </div>
 
       {/* GOALS Section */}
-      <div className="relative flex justify-center w-full py-4 sm:py-8 md:py-12">
+      <div className="relative flex justify-center w-full pt-4 sm:pt-8 md:pt-12 pb-0">
         <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-4 sm:gap-8 md:gap-10 px-4 md:px-6">
           <div className="w-full md:w-1/2 flex flex-col justify-center p-4 sm:p-6 md:p-8 text-gray-900 order-1">
             <FadeIn tag="h2" className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent leading-tight">

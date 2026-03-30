@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp, Link as LinkIcon } from 'lucide-react';
+import { ChevronDown, ChevronUp, Link as LinkIcon, Figma, ExternalLink, Briefcase } from 'lucide-react';
 import FadeIn from './ui/FadeIn';
 
 export default function Portfolio() {
@@ -12,19 +12,11 @@ export default function Portfolio() {
       category: "Web App",
       image: "project-2-mobile.png",
       description:
-        "This project was part of my role as a web developer at Dan Gordon Enterprise. It involved rebuilding a client’s mediation website from scratch. The site was designed in Figma and implemented using WordPress with custom CSS. The focus was on creating a clean, professional landing page that clearly presents services and encourages client inquiries.",
+        "This project was part of my role as a web developer at Dan Gordon Enterprise. It involved rebuilding a client's mediation website from scratch. The site was designed in Figma and implemented using WordPress with custom CSS. The focus was on creating a clean, professional landing page that clearly presents services and encourages client inquiries.",
       role: "Frontend Developer",
       tools: ["WordPress", "CSS", "Figma"],
-      deliverables: [
-        "Landing page",
-        "Responsive assets",
-        "Accessibility review",
-      ],
-      gallery: [
-        "project-2-desktop.png",
-        "project-2-details.png",
-        "project-2-mobile.png",
-      ],
+      deliverables: ["Landing page", "Responsive assets", "Accessibility review"],
+      figmaUrl: "https://www.figma.com/proto/7XZtjjZKFRjrmW3bLavcBt/My-Portfolio?node-id=1-632&t=yDUtjLGUuU7zacPT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A632&show-proto-sidebar=1",
     },
     {
       id: 2,
@@ -36,7 +28,7 @@ export default function Portfolio() {
       role: "Frontend Developer",
       tools: ["Wordpress", "Javascript", "Figma", "CSS"],
       deliverables: ["Portfolio site", "Animations", "Deployment"],
-      gallery: ["project-4-desktop.png", "project-4-mobile.png"],
+      figmaUrl: "https://www.figma.com/proto/7XZtjjZKFRjrmW3bLavcBt/My-Portfolio?node-id=1-1489&t=yDUtjLGUuU7zacPT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A1489&show-proto-sidebar=1",
     },
     {
       id: 3,
@@ -44,26 +36,15 @@ export default function Portfolio() {
       category: "Web Design",
       image: "project-3-mobile.png",
       description:
-        "This project was a freelance gig for Seva Solutions, where I built their website entirely from scratch. I managed the project end-to-end, including setting up hosting via cPanel, designing and implementing the site in WordPress, and customizing it with CSS to match the client’s branding and functional needs. The focus was on creating a fully responsive, user-friendly website that effectively showcases their services and provides a seamless experience for visitors.",
+        "This project was a freelance gig for Seva Solutions, where I built their website entirely from scratch. I managed the project end-to-end, including setting up hosting via cPanel, designing and implementing the site in WordPress, and customizing it with CSS to match the client's branding and functional needs. The focus was on creating a fully responsive, user-friendly website that effectively showcases their services and provides a seamless experience for visitors.",
       role: "UI/UX Designer",
       tools: ["Figma", "Illustrator"],
       deliverables: ["Figma prototype", "Exported assets", "Design spec"],
-      gallery: ["project-3-desktop.png", "project-3-mobile.png"],
+      liveUrl: "https://seva.com.co/",
+      figmaUrl: "https://www.figma.com/proto/7XZtjjZKFRjrmW3bLavcBt/My-Portfolio?node-id=1-2&t=yDUtjLGUuU7zacPT-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&show-proto-sidebar=1",
     },
     {
       id: 4,
-      title: "My Portfolio",
-      category: "Figma Design",
-      image: "MyPortfolio.PNG",
-      description:
-        "Figma mockups and prototypes for a portfolio site with interactive states.",
-      role: "Product Designer",
-      tools: ["Figma"],
-      deliverables: ["Interactive prototype", "Design system"],
-      gallery: ["MyPortfolio.PNG"],
-    },
-    {
-      id: 5,
       title: "DENR-Reservation System",
       category: "Web App",
       image: "DENR-reservation System.PNG",
@@ -72,10 +53,11 @@ export default function Portfolio() {
       role: "Full-stack Engineer",
       tools: ["React", "Node", "Express", "MongoDB"],
       deliverables: ["Reservation UI", "Admin dashboard", "API integration"],
-      gallery: ["DENR-dashboard.png", "DENR-reservation System.PNG"],
+      liveUrl: "https://denr-car-reservation.vercel.app/",
+      imageFit: "cover",
     },
     {
-      id: 6,
+      id: 5,
       title: "Web Application Utilizing a Deep Learning Model",
       category: "Web App",
       image: "EcoSense.png",
@@ -84,11 +66,12 @@ export default function Portfolio() {
       role: "ML Engineer / Frontend",
       tools: ["Python", "Flask", "TensorFlow", "React"],
       deliverables: ["Model integration", "Inference UI", "Performance report"],
-      gallery: ["EcoSense-result.png", "EcoSense.png"],
+      figmaUrl: "#",
+      imageFit: "cover",
     },
     {
-      id: 7,
-      title: "Personal Portfolio V1",
+      id: 6,
+      title: "Smart waste bin",
       category: "Web Design",
       image: "portfolio-1.PNG",
       description:
@@ -96,7 +79,20 @@ export default function Portfolio() {
       role: "Frontend Developer",
       tools: ["React", "Tailwind CSS"],
       deliverables: ["Portfolio UI", "Responsive layout"],
-      gallery: ["portfolio-1.PNG"],
+      liveUrl: "https://smart-waste-bin-ph.vercel.app/",
+      imageFit: "cover",
+    },
+    {
+      id: 7,
+      title: "My Portfolio",
+      category: "Figma Design",
+      image: "MyPortfolio.PNG",
+      description:
+        "Figma mockups and prototypes for a portfolio site with interactive states.",
+      role: "Product Designer",
+      tools: ["Figma"],
+      deliverables: ["Interactive prototype", "Design system"],
+      imageFit: "cover",
     },
   ];
 
@@ -106,8 +102,27 @@ export default function Portfolio() {
   // Modal State
   const [selectedProject, setSelectedProject] = useState(null);
 
+  const toolColors = {
+    React:        { bg: 'bg-blue-50',    border: 'border-blue-200',    text: 'text-blue-700',    dot: 'bg-blue-400' },
+    'Tailwind CSS':{ bg: 'bg-cyan-50',   border: 'border-cyan-200',    text: 'text-cyan-700',    dot: 'bg-cyan-400' },
+    JavaScript:   { bg: 'bg-yellow-50',  border: 'border-yellow-200',  text: 'text-yellow-700',  dot: 'bg-yellow-400' },
+    TypeScript:   { bg: 'bg-blue-50',    border: 'border-blue-300',    text: 'text-blue-800',    dot: 'bg-blue-500' },
+    Python:       { bg: 'bg-yellow-50',  border: 'border-yellow-200',  text: 'text-yellow-800',  dot: 'bg-yellow-500' },
+    Flask:        { bg: 'bg-gray-50',    border: 'border-gray-300',    text: 'text-gray-700',    dot: 'bg-gray-400' },
+    TensorFlow:   { bg: 'bg-orange-50',  border: 'border-orange-200',  text: 'text-orange-700',  dot: 'bg-orange-400' },
+    Node:         { bg: 'bg-green-50',   border: 'border-green-200',   text: 'text-green-700',   dot: 'bg-green-400' },
+    Express:      { bg: 'bg-green-50',   border: 'border-green-200',   text: 'text-green-700',   dot: 'bg-green-400' },
+    MongoDB:      { bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-700', dot: 'bg-emerald-400' },
+    WordPress:    { bg: 'bg-sky-50',     border: 'border-sky-200',     text: 'text-sky-700',     dot: 'bg-sky-400' },
+    Wordpress:    { bg: 'bg-sky-50',     border: 'border-sky-200',     text: 'text-sky-700',     dot: 'bg-sky-400' },
+    Figma:        { bg: 'bg-purple-50',  border: 'border-purple-200',  text: 'text-purple-700',  dot: 'bg-purple-400' },
+    CSS:          { bg: 'bg-indigo-50',  border: 'border-indigo-200',  text: 'text-indigo-700',  dot: 'bg-indigo-400' },
+    Illustrator:  { bg: 'bg-orange-50',  border: 'border-orange-200',  text: 'text-orange-700',  dot: 'bg-orange-400' },
+  };
+  const getToolStyle = (tool) => toolColors[tool] ?? { bg: 'bg-gray-50', border: 'border-gray-200', text: 'text-gray-700', dot: 'bg-gray-400' };
+
   return (
-    <div className="relative flex flex-col w-full bg-gray-50">
+    <div className="relative flex flex-col w-full" >
       {/* Title */}
       <div className="relative flex justify-center w-full py-16">
         <div className="flex flex-col w-full max-w-6xl mx-auto px-4 md:px-6">
@@ -127,11 +142,11 @@ export default function Portfolio() {
           >
             <div className="flex flex-col h-full">
               {/* Image */}
-              <div className="h-64 overflow-hidden relative">
+              <div className="h-64 overflow-hidden relative bg-gray-100">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${item.imageFit === 'cover' ? 'object-cover' : 'object-contain'}`}
                 />
                 <div className="absolute top-4 right-4 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <LinkIcon className="w-5 h-5 text-black" />
@@ -174,92 +189,103 @@ export default function Portfolio() {
           
           {/* Modal Content */}
           <div 
-            className="bg-white w-full max-w-6xl max-h-[92vh] overflow-y-auto shadow-2xl relative rounded-2xl animate-in fade-in zoom-in duration-200"
+            className="bg-white w-full max-w-xl sm:max-w-2xl md:max-w-4xl lg:max-w-5xl max-h-[78vh] overflow-y-auto shadow-2xl relative rounded-2xl animate-in fade-in zoom-in duration-200"
             onClick={(e) => e.stopPropagation()} 
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 p-2 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 transition z-10"
-            >
-              ✕
-            </button>
-
-            <div className="flex flex-col lg:flex-row">
-              <div className="lg:w-3/5 bg-gray-100 p-6 sm:p-8 flex flex-col gap-4 lg:sticky lg:top-0">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-auto rounded-lg shadow-md object-contain max-h-[520px]"
-                />
-                {selectedProject.gallery && selectedProject.gallery.length > 1 && (
-                  <div className="flex gap-2 overflow-x-auto py-2">
-                    {selectedProject.gallery.map((img, idx) => (
-                      <img
-                        key={idx}
-                        src={img}
-                        alt={`screenshot-${idx}`}
-                        className="w-24 h-24 object-cover rounded-md cursor-pointer hover:opacity-80 border border-gray-300 flex-shrink-0"
-                      />
-                    ))}
-                  </div>
-                )}
+            {/* Image with gradient overlay + title */}
+            <div className="relative w-full">
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-auto object-contain rounded-t-2xl bg-gray-950"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent rounded-t-2xl" />
+              {/* Close button on image */}
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition z-10 text-xs font-bold leading-none"
+              >
+                ✕
+              </button>
+              {/* Title + category overlaid at bottom of image */}
+              <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-8 py-5">
+                <span className="inline-flex items-center px-2.5 py-1 bg-red-900/80 text-white text-xs font-semibold rounded-full mb-2 backdrop-blur-sm">
+                  {selectedProject.category}
+                </span>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight drop-shadow-lg">
+                  {selectedProject.title}
+                </h2>
               </div>
+            </div>
 
-              <div className="lg:w-2/5 p-6 sm:p-8 lg:p-10 flex flex-col gap-6">
+            {/* Content */}
+            <div className="p-6 sm:p-8 flex flex-col gap-6 bg-white">
+              {/* Role row */}
+              <div className="flex items-center gap-3 pb-5 border-b border-gray-100">
+                <div className="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
+                  <Briefcase className="w-4 h-4 text-red-900" />
+                </div>
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                    {selectedProject.title}
-                  </h2>
-                  <p className="text-red-900 font-medium text-lg">{selectedProject.category}</p>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wide">Role</h4>
-                    <p className="text-gray-800">{selectedProject.role}</p>
-                  </div>
-
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wide">Tools</h4>
-                    <div className="flex flex-wrap gap-2 mt-1">
-                      {selectedProject.tools.map((tool) => (
-                        <span
-                          key={tool}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wide">About</h4>
-                    <p className="text-gray-600 leading-relaxed mt-1">
-                      {selectedProject.description}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wide">Deliverables</h4>
-                    <ul className="list-disc list-inside text-gray-600 mt-1 space-y-1">
-                      {selectedProject.deliverables.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="mt-auto pt-6">
-                  <a
-                    href="#"
-                    className="block w-full text-center bg-black text-white font-bold py-3 rounded-lg hover:bg-gray-800 transition-colors shadow-md"
-                  >
-                    View Live Project
-                  </a>
+                  <p className="text-xs text-gray-400 uppercase tracking-widest font-semibold">Role</p>
+                  <p className="text-sm sm:text-base font-semibold text-gray-800">{selectedProject.role}</p>
                 </div>
               </div>
+
+              {/* About */}
+              <div>
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">About</h4>
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base border-l-2 border-red-800/30 pl-4">
+                  {selectedProject.description}
+                </p>
+              </div>
+
+              {/* Tools */}
+              <div>
+                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Tech Stack</h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.tools.map((tool) => {
+                    const s = getToolStyle(tool);
+                    return (
+                      <span
+                        key={tool}
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 border text-xs sm:text-sm font-medium rounded-lg transition-opacity hover:opacity-80 ${s.bg} ${s.border} ${s.text}`}
+                      >
+                        <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${s.dot}`} />
+                        {tool}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Buttons */}
+              {(selectedProject.liveUrl || selectedProject.figmaUrl) && (
+                <div className="flex flex-col sm:flex-row gap-3 pt-2 border-t border-gray-100">
+                  {selectedProject.liveUrl && (
+                    <a
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-red-900 to-gray-900 text-white font-semibold text-sm sm:text-base py-3 rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-red-900/20"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      View Live Project
+                    </a>
+                  )}
+                  {selectedProject.figmaUrl && (
+                    <a
+                      href={selectedProject.figmaUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 text-gray-800 font-semibold text-sm sm:text-base py-3 rounded-xl hover:bg-gray-100 transition-colors"
+                    >
+                      <Figma className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      View in Figma
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

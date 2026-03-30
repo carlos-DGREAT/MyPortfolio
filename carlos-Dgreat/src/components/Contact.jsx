@@ -54,10 +54,11 @@ export default function Contact() {
   };
 
   return (
-    <section className="relative pt-8 sm:pt-12 pb-16 sm:pb-24 md:pb-32 overflow-hidden">
+    <section className="relative pt-12 sm:pt-16 md:pt-20 pb-16 sm:pb-24 md:pb-32 overflow-hidden" style={{ backgroundImage: "url('/backdrop.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed' }}>
       
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-white/50" />
         <div className="absolute top-0 left-0 w-48 sm:w-96 h-48 sm:h-96 bg-black/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-48 sm:w-96 h-48 sm:h-96 bg-black/5 rounded-full blur-3xl"></div>
       </div>

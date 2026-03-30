@@ -73,7 +73,7 @@ function App() {
           <Services />
         </section>
 
-        <div className="space-y-10 sm:space-y-16 md:space-y-20">
+        <div>
           <section id="about" className="scroll-mt-20">
             <AboutMe />
           </section>

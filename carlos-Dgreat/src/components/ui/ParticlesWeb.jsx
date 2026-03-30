@@ -5,6 +5,7 @@ import { loadSlim } from '@tsparticles/slim';
 export default function ParticlesWeb() {
   const [init, setInit] = useState(false);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const [inBanner, setInBanner] = useState(true);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -18,6 +19,12 @@ export default function ParticlesWeb() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => setInBanner(window.scrollY < window.innerHeight * 0.85);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const options = useMemo(() => ({
     fullScreen: { enable: false },
     background: { color: { value: 'transparent' } },
@@ -25,7 +32,7 @@ export default function ParticlesWeb() {
     interactivity: {
       events: {
         onHover: { enable: !isMobile, mode: 'grab' },
-        onClick: { enable: !isMobile, mode: 'push' },
+        onClick: { enable: !isMobile && inBanner, mode: 'push' },
       },
       modes: {
         grab: { distance: 160, links: { opacity: 0.6 } },

@@ -3,7 +3,7 @@ import FadeIn from './ui/FadeIn';
 
 export default function Timeline() {
   return (
-    <div className="max-w-6xl mx-auto px-4 py-4 sm:py-8">
+    <div className="max-w-6xl mx-auto px-4 py-12 sm:py-16 md:py-20">
       <FadeIn tag="p" className="text-center text-2xl sm:text-3xl md:text-4xl font-bold my-8 sm:my-10 md:my-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">My Timeline</FadeIn>
       <div className="flex flex-col md:flex-row w-full gap-10">
         {/* Experience Section */}
