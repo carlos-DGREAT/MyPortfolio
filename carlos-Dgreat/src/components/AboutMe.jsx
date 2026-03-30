@@ -6,12 +6,26 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutMe() {
+  const sectionRef  = useRef(null);
+  const bgRef        = useRef(null);
   const aboutImgRef  = useRef(null);
   const aboutTextRef = useRef(null);
   const goalsTextRef = useRef(null);
   const goalsImgRef  = useRef(null);
 
   useGSAP(() => {
+    // Parallax background
+    gsap.to(bgRef.current, {
+      yPercent: -20,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      }
+    });
+
     const cfg = { toggleActions: 'play none none reset' };
 
     gsap.fromTo(aboutImgRef.current,
@@ -36,7 +50,20 @@ export default function AboutMe() {
   }, {});
 
   return (
-    <div className="relative flex flex-col w-full" style={{ backgroundImage: "url('/backdrop-3.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+    <div ref={sectionRef} className="relative flex flex-col w-full overflow-hidden">
+      {/* Parallax background layer */}
+      <div
+        ref={bgRef}
+        className="absolute left-0 right-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/backdrop-3.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          top: '-20%',
+          height: '140%',
+        }}
+      />
       <div className="absolute inset-0 bg-white/70 pointer-events-none" />
       {/* ABOUT ME Section */}
       <div className="relative flex justify-center w-full py-8 sm:py-12 md:py-16">

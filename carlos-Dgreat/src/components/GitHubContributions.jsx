@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Github } from 'lucide-react';
 import FadeIn from './ui/FadeIn';
 import ShinyText from './ui/ShinyText';
+import StarBorder from './ui/StarBorder';
 
 export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
   const [loading, setLoading] = useState(true);
@@ -137,7 +138,8 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
       </FadeIn>
 
       <FadeIn delay={0.2}>
-        <div className="bg-white rounded-xl shadow-lg p-3 sm:p-6">
+        <StarBorder as="div" color="#f87171" speed={8} borderWidth={1.5} className="rounded-xl w-full" innerClassName="bg-white rounded-xl shadow-lg">
+        <div className="p-3 sm:p-6">
           <div className="flex flex-col items-center">
             {/* GitHub Contributions Chart */}
             <div className="w-full overflow-x-auto">
@@ -185,6 +187,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
             </a>
           </div>
         </div>
+        </StarBorder>
       </FadeIn>
     </div>
   );

@@ -119,6 +119,40 @@
   }
 }
 
+/* ── StarBorder component ─────────────────────────────────────────── */
+.star-border {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: inherit;
+  padding: var(--border-width, 1.5px);
+}
+
+.star-border__glow {
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 78%,
+    var(--star-color, #ffffff) 90%,
+    transparent 100%
+  );
+  animation: star-border-rotate var(--star-speed, 6s) linear infinite;
+}
+
+.star-border__inner {
+  position: relative;
+  z-index: 1;
+  display: block;
+  border-radius: inherit;
+}
+
+@keyframes star-border-rotate {
+  to { transform: rotate(360deg); }
+}
+/* ─────────────────────────────────────────────────────────────────── */
+
 /* Ensure background-clip works for gradient text */
 .bg-clip-text {
   -webkit-background-clip: text;

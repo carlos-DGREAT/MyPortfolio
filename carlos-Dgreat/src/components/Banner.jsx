@@ -45,7 +45,7 @@ export default function Banner({ isLoaded = false }) {
       gsap.fromTo(
         Array.from(btnsRef.current.children),
         { opacity: 0, y: 28, filter: 'blur(4px)' },
-        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.75, ease: 'power3.out', stagger: 0.18, delay: 0, clearProps: 'filter,transform,opacity' }
+        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9, ease: 'power3.out', stagger: 0.2, delay: 0.25, clearProps: 'filter,transform,opacity' }
       );
     }
     // Profile image
