@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Link as LinkIcon, Figma, ExternalLink, Briefcase } from 'lucide-react';
 import FadeIn from './ui/FadeIn';
+import BorderGlow from './ui/BorderGlow';
 
 export default function Portfolio() {
   const [showAll, setShowAll] = useState(false);
@@ -135,33 +136,43 @@ export default function Portfolio() {
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
         {displayedItems.map((item) => (
-          <div 
-            key={item.id} 
-            className="group relative bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 h-full flex flex-col"
+          <div
+            key={item.id}
+            className="group cursor-pointer h-full flex flex-col"
             onClick={() => setSelectedProject(item)}
           >
-            <div className="flex flex-col h-full">
-              {/* Image */}
-              <div className="h-64 overflow-hidden relative bg-gray-100">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${item.imageFit === 'cover' ? 'object-cover' : 'object-contain'}`}
-                />
-                <div className="absolute top-4 right-4 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <LinkIcon className="w-5 h-5 text-black" />
+            <BorderGlow
+              backgroundColor="#ffffff"
+              colors={['#7f1d1d', '#991b1b', '#1f2937']}
+              glowColor="0 75 25"
+              glowIntensity={0.8}
+              glowRadius={30}
+              borderRadius={12}
+              className="h-full"
+            >
+              <div className="flex flex-col h-full">
+                {/* Image */}
+                <div className="h-64 overflow-hidden relative bg-gray-100 rounded-t-xl">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${item.imageFit === 'cover' ? 'object-cover' : 'object-contain'}`}
+                  />
+                  <div className="absolute top-4 right-4 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <LinkIcon className="w-5 h-5 text-black" />
+                  </div>
+                </div>
+                {/* Content */}
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-xl font-bold mt-3 text-gray-900 group-hover:text-red-900 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 mt-2 line-clamp-3 text-sm flex-1">
+                    {item.description}
+                  </p>
                 </div>
               </div>
-              {/* Content */}
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold mt-3 text-gray-900 group-hover:text-red-900 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 mt-2 line-clamp-3 text-sm flex-1">
-                  {item.description}
-                </p>
-              </div>
-            </div>
+            </BorderGlow>
           </div>
         ))}
       </div>
@@ -208,11 +219,8 @@ export default function Portfolio() {
               >
                 ✕
               </button>
-              {/* Title + category overlaid at bottom of image */}
+              {/* Title overlaid at bottom of image */}
               <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-8 py-5">
-                <span className="inline-flex items-center px-2.5 py-1 bg-red-900/80 text-white text-xs font-semibold rounded-full mb-2 backdrop-blur-sm">
-                  {selectedProject.category}
-                </span>
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight drop-shadow-lg">
                   {selectedProject.title}
                 </h2>

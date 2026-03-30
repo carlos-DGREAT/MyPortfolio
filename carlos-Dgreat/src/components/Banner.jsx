@@ -3,6 +3,7 @@ import SplitText from './ui/SplitText';
 import ShinyText from './ui/ShinyText';
 import FadeIn from './ui/FadeIn';
 import ParticlesWeb from './ui/ParticlesWeb';
+import GradientText from './ui/GradientText';
 import { Linkedin, Github, Mail } from 'lucide-react';
 
 export default function Banner() {
@@ -27,8 +28,14 @@ export default function Banner() {
           <div className="text-2xl sm:text-3xl font-bold font-body mb-2">
             <SplitText text="Hi, I'm Carlos" className="text-2xl sm:text-3xl font-bold" delay={50} />
           </div>
-          <FadeIn delay={0.2} tag="h1" className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent leading-tight">
-            Full stack Developer + Web Designer
+          <FadeIn delay={0.2} tag="div" className="mb-4">
+            <GradientText
+              colors={['#7f1d1d', '#f87171', '#6b7280', '#1f2937', '#7f1d1d']}
+              animationSpeed={6}
+              className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mx-0"
+            >
+              Full stack Developer + Web Designer
+            </GradientText>
           </FadeIn>
           
           <div className="flex flex-col min-[600px]:flex-row gap-4 mt-2">
