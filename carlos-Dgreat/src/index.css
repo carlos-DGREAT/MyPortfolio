@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Playfair+Display:wght@400;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -16,9 +15,9 @@
   --breakpoint-2xl: 100rem;   /* 1600px */
   --breakpoint-3xl: 120rem;   /* 1920px */
 
-  --font-display: "Poppins", "Playfair Display", sans-serif;
-  --font-heading: "Poppins", "Playfair Display", sans-serif;
-  --font-body:"Playfair Display", sans-serif;
+  --font-display: "Montserrat", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Poppins", sans-serif;
 
   --color-primary: #932929;
   --color-secondary: #000000;
@@ -109,7 +108,50 @@
   .animate-loader-bar {
     animation: loader-bar 1.15s ease-in-out infinite;
   }
+
+  @keyframes navbar-glow {
+    0%   { transform: translateX(-150%); }
+    100% { transform: translateX(400%); }
+  }
+
+  .animate-navbar-glow {
+    animation: navbar-glow 2.4s linear infinite;
+  }
 }
+
+/* ── StarBorder component ─────────────────────────────────────────── */
+.star-border {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: inherit;
+  padding: var(--border-width, 1.5px);
+}
+
+.star-border__glow {
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    transparent 78%,
+    var(--star-color, #ffffff) 90%,
+    transparent 100%
+  );
+  animation: star-border-rotate var(--star-speed, 6s) linear infinite;
+}
+
+.star-border__inner {
+  position: relative;
+  z-index: 1;
+  display: block;
+  border-radius: inherit;
+}
+
+@keyframes star-border-rotate {
+  to { transform: rotate(360deg); }
+}
+/* ─────────────────────────────────────────────────────────────────── */
 
 /* Ensure background-clip works for gradient text */
 .bg-clip-text {
@@ -221,13 +263,13 @@ html {
   color: transparent;
 }
 
-/* Apply Montserrat semi-bold for common title classes */
+/* Apply Montserrat bold for common title classes */
 .font-bold,
 .card-title,
 .text-4xl,
 .text-3xl {
   font-family: 'Montserrat', var(--font-heading);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .dark {

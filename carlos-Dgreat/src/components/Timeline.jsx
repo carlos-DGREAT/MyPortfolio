@@ -1,15 +1,48 @@
-import React from 'react';
-import FadeIn from './ui/FadeIn';
+import React, { useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Timeline() {
+  const titleRef = useRef(null);
+  const expRef   = useRef(null);
+  const eduRef   = useRef(null);
+
+  useGSAP(() => {
+    gsap.fromTo(titleRef.current,
+      { opacity: 0, y: 35, filter: 'blur(4px)' },
+      { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.1, ease: 'power3.out', clearProps: 'filter,transform,opacity',
+        scrollTrigger: { trigger: titleRef.current, start: 'top bottom-=10%', toggleActions: 'play none none reset' } });
+
+    const expCards = expRef.current?.querySelectorAll('.tl-card');
+    if (expCards?.length) {
+      gsap.fromTo(expCards,
+        { opacity: 0, x: -65, filter: 'blur(4px)' },
+        { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.0, ease: 'power3.out', stagger: 0.22,
+          clearProps: 'filter,transform,opacity',
+          scrollTrigger: { trigger: expRef.current, start: 'top bottom-=5%', toggleActions: 'play none none reset' } });
+    }
+
+    const eduCards = eduRef.current?.querySelectorAll('.tl-card');
+    if (eduCards?.length) {
+      gsap.fromTo(eduCards,
+        { opacity: 0, x: 65, filter: 'blur(4px)' },
+        { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.0, ease: 'power3.out', stagger: 0.22,
+          clearProps: 'filter,transform,opacity',
+          scrollTrigger: { trigger: eduRef.current, start: 'top bottom-=5%', toggleActions: 'play none none reset' } });
+    }
+  }, {});
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-12 sm:py-16 md:py-20">
-      <FadeIn tag="p" className="text-center text-2xl sm:text-3xl md:text-4xl font-bold my-8 sm:my-10 md:my-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">My Timeline</FadeIn>
+      <p ref={titleRef} className="text-center text-2xl sm:text-3xl md:text-4xl font-bold my-8 sm:my-10 md:my-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">My Timeline</p>
       <div className="flex flex-col md:flex-row w-full gap-10">
         {/* Experience Section */}
         <div className="flex-1 text-center">
-          <FadeIn tag="h2" className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 pb-5 sm:pb-8 md:pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Experience</FadeIn>
-          <div className="space-y-5">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 pb-5 sm:pb-8 md:pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Experience</h2>
+          <div ref={expRef} className="space-y-5">
             {[
               {
                 title: "Web Application Developer",
@@ -33,10 +66,9 @@ export default function Timeline() {
                 logo: "/DanLogo.png"
               }
             ].map((exp, idx) => (
-              <FadeIn 
-                key={idx} 
-                delay={idx * 0.1}
-                className="max-w-md w-full min-h-[148px] sm:min-h-[178px] bg-base-100 p-4 sm:p-6 shadow rounded border border-base-content/10 mx-auto text-left"
+              <div
+                key={idx}
+                className="tl-card max-w-md w-full min-h-[148px] sm:min-h-[178px] bg-base-100 p-4 sm:p-6 shadow rounded border border-base-content/10 mx-auto text-left"
               >
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center">
@@ -53,15 +85,15 @@ export default function Timeline() {
                     <p className="mt-5">{exp.location}</p>
                   </div>
                 </div>
-              </FadeIn>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Education Section */}
         <div className="flex-1 text-center">
-          <FadeIn tag="h2" className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 pb-5 sm:pb-8 md:pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent" delay={0.2}>Education</FadeIn>
-          <div className="space-y-5">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 pb-5 sm:pb-8 md:pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Education</h2>
+          <div ref={eduRef} className="space-y-5">
             {[
               {
                 title: "Saint Louis University",
@@ -85,10 +117,9 @@ export default function Timeline() {
                 logoSize: "w-10 h-10"
               }
             ].map((item, idx) => (
-              <FadeIn 
-                key={idx} 
-                delay={idx * 0.1 + 0.2}
-                className="max-w-md w-full min-h-[148px] sm:min-h-[178px] bg-base-100 p-4 sm:p-6 shadow rounded border border-base-content/10 mx-auto text-left"
+              <div
+                key={idx}
+                className="tl-card max-w-md w-full min-h-[148px] sm:min-h-[178px] bg-base-100 p-4 sm:p-6 shadow rounded border border-base-content/10 mx-auto text-left"
               >
                 <div className="flex items-start gap-3">
                   <div className={`${item.logoSize} flex-shrink-0 flex items-center justify-center`}>
@@ -104,7 +135,7 @@ export default function Timeline() {
                     <p className="mt-5">{item.date}</p>
                   </div>
                 </div>
-              </FadeIn>
+              </div>
             ))}
           </div>
         </div>

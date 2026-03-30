@@ -43,7 +43,7 @@ export default function Footer() {
 
     const st = ScrollTrigger.create({
       trigger: spacerEl,
-      start: "top bottom",
+      start: "top 40%",
       end: "bottom bottom",
       onEnter: () => {
         setBlurActive(true);
