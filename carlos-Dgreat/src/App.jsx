@@ -66,7 +66,7 @@ function App() {
         <Navbar />
 
         <section id="home">
-          <Banner />
+          <Banner isLoaded={loaderPhase === 'done'} />
         </section>
 
         <section id="services" className="scroll-mt-20">

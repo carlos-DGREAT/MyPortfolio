@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import { ChevronDown, ChevronUp, Link as LinkIcon, Figma, ExternalLink, Briefcase } from 'lucide-react';
 import FadeIn from './ui/FadeIn';
 import BorderGlow from './ui/BorderGlow';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Portfolio() {
   const [showAll, setShowAll] = useState(false);
@@ -103,6 +108,51 @@ export default function Portfolio() {
   // Modal State
   const [selectedProject, setSelectedProject] = useState(null);
 
+  // Card animation refs
+  const gridRef = useRef(null);
+  const prevCountRef = useRef(displayedItems.length);
+
+  // Scroll-triggered stagger entrance
+  useGSAP(() => {
+    const cards = gridRef.current?.querySelectorAll(':scope > div');
+    if (!cards?.length) return;
+    gsap.fromTo(cards,
+      { opacity: 0, y: 60, scale: 0.92, filter: 'blur(4px)' },
+      {
+        opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
+        duration: 0.75, ease: 'power3.out',
+        stagger: { amount: 0.55, from: 'start' },
+        clearProps: 'filter,transform,opacity',
+        scrollTrigger: {
+          trigger: gridRef.current,
+          start: 'top bottom-=8%',
+          toggleActions: 'play none none reset',
+        },
+      }
+    );
+  }, { scope: gridRef });
+
+  // Animate newly revealed cards when "Show More" is clicked
+  useEffect(() => {
+    const prev = prevCountRef.current;
+    const curr = displayedItems.length;
+    if (curr <= prev) { prevCountRef.current = curr; return; }
+    const cards = gridRef.current?.querySelectorAll(':scope > div');
+    if (!cards?.length) return;
+    const newCards = Array.from(cards).slice(prev);
+    if (!newCards.length) return;
+    gsap.fromTo(
+      newCards,
+      { opacity: 0, y: 50, scale: 0.93, filter: 'blur(4px)' },
+      {
+        opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
+        duration: 0.65, ease: 'power3.out', stagger: 0.1,
+        clearProps: 'filter,transform,opacity',
+      }
+    );
+    prevCountRef.current = curr;
+  }, [displayedItems.length]);
+
   const toolColors = {
     React:        { bg: 'bg-blue-50',    border: 'border-blue-200',    text: 'text-blue-700',    dot: 'bg-blue-400' },
     'Tailwind CSS':{ bg: 'bg-cyan-50',   border: 'border-cyan-200',    text: 'text-cyan-700',    dot: 'bg-cyan-400' },
@@ -142,7 +192,7 @@ export default function Portfolio() {
           </FadeIn>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full">
+          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full" style={{ perspective: '1200px' }}>
         {displayedItems.map((item) => (
           <div
             key={item.id}

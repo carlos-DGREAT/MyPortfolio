@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 import SplitText from './ui/SplitText';
 import ShinyText from './ui/ShinyText';
 import FadeIn from './ui/FadeIn';
@@ -6,7 +8,56 @@ import ParticlesWeb from './ui/ParticlesWeb';
 import GradientText from './ui/GradientText';
 import { Linkedin, Github, Mail } from 'lucide-react';
 
-export default function Banner() {
+export default function Banner({ isLoaded = false }) {
+  const helloRef    = useRef(null);
+  const gradientRef  = useRef(null);
+  const btnsRef      = useRef(null);
+  const profileRef   = useRef(null);
+
+  // Hide elements immediately on mount — before loader finishes
+  useGSAP(() => {
+    if (helloRef.current)   gsap.set(helloRef.current,   { opacity: 0, y: 55 });
+    if (gradientRef.current) gsap.set(gradientRef.current, { opacity: 0, y: 55, filter: 'blur(8px)' });
+    if (btnsRef.current)    gsap.set(Array.from(btnsRef.current.children), { opacity: 0, y: 28, filter: 'blur(4px)' });
+    if (profileRef.current) gsap.set(profileRef.current,  { opacity: 0, x: 80, filter: 'blur(8px)' });
+  }, {});
+
+  useGSAP(() => {
+    if (!isLoaded) return;
+    // "Hi, I'm Carlos" — slide up only (SplitText handles char opacity)
+    if (helloRef.current) {
+      gsap.fromTo(
+        helloRef.current,
+        { y: 55, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.0, ease: 'power3.out', delay: 0, clearProps: 'transform,opacity' }
+      );
+    }
+    // "Full stack Developer + Web Designer"
+    if (gradientRef.current) {
+      gsap.fromTo(
+        gradientRef.current,
+        { opacity: 0, y: 55, filter: 'blur(8px)' },
+        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.1, ease: 'power3.out', delay: 0.4, clearProps: 'filter,transform,opacity' }
+      );
+    }
+    // Buttons
+    if (btnsRef.current) {
+      gsap.fromTo(
+        Array.from(btnsRef.current.children),
+        { opacity: 0, y: 28, filter: 'blur(4px)' },
+        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.75, ease: 'power3.out', stagger: 0.18, delay: 0, clearProps: 'filter,transform,opacity' }
+      );
+    }
+    // Profile image
+    if (profileRef.current) {
+      gsap.fromTo(
+        profileRef.current,
+        { opacity: 0, x: 80, filter: 'blur(8px)' },
+        { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.2, ease: 'power3.out', delay: 0.3, clearProps: 'filter,transform,opacity' }
+      );
+    }
+  }, { dependencies: [isLoaded] });
+
   return (
     <div className="relative min-h-screen flex w-full z-0 overflow-hidden">
       {/* Particles — bottom layer */}
@@ -25,10 +76,10 @@ export default function Banner() {
         
         {/* Left div */}
         <div className="flex-1 flex flex-col justify-center items-center text-center lg:items-start lg:text-left text-black px-6 sm:px-10 md:px-16 lg:pl-20 xl:pl-40 pt-24 pb-10 lg:py-10">
-          <div className="text-2xl sm:text-3xl font-bold font-body mb-2">
+          <div ref={helloRef} className="text-2xl sm:text-3xl font-bold font-body mb-2">
             <SplitText text="Hi, I'm Carlos" className="text-2xl sm:text-3xl font-bold" delay={50} />
           </div>
-          <FadeIn delay={0.2} tag="div" className="mb-4">
+          <div ref={gradientRef} className="mb-4">
             <GradientText
               colors={['#7f1d1d', '#f87171', '#6b7280', '#1f2937', '#7f1d1d']}
               animationSpeed={6}
@@ -36,9 +87,9 @@ export default function Banner() {
             >
               Full stack Developer + Web Designer
             </GradientText>
-          </FadeIn>
+          </div>
           
-          <div className="flex flex-col min-[600px]:flex-row gap-4 mt-2">
+          <div ref={btnsRef} className="flex flex-col min-[600px]:flex-row gap-4 mt-2">
             <a
               href="#contact"
               className="px-6 py-2 border border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded transition font-bold text-center group"
@@ -71,6 +122,7 @@ export default function Banner() {
           <img
             src="/Profile 1.png"
             alt="profile"
+            ref={profileRef}
             className="h-[80vh] xl:h-[90vh] 2xl:h-[95vh] object-cover z-10 absolute bottom-0 right-10 xl:right-20 2xl:right-24"
           />
         </div>
