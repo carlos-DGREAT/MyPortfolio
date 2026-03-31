@@ -249,6 +249,95 @@ html {
   animation: icon-shine 2.5s ease-in-out infinite;
 }
 
+@keyframes social-glow-banner {
+  0%, 100% {
+    box-shadow:
+      3px 3px 6px rgba(0, 0, 0, 0.10),
+      -1px -1px 4px rgba(255, 255, 255, 0.8),
+      inset 1px 1px 2px rgba(255, 255, 255, 0.9),
+      inset -1px -1px 2px rgba(0, 0, 0, 0.05),
+      0 0 0 1.5px rgba(127, 29, 29, 0.45);
+  }
+  50% {
+    box-shadow:
+      3px 3px 6px rgba(0, 0, 0, 0.10),
+      -1px -1px 4px rgba(255, 255, 255, 0.8),
+      inset 1px 1px 2px rgba(255, 255, 255, 0.9),
+      inset -1px -1px 2px rgba(0, 0, 0, 0.05),
+      0 0 0 2px rgba(127, 29, 29, 0.85);
+  }
+}
+
+@keyframes social-glow-scrolled {
+  0%, 100% {
+    box-shadow:
+      inset 1px 1px 2px rgba(255, 255, 255, 0.9),
+      inset -1px -1px 2px rgba(0, 0, 0, 0.06),
+      0 0 0 1.5px rgba(220, 38, 38, 0.6);
+  }
+  50% {
+    box-shadow:
+      inset 1px 1px 2px rgba(255, 255, 255, 0.9),
+      inset -1px -1px 2px rgba(0, 0, 0, 0.06),
+      0 0 0 2.5px rgba(220, 38, 38, 1.0);
+  }
+}
+
+.social-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: linear-gradient(145deg, #ffffff 0%, #e0e0e0 100%);
+  color: #111827;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.social-icon-circle--banner {
+  animation: social-glow-banner 3s ease-in-out infinite;
+}
+
+.social-icon-circle--scrolled {
+  animation: social-glow-scrolled 3s ease-in-out infinite;
+}
+
+.social-icon-circle:hover {
+  filter: brightness(0.93);
+}
+
+.btn-3d {
+  box-shadow: 0 5px 0 #0a0a0a, 0 6px 5px rgba(0, 0, 0, 0.35);
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-3d:hover {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #0a0a0a, 0 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+.btn-3d:active {
+  transform: translateY(5px);
+  box-shadow: 0 0px 0 #0a0a0a;
+}
+
+.btn-3d-gray {
+  box-shadow: 0 5px 0 #374151, 0 6px 4px rgba(0, 0, 0, 0.18);
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-3d-gray:hover {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #374151, 0 3px 2px rgba(0, 0, 0, 0.15);
+}
+
+.btn-3d-gray:active {
+  transform: translateY(5px);
+  box-shadow: 0 0px 0 #374151;
+}
+
 .gradient-text-split {
   display: inline-block;
 }

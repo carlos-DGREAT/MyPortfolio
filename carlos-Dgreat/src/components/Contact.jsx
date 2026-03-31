@@ -84,7 +84,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="relative pt-12 sm:pt-16 md:pt-20 pb-16 sm:pb-24 md:pb-32 overflow-hidden" style={{ backgroundImage: "url('/backdrop.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed' }}>
+    <section className="relative pt-12 sm:pt-16 md:pt-20 pb-16 sm:pb-24 md:pb-32 overflow-hidden bg-scroll md:bg-fixed" style={{ backgroundImage: "url('/backdrop.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
       
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
@@ -281,7 +281,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full px-6 py-4 bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-lg font-semibold transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-black/30 flex items-center justify-center gap-2 group ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
+                  className={`btn-3d w-full px-6 py-4 bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-lg font-semibold flex items-center justify-center gap-2 group ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
                 >
                   <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   {isLoading ? "Sending..." : <ShinyText text="Send Message" speed={3} baseColor="#ffffff" shineColor="#aaaaaa" />}

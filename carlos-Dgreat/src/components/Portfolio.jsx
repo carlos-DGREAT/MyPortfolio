@@ -333,7 +333,7 @@ export default function Portfolio() {
                       href={selectedProject.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-red-900 to-gray-900 text-white font-semibold text-sm sm:text-base py-3 rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-red-900/20"
+                      className="btn-3d flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-red-900 to-gray-900 text-white font-semibold text-sm sm:text-base py-3 rounded-xl hover:opacity-90 transition-opacity"
                     >
                       <ExternalLink className="w-4 h-4" />
                       View Live Project
@@ -344,7 +344,7 @@ export default function Portfolio() {
                       href={selectedProject.figmaUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 text-gray-800 font-semibold text-sm sm:text-base py-3 rounded-xl hover:bg-gray-100 transition-colors"
+                      className="btn-3d-gray flex-1 flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 text-gray-800 font-semibold text-sm sm:text-base py-3 rounded-xl hover:bg-gray-100 transition-colors"
                     >
                       <Figma className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       View in Figma

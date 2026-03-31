@@ -14,17 +14,19 @@ export default function AboutMe() {
   const goalsImgRef  = useRef(null);
 
   useGSAP(() => {
-    // Parallax background
-    gsap.to(bgRef.current, {
-      yPercent: -20,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      }
-    });
+    // Parallax background — desktop only
+    if (window.innerWidth >= 768) {
+      gsap.to(bgRef.current, {
+        yPercent: -20,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+    }
 
     const cfg = { toggleActions: 'play none none reset' };
 

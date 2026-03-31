@@ -103,7 +103,7 @@ function App() {
       <div
         id="footer-reveal"
         aria-hidden="true"
-        className="relative z-10 h-[260px] sm:h-[280px] md:h-[320px]"
+        className="relative z-10 h-[144px] sm:h-[280px] md:h-[320px]"
       />
 
       <Footer />

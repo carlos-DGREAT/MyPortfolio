@@ -63,7 +63,7 @@ export default function Footer() {
     <>
       <footer
         ref={footerRef}
-        className="footer footer-horizontal footer-center fixed bottom-0 left-0 z-0 w-full h-[260px] sm:h-[280px] md:h-[320px] overflow-hidden bg-gradient-to-b from-gray-900 via-black to-gray-900 text-primary-content"
+        className="footer footer-horizontal footer-center fixed bottom-0 left-0 z-0 w-full h-[144px] sm:h-[280px] md:h-[320px] overflow-hidden bg-gradient-to-b from-gray-900 via-black to-gray-900 text-primary-content"
       >
         <div
           aria-hidden="true"
@@ -90,9 +90,9 @@ export default function Footer() {
             <img
               src="/footer-2.png"
               alt="Logo"
-              className="h-14 w-14 sm:h-20 sm:w-20 md:h-25 md:w-25 object-contain"
+              className="h-8 w-8 sm:h-20 sm:w-20 md:h-25 md:w-25 object-contain"
             />
-            <p className="text-center text-white">
+            <p className="text-center text-white text-xs sm:text-sm md:text-base">
               Copyright © {new Date().getFullYear()} - All rights reserved
             </p>
           </aside>

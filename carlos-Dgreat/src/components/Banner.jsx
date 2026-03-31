@@ -92,7 +92,7 @@ export default function Banner({ isLoaded = false }) {
           <div ref={btnsRef} className="flex flex-col min-[600px]:flex-row gap-4 mt-2">
             <a
               href="#contact"
-              className="px-6 py-2 border border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded transition font-bold text-center group"
+              className="btn-3d px-6 py-2 border border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded font-bold text-center group"
             >
               <span className="relative inline-block">
                 <span className="block transition-opacity duration-200 group-hover:opacity-0">
@@ -104,7 +104,7 @@ export default function Banner({ isLoaded = false }) {
               </span>
             </a>
             
-            <button className="px-6 py-2 border w-fit border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded transition group font-bold">
+            <button className="btn-3d px-6 py-2 border w-fit border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded group font-bold">
               <span className="relative inline-block">
                 <span className="block transition-opacity duration-200 group-hover:opacity-0">
                   <ShinyText text="Download CV" disabled={false} speed={3} baseColor="#7f1d1d" shineColor="#fca5a5" />

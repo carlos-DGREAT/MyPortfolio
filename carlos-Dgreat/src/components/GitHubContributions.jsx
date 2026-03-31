@@ -123,7 +123,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
             href={`https://github.com/${username}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-900 to-gray-800 hover:from-gray-800 hover:to-red-900 text-white rounded-full transition-all shadow-md text-sm"
+            className="btn-3d hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-900 to-gray-800 hover:from-gray-800 hover:to-red-900 text-white rounded-full text-sm"
           >
             <Github className="w-4 h-4" />
             <ShinyText text="View GitHub Profile" speed={3} baseColor="#ffffff" shineColor="#fca5a5" />
@@ -180,7 +180,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
               href={`https://github.com/${username}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="sm:hidden inline-flex items-center gap-2 px-4 py-2 mt-4 bg-gradient-to-r from-red-900 to-gray-800 hover:from-gray-800 hover:to-red-900 text-white rounded-full transition-all shadow-md text-sm"
+              className="btn-3d sm:hidden inline-flex items-center gap-2 px-4 py-2 mt-4 bg-gradient-to-r from-red-900 to-gray-800 hover:from-gray-800 hover:to-red-900 text-white rounded-full text-sm"
             >
               <Github className="w-4 h-4" />
               <ShinyText text="View GitHub Profile" speed={3} baseColor="#ffffff" shineColor="#fca5a5" />
