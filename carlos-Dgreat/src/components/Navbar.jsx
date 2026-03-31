@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import ShinyText from './ui/ShinyText';
 
 const navItems = [
-  { label: "Services", href: "#services", offset: 311 },
-  { label: "About",    href: "#about",    offset: 0   },
-  { label: "Portfolio",href: "#portfolio", offset: 61  },
-  { label: "Resume",   href: "#resume",   offset: 31  },
-  { label: "Contact",  href: "#contact",  offset: 61  },
+  { label: "Services", href: "#services", offset: 311, mobileOffset: 20  },
+  { label: "About",    href: "#about",    offset: 0,   mobileOffset: 60  },
+  { label: "Portfolio",href: "#portfolio", offset: 61,  mobileOffset: 60  },
+  { label: "Resume",   href: "#resume",   offset: -40, mobileOffset: -40  },
+  { label: "Contact",  href: "#contact",  offset: 20,  mobileOffset: 30  },
 ];
 
 export default function Navbar() {
@@ -23,11 +23,12 @@ export default function Navbar() {
   }, []);
 
   const scrollToSection = (e, item) => {
-    if (window.innerWidth < 1024) return;
     e.preventDefault();
     const el = document.getElementById(item.href.slice(1));
     if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - (item.offset ?? 96);
+    const isMobile = window.innerWidth < 1024;
+    const appliedOffset = isMobile ? (item.mobileOffset ?? 60) : (item.offset ?? 96);
+    const top = el.getBoundingClientRect().top + window.scrollY - appliedOffset;
     window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
   };
 
