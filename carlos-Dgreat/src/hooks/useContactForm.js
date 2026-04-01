@@ -68,7 +68,7 @@ export function useContactForm() {
   };
 
   const fieldCls = (name) =>
-    `w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-100 transition-all bg-white ${
+    `w-full px-3 py-2 lg:px-3 lg:py-2 xl:px-4 xl:py-3 text-sm lg:text-xs xl:text-sm border rounded-lg focus:outline-none focus:border-gray-400 focus:ring-2 focus:ring-gray-100 transition-all bg-white ${
       errors[name] ? "border-red-300 bg-red-50/40" : "border-gray-200 hover:border-gray-300"
     }`;
 

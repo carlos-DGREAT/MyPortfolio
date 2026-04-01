@@ -272,7 +272,7 @@ export default function Portfolio() {
           
           {/* Modal Content */}
           <div 
-            className="bg-white w-full max-w-xl sm:max-w-2xl md:max-w-4xl lg:max-w-5xl max-h-[78vh] overflow-y-auto shadow-2xl relative rounded-2xl animate-in fade-in zoom-in duration-200"
+            className="bg-white w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl max-h-[80vh] lg:max-h-[75vh] xl:max-h-[80vh] overflow-y-auto shadow-2xl relative rounded-2xl animate-in fade-in zoom-in duration-200"
             onClick={(e) => e.stopPropagation()} 
           >
             {/* Image with gradient overlay + title */}
@@ -292,30 +292,30 @@ export default function Portfolio() {
                 ✕
               </button>
               {/* Title overlaid at bottom of image */}
-              <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-8 py-5">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight drop-shadow-lg">
+              <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-6 lg:px-5 xl:px-8 py-3 lg:py-3 xl:py-5">
+                <h2 className="text-lg sm:text-xl lg:text-xl xl:text-3xl font-bold text-white leading-tight drop-shadow-lg">
                   {selectedProject.title}
                 </h2>
               </div>
             </div>
 
             {/* Content */}
-            <div className="p-6 sm:p-8 flex flex-col gap-6 bg-white">
+            <div className="p-4 sm:p-6 lg:p-5 xl:p-8 flex flex-col gap-4 lg:gap-4 xl:gap-6 bg-white">
               {/* Role row */}
-              <div className="flex items-center gap-3 pb-5 border-b border-gray-100">
-                <div className="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center gap-3 pb-3 lg:pb-3 xl:pb-5 border-b border-gray-100">
+                <div className="w-8 h-8 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
                   <Briefcase className="w-4 h-4 text-red-900" />
                 </div>
                 <div>
                   <p className="text-xs text-gray-400 uppercase tracking-widest font-semibold">Role</p>
-                  <p className="text-sm sm:text-base font-semibold text-gray-800">{selectedProject.role}</p>
+                  <p className="text-xs lg:text-xs xl:text-base font-semibold text-gray-800">{selectedProject.role}</p>
                 </div>
               </div>
 
               {/* About */}
               <div>
                 <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">About</h4>
-                <p className="text-gray-600 leading-relaxed text-sm sm:text-base border-l-2 border-red-800/30 pl-4">
+                <p className="text-gray-600 leading-relaxed text-xs lg:text-xs xl:text-sm border-l-2 border-red-800/30 pl-4">
                   {selectedProject.description}
                 </p>
               </div>
@@ -329,7 +329,7 @@ export default function Portfolio() {
                     return (
                       <span
                         key={tool}
-                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 border text-xs sm:text-sm font-medium rounded-lg transition-opacity hover:opacity-80 ${s.bg} ${s.border} ${s.text}`}
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 lg:px-2.5 lg:py-1 xl:px-3 xl:py-1.5 border text-xs font-medium rounded-lg transition-opacity hover:opacity-80 ${s.bg} ${s.border} ${s.text}`}
                       >
                         <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${s.dot}`} />
                         {tool}
@@ -347,7 +347,7 @@ export default function Portfolio() {
                       href={selectedProject.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-3d flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-red-900 to-gray-900 text-white font-semibold text-sm sm:text-base py-3 rounded-xl hover:opacity-90 transition-opacity"
+                      className="btn-3d flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-red-900 to-gray-900 text-white font-semibold text-xs lg:text-xs xl:text-sm py-2.5 lg:py-2.5 xl:py-3 rounded-xl hover:opacity-90 transition-opacity"
                     >
                       <ExternalLink className="w-4 h-4" />
                       View Live Project
@@ -358,7 +358,7 @@ export default function Portfolio() {
                       href={selectedProject.figmaUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-3d-gray flex-1 flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 text-gray-800 font-semibold text-sm sm:text-base py-3 rounded-xl hover:bg-gray-100 transition-colors"
+                      className="btn-3d-gray flex-1 flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 text-gray-800 font-semibold text-xs lg:text-xs xl:text-sm py-2.5 lg:py-2.5 xl:py-3 rounded-xl hover:bg-gray-100 transition-colors"
                     >
                       <Figma className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       View in Figma

@@ -34,36 +34,37 @@ export default function Footer() {
       );
     }, footerEl);
 
-    return () => ctx.revert();
+    const timer = setTimeout(() => ScrollTrigger.refresh(), 300);
+    return () => { ctx.revert(); clearTimeout(timer); };
   }, []);
 
   useEffect(() => {
     const spacerEl = document.querySelector("#footer-reveal");
     if (!spacerEl) return;
 
-    const st = ScrollTrigger.create({
-      trigger: spacerEl,
-      start: "top 40%",
-      end: "bottom bottom",
-      onEnter: () => {
-        setBlurActive(true);
-        setBlurKey((k) => k + 1);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setBlurActive(true);
+            setBlurKey((k) => k + 1);
+          } else {
+            setBlurActive(false);
+          }
+        });
       },
-      onEnterBack: () => {
-        setBlurActive(true);
-        setBlurKey((k) => k + 1);
-      },
-      onLeaveBack: () => setBlurActive(false),
-    });
+      { threshold: 0.05 }
+    );
 
-    return () => st.kill();
+    observer.observe(spacerEl);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <>
       <footer
         ref={footerRef}
-        className="footer footer-horizontal footer-center fixed bottom-0 left-0 z-0 w-full h-[144px] sm:h-[280px] md:h-[320px] overflow-hidden bg-gradient-to-b from-gray-900 via-black to-gray-900 text-primary-content"
+        className="footer footer-horizontal footer-center fixed bottom-0 left-0 z-0 w-full h-[144px] sm:h-[280px] md:h-[300px] lg:h-[240px] xl:h-[280px] 2xl:h-[320px] overflow-hidden bg-gradient-to-b from-gray-900 via-black to-gray-900 text-primary-content"
       >
         <div
           aria-hidden="true"
@@ -71,7 +72,7 @@ export default function Footer() {
         >
           <div
             ref={bgTextRef}
-            className="select-none tracking-tight leading-none text-[9vw] sm:text-[14vw] md:text-[11vw] lg:text-[8vw] [font-family:Montserrat] [font-weight:900] text-white/20"
+            className="select-none tracking-tight leading-none whitespace-nowrap text-[8vw] sm:text-[10vw] md:text-[9vw] lg:text-[7vw] xl:text-[6.5vw] [font-family:Montserrat] [font-weight:900] text-white/20"
           >
             <BlurText
               key={blurKey}
@@ -85,14 +86,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="relative z-10 w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-10">
-          <aside className="flex flex-col items-center space-y-3">
+        <div className="relative z-10 w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-6 xl:p-10">
+          <aside className="flex flex-col items-center space-y-2 lg:space-y-3">
             <img
               src="/footer-2.png"
               alt="Logo"
-              className="h-8 w-8 sm:h-20 sm:w-20 md:h-25 md:w-25 object-contain"
+              className="h-8 w-8 sm:h-14 sm:w-14 lg:h-14 lg:w-14 xl:h-20 xl:w-20 2xl:h-24 2xl:w-24 object-contain"
             />
-            <p className="text-center text-white text-xs sm:text-sm md:text-base">
+            <p className="text-center text-white text-xs sm:text-xs lg:text-xs xl:text-sm 2xl:text-base">
               Copyright © {new Date().getFullYear()} - All rights reserved
             </p>
           </aside>

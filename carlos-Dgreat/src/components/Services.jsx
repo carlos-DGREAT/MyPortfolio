@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import SplitText from './ui/SplitText';
 
 export default function Services() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,16 +50,7 @@ export default function Services() {
       >
         {/* Title */}
         <div className="text-center justify-center text-white">
-          <SplitText
-            text="What I can provide?"
-            tag="p"
-            className="text-xl lg:text-2xl xl:text-3xl font-bold"
-            splitType="chars"
-            delay={40}
-            duration={0.6}
-            from={{ opacity: 0, y: 20 }}
-            to={{ opacity: 1, y: 0 }}
-          />
+          <p className="text-xl lg:text-2xl xl:text-3xl font-bold">What I can provide?</p>
           <hr className="bg-primary my-3 border-2 w-[220px] mx-auto" />
         </div>
 

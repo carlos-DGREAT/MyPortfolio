@@ -1,12 +1,6 @@
 import { Mail, Phone, MapPin, Send, CheckCircle, X, ThumbsUp, User, AtSign, MessageSquare } from "lucide-react";
-import { useRef } from "react";
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import ShinyText from './ui/ShinyText';
 import { useContactForm, LIMITS } from '../hooks/useContactForm';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const {
@@ -27,31 +21,6 @@ export default function Contact() {
     fieldCls,
   } = useContactForm();
 
-  const headerRef   = useRef(null);
-  const leftColRef  = useRef(null);
-  const rightColRef = useRef(null);
-
-  useGSAP(() => {
-    const once = { toggleActions: 'play none none reset' };
-
-    gsap.fromTo(Array.from(headerRef.current?.children ?? []),
-      { opacity: 0, y: 40, filter: 'blur(4px)' },
-      { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.0, ease: 'power3.out', stagger: 0.2,
-        clearProps: 'filter,transform,opacity',
-        scrollTrigger: { trigger: headerRef.current, start: 'top bottom-=8%', ...once } });
-
-    gsap.fromTo(leftColRef.current,
-      { opacity: 0, x: -70, filter: 'blur(6px)' },
-      { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.1, ease: 'power3.out',
-        clearProps: 'filter,transform,opacity',
-        scrollTrigger: { trigger: leftColRef.current, start: 'top bottom-=5%', ...once } });
-
-    gsap.fromTo(rightColRef.current,
-      { opacity: 0, x: 70, filter: 'blur(6px)' },
-      { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.1, ease: 'power3.out', delay: 0.15,
-        clearProps: 'filter,transform,opacity',
-        scrollTrigger: { trigger: rightColRef.current, start: 'top bottom-=5%', ...once } });
-  }, {});
 
   return (
     <>
@@ -166,7 +135,7 @@ export default function Contact() {
       )}
 
       {/* ── Main Section ── */}
-      <section className="relative pt-12 sm:pt-16 md:pt-20 pb-16 sm:pb-24 md:pb-32 overflow-hidden bg-scroll md:bg-fixed" style={{ backgroundImage: "url('/backdrop.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+      <section className="relative pt-10 sm:pt-14 lg:pt-12 xl:pt-20 pb-12 sm:pb-20 lg:pb-16 xl:pb-32 overflow-hidden bg-scroll md:bg-fixed" style={{ backgroundImage: "url('/backdrop.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
 
         {/* Background Effects */}
         <div className="absolute inset-0 pointer-events-none">
@@ -178,14 +147,14 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           {/* Section Header */}
-          <div ref={headerRef} className="text-center mb-8 sm:mb-16">
+          <div className="text-center mb-6 lg:mb-8 xl:mb-14">
             <span className="inline-block px-4 py-2 bg-red-900/10 text-red-900 rounded-full text-sm font-semibold mb-4">
               Get In Touch
             </span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4 py-2 leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-3xl xl:text-5xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4 py-2 leading-tight">
               Let's Work Together
             </h2>
-            <p className="text-base sm:text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base lg:text-sm xl:text-xl text-gray-600 max-w-2xl mx-auto">
               Have a project in mind? I'd love to hear about it. Let's discuss how we can bring your ideas to life.
             </p>
           </div>
@@ -193,51 +162,51 @@ export default function Contact() {
           <div className="grid md:grid-cols-2 gap-8 items-stretch">
 
             {/* LEFT COLUMN */}
-            <div ref={leftColRef} className="bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300 h-full">
-              <div className="p-5 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-5 sm:mb-8">Contact Information</h3>
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300 h-full">
+              <div className="p-4 sm:p-6 lg:p-5 xl:p-8">
+                <h3 className="text-lg sm:text-xl lg:text-lg xl:text-2xl font-semibold text-gray-800 mb-4 lg:mb-4 xl:mb-8">Contact Information</h3>
 
-                <div className="space-y-5 sm:space-y-8">
+                <div className="space-y-4 sm:space-y-6 lg:space-y-4 xl:space-y-8">
                   {/* Phone */}
-                  <div className="flex items-start gap-3 sm:gap-5">
-                    <div className="flex-shrink-0 w-11 h-11 sm:w-14 sm:h-14 bg-black/10 rounded-xl flex items-center justify-center">
-                      <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-10 h-10 lg:w-10 lg:h-10 xl:w-13 xl:h-13 bg-black/10 rounded-xl flex items-center justify-center">
+                      <Phone className="w-4 h-4 lg:w-4 lg:h-4 xl:w-6 xl:h-6 text-black" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500 mb-1">Phone</p>
-                      <a href="tel:+639485942455" className="text-base sm:text-lg text-gray-800 font-medium hover:text-black transition-colors">
+                      <p className="text-xs lg:text-xs xl:text-sm text-gray-500 mb-1">Phone</p>
+                      <a href="tel:+639485942455" className="text-sm lg:text-sm xl:text-lg text-gray-800 font-medium hover:text-black transition-colors">
                         +63 948 594-2455
                       </a>
                     </div>
                   </div>
 
                   {/* Email */}
-                  <div className="flex items-start gap-3 sm:gap-5">
-                    <div className="flex-shrink-0 w-11 h-11 sm:w-14 sm:h-14 bg-black/10 rounded-xl flex items-center justify-center">
-                      <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-10 h-10 lg:w-10 lg:h-10 xl:w-13 xl:h-13 bg-black/10 rounded-xl flex items-center justify-center">
+                      <Mail className="w-4 h-4 lg:w-4 lg:h-4 xl:w-6 xl:h-6 text-black" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm text-gray-500 mb-1">Email</p>
-                      <a href="mailto:openacarlos@gmail.com" className="text-base sm:text-lg text-gray-800 font-medium hover:text-black transition-colors break-all">
+                      <p className="text-xs lg:text-xs xl:text-sm text-gray-500 mb-1">Email</p>
+                      <a href="mailto:openacarlos@gmail.com" className="text-sm lg:text-sm xl:text-lg text-gray-800 font-medium hover:text-black transition-colors break-all">
                         openacarlos@gmail.com
                       </a>
                     </div>
                   </div>
 
                   {/* Location */}
-                  <div className="flex items-start gap-3 sm:gap-5">
-                    <div className="flex-shrink-0 w-11 h-11 sm:w-14 sm:h-14 bg-black/10 rounded-xl flex items-center justify-center">
-                      <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-10 h-10 lg:w-10 lg:h-10 xl:w-13 xl:h-13 bg-black/10 rounded-xl flex items-center justify-center">
+                      <MapPin className="w-4 h-4 lg:w-4 lg:h-4 xl:w-6 xl:h-6 text-black" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500 mb-1">Location</p>
-                      <p className="text-base sm:text-lg text-gray-800 font-medium">Baguio City, Philippines</p>
+                      <p className="text-xs lg:text-xs xl:text-sm text-gray-500 mb-1">Location</p>
+                      <p className="text-sm lg:text-sm xl:text-lg text-gray-800 font-medium">Baguio City, Philippines</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Availability */}
-                <div className="mt-6 sm:mt-10 pt-4 sm:pt-6 border-t border-gray-100">
+                <div className="mt-4 lg:mt-5 xl:mt-10 pt-3 lg:pt-4 xl:pt-6 border-t border-gray-100">
                   <div className="flex items-center gap-3">
                     <div className="relative">
                       <div className="w-3 h-3 bg-green-500 rounded-full"></div>
@@ -254,18 +223,18 @@ export default function Contact() {
             </div>
 
             {/* RIGHT COLUMN */}
-            <div ref={rightColRef} className="bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300 h-full">
-              <div className="p-5 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2">Send a Message</h3>
-                <p className="text-sm sm:text-base text-gray-500 mb-4 sm:mb-6">Fill out the form below and I'll get back to you shortly.</p>
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300 h-full">
+              <div className="p-4 sm:p-6 lg:p-5 xl:p-8">
+                <h3 className="text-lg sm:text-xl lg:text-lg xl:text-2xl font-semibold text-gray-800 mb-2">Send a Message</h3>
+                <p className="text-xs sm:text-sm lg:text-xs xl:text-base text-gray-500 mb-3 lg:mb-3 xl:mb-6">Fill out the form below and I'll get back to you shortly.</p>
 
-                <form ref={formRef} onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
+                <form ref={formRef} onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-3 lg:space-y-3 xl:space-y-5">
 
                   {/* Name + Email row */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-3 xl:gap-4">
                     {/* Full Name */}
                     <div>
-                      <label className="block text-sm font-medium text-gray-600 mb-1.5">
+                      <label className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
                         Full Name <span className="text-gray-400 font-normal text-xs">*</span>
                       </label>
                       <input
@@ -282,7 +251,7 @@ export default function Contact() {
 
                     {/* Email */}
                     <div>
-                      <label className="block text-sm font-medium text-gray-600 mb-1.5">
+                      <label className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
                         Email <span className="text-gray-400 font-normal text-xs">*</span>
                       </label>
                       <input
@@ -300,7 +269,7 @@ export default function Contact() {
 
                   {/* Subject */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-600 mb-1.5">
+                    <label className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
                       Subject <span className="text-gray-400 font-normal text-xs">*</span>
                     </label>
                     <input
@@ -317,11 +286,11 @@ export default function Contact() {
 
                   {/* Message */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-600 mb-1.5">
+                    <label className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
                       Message <span className="text-gray-400 font-normal text-xs">*</span>
                     </label>
                     <textarea
-                      rows="4"
+                      rows="3"
                       maxLength={LIMITS.message}
                       placeholder="Tell me about your project..."
                       className={`${fieldCls('message')} resize-none`}
@@ -345,7 +314,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={isDisabled}
-                    className={`btn-3d w-full px-6 py-4 bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-lg font-semibold flex items-center justify-center gap-2 group ${isDisabled ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    className={`btn-3d w-full px-6 py-3 lg:py-2.5 xl:py-4 bg-gradient-to-r from-black to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white rounded-lg font-semibold text-sm lg:text-xs xl:text-sm flex items-center justify-center gap-2 group ${isDisabled ? 'opacity-70 cursor-not-allowed' : ''}`}
                   >
                     {isLoading ? (
                       <>
