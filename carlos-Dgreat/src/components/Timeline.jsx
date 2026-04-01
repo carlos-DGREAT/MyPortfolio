@@ -45,9 +45,9 @@ export default function Timeline() {
 
   return (
 
-    <div className="max-w-6xl mx-auto px-4 py-12 sm:py-16 md:py-20">
+    <div className="max-w-6xl mx-auto px-4 py-10 sm:py-12 lg:py-12 xl:py-16 2xl:py-20">
 
-      <p ref={titleRef} className="text-center text-2xl sm:text-3xl md:text-4xl font-bold my-8 sm:my-10 md:my-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">My Timeline</p>
+      <p ref={titleRef} className="text-center text-2xl lg:text-3xl xl:text-4xl font-bold my-6 sm:my-8 lg:my-8 xl:my-12 2xl:my-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">My Timeline</p>
 
       <div className="flex flex-col md:flex-row w-full gap-10">
 
@@ -55,7 +55,7 @@ export default function Timeline() {
 
         <div className="flex-1 text-center">
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 pb-5 sm:pb-8 md:pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Experience</h2>
+          <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 pb-4 lg:pb-5 xl:pb-8 2xl:pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Experience</h2>
 
           <div ref={expRef} className="space-y-5">
 
@@ -109,13 +109,13 @@ export default function Timeline() {
 
                 key={idx}
 
-                className="tl-card max-w-md w-full min-h-[148px] sm:min-h-[178px] bg-base-100 p-4 sm:p-6 shadow rounded border border-base-content/10 mx-auto text-left"
+                className="tl-card max-w-md w-full lg:min-h-[130px] xl:min-h-[155px] bg-base-100 p-4 lg:p-4 xl:p-5 shadow rounded border border-base-content/10 mx-auto text-left"
 
               >
 
                 <div className="flex items-start gap-3">
 
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center">
+                  <div className="w-10 h-10 lg:w-9 lg:h-9 xl:w-11 xl:h-11 flex-shrink-0 flex items-center justify-center">
 
                     <img
 
@@ -131,9 +131,9 @@ export default function Timeline() {
 
                   <div className="text-sm space-y-1 flex-1">
 
-                    <p className="font-semibold text-lg text-black">{exp.title}</p>
+                    <p className="font-semibold text-base lg:text-base xl:text-lg text-black">{exp.title}</p>
 
-                    <p className="text-base">{exp.company}</p>
+                    <p className="text-sm lg:text-sm xl:text-base">{exp.company}</p>
 
                     <p>{exp.date}</p>
 
@@ -157,7 +157,7 @@ export default function Timeline() {
 
         <div className="flex-1 text-center">
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 pb-5 sm:pb-8 md:pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Education</h2>
+          <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 pb-4 lg:pb-5 xl:pb-8 2xl:pb-10 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Education</h2>
 
           <div ref={eduRef} className="space-y-5">
 
@@ -211,13 +211,13 @@ export default function Timeline() {
 
                 key={idx}
 
-                className="tl-card max-w-md w-full min-h-[148px] sm:min-h-[178px] bg-base-100 p-4 sm:p-6 shadow rounded border border-base-content/10 mx-auto text-left"
+                className="tl-card max-w-md w-full lg:min-h-[130px] xl:min-h-[155px] bg-base-100 p-4 lg:p-4 xl:p-5 shadow rounded border border-base-content/10 mx-auto text-left"
 
               >
 
                 <div className="flex items-start gap-3">
 
-                  <div className={`${item.logoSize} flex-shrink-0 flex items-center justify-center`}>
+                  <div className={`${item.logoSize} lg:w-9 lg:h-9 xl:w-10 xl:h-10 flex-shrink-0 flex items-center justify-center`}>
 
                     <img
 
@@ -233,9 +233,9 @@ export default function Timeline() {
 
                   <div className="text-sm space-y-1 flex-1">
 
-                    <p className="font-semibold text-lg text-black">{item.title}</p>
+                    <p className="font-semibold text-base lg:text-base xl:text-lg text-black">{item.title}</p>
 
-                    <p className="text-base">{item.desc}</p>
+                    <p className="text-sm lg:text-sm xl:text-base">{item.desc}</p>
 
                     <p className="mt-5">{item.date}</p>
 

@@ -68,22 +68,22 @@ export default function AboutMe() {
       />
       <div className="absolute inset-0 bg-white/70 pointer-events-none" />
       {/* ABOUT ME Section */}
-      <div className="relative flex justify-center w-full py-8 sm:py-12 md:py-16">
+      <div className="relative flex justify-center w-full pt-8 sm:pt-12 lg:pt-10 xl:pt-14 pb-2 lg:pb-2 xl:pb-4">
         <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-4 sm:gap-8 md:gap-10 px-4 md:px-6">
-          <div className="w-full md:w-1/2 flex items-center justify-center p-3 sm:p-6 order-2 md:order-1" ref={aboutImgRef}>
+          <div className="w-full md:w-1/2 flex items-center justify-center p-3 lg:p-4 xl:p-6 order-2 md:order-1" ref={aboutImgRef}>
               <img
                 src="/About-me1.png"
                 alt="About Me"
-                className="w-full"
+                className="w-full max-w-sm lg:max-w-[340px] xl:max-w-sm 2xl:max-w-md"
               />
           </div>
 
           {/* Text Right (desktop), always first on mobile/tablet */}
-          <div ref={aboutTextRef} className="w-full md:w-1/2 flex flex-col justify-center p-4 sm:p-6 md:p-8 text-gray-900 order-1 md:order-2">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent leading-tight">
+          <div ref={aboutTextRef} className="w-full md:w-1/2 flex flex-col justify-center p-4 sm:p-5 lg:p-5 xl:p-8 text-gray-900 order-1 md:order-2">
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-4 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent leading-tight">
               ABOUT ME
             </h2>
-            <p className="text-base sm:text-lg leading-relaxed max-w-2xl">
+            <p className="text-base lg:text-sm xl:text-base leading-relaxed max-w-2xl">
               Hi, I’m Carlos Opena, a Web Developer specializing in responsive and user-friendly websites. I’m passionate about improving my skills and working toward becoming a Software Engineer. I create websites and applications that are reliable, efficient, and easy to use.
             </p>
           </div>
@@ -91,13 +91,13 @@ export default function AboutMe() {
       </div>
 
       {/* GOALS Section */}
-      <div className="relative flex justify-center w-full pt-4 sm:pt-8 md:pt-12 pb-0">
+      <div className="relative flex justify-center w-full pt-4 sm:pt-6 lg:pt-4 xl:pt-6 pb-8 sm:pb-12 lg:pb-10 xl:pb-14">
         <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-4 sm:gap-8 md:gap-10 px-4 md:px-6">
-          <div ref={goalsTextRef} className="w-full md:w-1/2 flex flex-col justify-center p-4 sm:p-6 md:p-8 text-gray-900 order-1">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent leading-tight">
+          <div ref={goalsTextRef} className="w-full md:w-1/2 flex flex-col justify-center p-4 sm:p-5 lg:p-5 xl:p-8 text-gray-900 order-1">
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-4 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent leading-tight">
               GOALS
             </h2>
-            <p className="text-base sm:text-lg leading-relaxed max-w-2xl">
+            <p className="text-base lg:text-sm xl:text-base leading-relaxed max-w-2xl">
               I help bring your ideas to life by building websites and applications that are reliable, efficient, and easy to use. I focus on understanding your needs and delivering results that achieve your objectives and meet user expectations.
             </p>
           </div>
@@ -105,7 +105,7 @@ export default function AboutMe() {
                 <img
                   src="/Goals-3.png"
                   alt="Goals"
-                  className="mx-auto w-full h-auto object-contain max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl"
+                  className="mx-auto w-full h-auto object-contain max-w-sm sm:max-w-md lg:max-w-[360px] xl:max-w-md 2xl:max-w-lg"
                 />
             </div>
         </div>

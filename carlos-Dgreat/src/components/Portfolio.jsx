@@ -8,8 +8,22 @@ import BorderGlow from './ui/BorderGlow';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const getInitialCount = () => {
+  if (typeof window === 'undefined') return 6;
+  if (window.innerWidth < 768) return 3;
+  if (window.innerWidth < 1024) return 4;
+  return 6;
+};
+
 export default function Portfolio() {
   const [showAll, setShowAll] = useState(false);
+  const [initialCount, setInitialCount] = useState(getInitialCount);
+
+  useEffect(() => {
+    const handleResize = () => setInitialCount(getInitialCount());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const portfolioItems = [
     {
@@ -103,7 +117,7 @@ export default function Portfolio() {
   ];
 
   // Show only first 6 items unless 'showAll' is true
-  const displayedItems = showAll ? portfolioItems : portfolioItems.slice(0, 6);
+  const displayedItems = showAll ? portfolioItems : portfolioItems.slice(0, initialCount);
 
   // Modal State
   const [selectedProject, setSelectedProject] = useState(null);
@@ -183,16 +197,16 @@ export default function Portfolio() {
   return (
     <div className="relative flex flex-col w-full" >
       {/* Title */}
-      <div className="relative flex justify-center w-full py-16">
-        <div className="flex flex-col w-full max-w-6xl mx-auto px-4 md:px-6">
+      <div className="relative flex justify-center w-full py-10 lg:py-12 xl:py-16">
+        <div className="flex flex-col w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8 xl:px-10">
           <FadeIn className="text-center mb-10">
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4">
               My Recent Projects
             </h2>
           </FadeIn>
 
           {/* Grid */}
-          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full" style={{ perspective: '1200px' }}>
+          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-6 xl:gap-10 max-w-7xl w-full" style={{ perspective: '1200px' }}>
         {displayedItems.map((item) => (
           <div
             key={item.id}
@@ -210,7 +224,7 @@ export default function Portfolio() {
             >
               <div className="flex flex-col h-full">
                 {/* Image */}
-                <div className="h-64 overflow-hidden relative bg-gray-100 rounded-t-xl">
+                <div className="h-48 lg:h-44 xl:h-56 2xl:h-64 overflow-hidden relative bg-gray-100 rounded-t-xl">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -221,8 +235,8 @@ export default function Portfolio() {
                   </div>
                 </div>
                 {/* Content */}
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold mt-3 text-gray-900 group-hover:text-red-900 transition-colors">
+                <div className="p-4 lg:p-4 xl:p-6 flex-1 flex flex-col">
+                  <h3 className="text-base lg:text-base xl:text-xl font-bold mt-2 xl:mt-3 text-gray-900 group-hover:text-red-900 transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-gray-600 mt-2 line-clamp-3 text-sm flex-1">
@@ -236,7 +250,7 @@ export default function Portfolio() {
       </div>
 
       {/* See More Button */}
-      {portfolioItems.length > 6 && (
+      {portfolioItems.length > initialCount && (
         <div className="mt-10 flex justify-center">
           <button
             onClick={() => setShowAll(!showAll)}

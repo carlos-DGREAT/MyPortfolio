@@ -110,12 +110,12 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
   }
 
   return (
-    <div className="w-full max-w-7xl mx-auto py-8 sm:py-12 md:py-16">
+    <div className="w-full max-w-7xl mx-auto py-8 sm:py-12 lg:py-10 xl:py-14">
       <FadeIn className="mb-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Github className="w-6 h-6 text-red-900" />
-            <h2 className="text-xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">
+            <h2 className="text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">
               GitHub Contributions
             </h2>
           </div>
@@ -139,7 +139,7 @@ export default function GitHubContributions2026({ username = 'Carlos-Opena' }) {
 
       <FadeIn delay={0.2}>
         <StarBorder as="div" color="#f87171" speed={8} borderWidth={1.5} className="rounded-xl w-full" innerClassName="bg-white rounded-xl shadow-lg">
-        <div className="p-3 sm:p-6">
+        <div className="p-3 lg:p-4 xl:p-6">
           <div className="flex flex-col items-center">
             {/* GitHub Contributions Chart */}
             <div className="w-full overflow-x-auto">

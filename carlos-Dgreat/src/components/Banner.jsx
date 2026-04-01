@@ -75,15 +75,15 @@ export default function Banner({ isLoaded = false }) {
       <div className="relative z-10 flex flex-col lg:flex-row w-full">
         
         {/* Left div */}
-        <div className="flex-1 flex flex-col justify-center items-center text-center lg:items-start lg:text-left text-black px-6 sm:px-10 md:px-16 lg:pl-20 xl:pl-40 pt-24 pb-10 lg:py-10">
-          <div ref={helloRef} className="text-2xl sm:text-3xl font-bold font-body mb-2">
-            <SplitText text="Hi, I'm Carlos" className="text-2xl sm:text-3xl font-bold" delay={50} />
+        <div className="flex-1 flex flex-col justify-center items-center text-center lg:items-start lg:text-left text-black px-6 sm:px-10 md:px-16 lg:pl-14 xl:pl-24 2xl:pl-40 pt-24 pb-10 lg:py-10">
+          <div ref={helloRef} className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-bold font-body mb-2">
+            <SplitText text="Hi, I'm Carlos" className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-bold" delay={50} />
           </div>
           <div ref={gradientRef} className="mb-4">
             <GradientText
               colors={['#7f1d1d', '#f87171', '#6b7280', '#1f2937', '#7f1d1d']}
               animationSpeed={6}
-              className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mx-0"
+              className="text-3xl sm:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight mx-0"
             >
               Full stack Developer + Web Designer
             </GradientText>
@@ -92,7 +92,7 @@ export default function Banner({ isLoaded = false }) {
           <div ref={btnsRef} className="flex flex-col min-[600px]:flex-row gap-4 mt-2">
             <a
               href="#contact"
-              className="btn-3d px-6 py-2 border border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded font-bold text-center group"
+              className="btn-3d px-4 py-1.5 lg:px-5 lg:py-2 xl:px-6 xl:py-2.5 text-sm xl:text-base border border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded font-bold text-center group"
             >
               <span className="relative inline-block">
                 <span className="block transition-opacity duration-200 group-hover:opacity-0">
@@ -104,7 +104,7 @@ export default function Banner({ isLoaded = false }) {
               </span>
             </a>
             
-            <button className="btn-3d px-6 py-2 border w-fit border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded group font-bold">
+            <button className="btn-3d px-4 py-1.5 lg:px-5 lg:py-2 xl:px-6 xl:py-2.5 text-sm xl:text-base border w-fit border-red-900 text-red-900 bg-gradient-to-r from-transparent to-transparent hover:from-red-900 hover:to-gray-800 hover:text-white hover:border-transparent rounded group font-bold">
               <span className="relative inline-block">
                 <span className="block transition-opacity duration-200 group-hover:opacity-0">
                   <ShinyText text="Download CV" disabled={false} speed={3} baseColor="#7f1d1d" shineColor="#fca5a5" />
@@ -123,7 +123,7 @@ export default function Banner({ isLoaded = false }) {
             src="/Profile 1.png"
             alt="profile"
             ref={profileRef}
-            className="h-[80vh] xl:h-[90vh] 2xl:h-[95vh] object-cover z-10 absolute bottom-0 right-10 xl:right-20 2xl:right-24"
+            className="h-[76vh] lg:h-[78vh] xl:h-[83vh] 2xl:h-[90vh] w-auto max-w-[46vw] object-contain object-bottom z-10 absolute bottom-0 right-6 xl:right-10 2xl:right-24"
           />
         </div>
       </div>
