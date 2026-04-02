@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { ChevronDown, ChevronUp, Link as LinkIcon, Figma, ExternalLink, Briefcase } from 'lucide-react';
+import { ChevronDown, ChevronUp, Link as LinkIcon, Figma, ExternalLink, Briefcase, BookOpen } from 'lucide-react';
 import FadeIn from './ui/FadeIn';
 import BorderGlow from './ui/BorderGlow';
 
@@ -74,6 +74,7 @@ export default function Portfolio() {
       tools: ["NextJS", "Tailwind", "Postgres DB", "Node", "TypeScript", "Figma"],
       deliverables: ["Reservation UI", "Admin dashboard", "API integration"],
       liveUrl: "https://denr-car-reservation.vercel.app/",
+      manualUrl: "#",
       imageFit: "cover",
     },
     {
@@ -87,6 +88,7 @@ export default function Portfolio() {
       tools: ["Python", "Flask", "TensorFlow", "React", "TypeScript", "Figma"],
       deliverables: ["Model integration", "Inference UI", "Performance report"],
       figmaUrl: "#",
+      manualUrl: "#",
       imageFit: "cover",
     },
     {
@@ -121,6 +123,24 @@ export default function Portfolio() {
 
   // Modal State
   const [selectedProject, setSelectedProject] = useState(null);
+
+  useEffect(() => {
+    if (selectedProject) {
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
+    } else {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    };
+  }, [selectedProject]);
 
   // Card animation refs
   const gridRef = useRef(null);
@@ -273,7 +293,7 @@ export default function Portfolio() {
           
           {/* Modal Content */}
           <div 
-            className="bg-white w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl max-h-[80vh] lg:max-h-[75vh] xl:max-h-[80vh] overflow-y-auto shadow-2xl relative rounded-2xl animate-in fade-in zoom-in duration-200"
+            className="bg-white w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl max-h-[80vh] lg:max-h-[75vh] xl:max-h-[80vh] overflow-y-auto overscroll-contain shadow-2xl relative rounded-2xl animate-in fade-in zoom-in duration-200"
             onClick={(e) => e.stopPropagation()} 
           >
             {/* Image with gradient overlay + title */}
@@ -341,7 +361,7 @@ export default function Portfolio() {
               </div>
 
               {/* Buttons */}
-              {(selectedProject.liveUrl || selectedProject.figmaUrl) && (
+              {(selectedProject.liveUrl || selectedProject.figmaUrl || selectedProject.manualUrl) && (
                 <div className="flex flex-col sm:flex-row gap-3 pt-2 border-t border-gray-100">
                   {selectedProject.liveUrl && (
                     <a
@@ -363,6 +383,17 @@ export default function Portfolio() {
                     >
                       <Figma className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       View in Figma
+                    </a>
+                  )}
+                  {selectedProject.manualUrl && (
+                    <a
+                      href={selectedProject.manualUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-3d-gray flex-1 flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 text-gray-800 font-semibold text-xs lg:text-xs xl:text-sm py-2.5 lg:py-2.5 xl:py-3 rounded-xl hover:bg-gray-100 transition-colors"
+                    >
+                      <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      Manual Documentation
                     </a>
                   )}
                 </div>

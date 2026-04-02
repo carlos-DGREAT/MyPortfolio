@@ -22,7 +22,7 @@ export default function Timeline() {
     gsap.fromTo(titleRef.current,
       { opacity: 0, y: 35, filter: 'blur(4px)' },
       { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.1, ease: 'power3.out', clearProps: 'filter,transform,opacity',
-        scrollTrigger: { trigger: titleRef.current, start: 'top bottom-=10%', toggleActions: 'play none none reset' } });
+        scrollTrigger: { trigger: titleRef.current, start: 'top bottom', toggleActions: 'play none none reset' } });
 
     const expCards = expRef.current?.querySelectorAll('.tl-card');
     if (expCards?.length) {
@@ -30,7 +30,7 @@ export default function Timeline() {
         { opacity: 0, x: -65, filter: 'blur(4px)' },
         { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.0, ease: 'power3.out', stagger: 0.22,
           clearProps: 'filter,transform,opacity',
-          scrollTrigger: { trigger: expRef.current, start: 'top bottom-=5%', toggleActions: 'play none none reset' } });
+          scrollTrigger: { trigger: expRef.current, start: 'top bottom', toggleActions: 'play none none reset' } });
     }
 
     const eduCards = eduRef.current?.querySelectorAll('.tl-card');
@@ -39,7 +39,7 @@ export default function Timeline() {
         { opacity: 0, x: 65, filter: 'blur(4px)' },
         { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.0, ease: 'power3.out', stagger: 0.22,
           clearProps: 'filter,transform,opacity',
-          scrollTrigger: { trigger: eduRef.current, start: 'top bottom-=5%', toggleActions: 'play none none reset' } });
+          scrollTrigger: { trigger: eduRef.current, start: 'top bottom', toggleActions: 'play none none reset' } });
     }
   }, {});
 

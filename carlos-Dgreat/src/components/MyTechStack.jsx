@@ -13,7 +13,7 @@ export default function MyTechStack() {
     gsap.fromTo(titleRef.current,
       { opacity: 0, y: 35, filter: 'blur(4px)' },
       { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.0, ease: 'power3.out', clearProps: 'filter,transform,opacity',
-        scrollTrigger: { trigger: titleRef.current, start: 'top bottom-=10%', toggleActions: 'play none none reset' } });
+        scrollTrigger: { trigger: titleRef.current, start: 'top bottom', toggleActions: 'play none none reset' } });
 
     const icons = iconsRef.current?.querySelectorAll(':scope > div');
     if (icons?.length) {
@@ -21,7 +21,7 @@ export default function MyTechStack() {
         { opacity: 0, y: 45, scale: 0.65 },
         { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'back.out(1.8)',
           stagger: { amount: 1.8, from: 'start' }, clearProps: 'transform,opacity',
-          scrollTrigger: { trigger: iconsRef.current, start: 'top bottom-=5%', toggleActions: 'play none none reset' } });
+          scrollTrigger: { trigger: iconsRef.current, start: 'top bottom', toggleActions: 'play none none reset' } });
     }
   }, {});
   const allTechs = [

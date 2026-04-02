@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -13,7 +13,40 @@ export default function AboutMe() {
   const goalsTextRef = useRef(null);
   const goalsImgRef  = useRef(null);
 
+  const isLargePortrait = () =>
+    window.matchMedia('(orientation: portrait)').matches && window.innerWidth >= 1024;
+
+  const [isPortrait, setIsPortrait] = useState(() => isLargePortrait());
+
+  useEffect(() => {
+    const mq = window.matchMedia('(orientation: portrait)');
+    const handler = () => setIsPortrait(isLargePortrait());
+    mq.addEventListener('change', handler);
+    window.addEventListener('resize', handler);
+    return () => {
+      mq.removeEventListener('change', handler);
+      window.removeEventListener('resize', handler);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isPortrait) {
+      const elements = [
+        aboutImgRef.current,
+        ...(aboutTextRef.current ? Array.from(aboutTextRef.current.children) : []),
+        ...(goalsTextRef.current ? Array.from(goalsTextRef.current.children) : []),
+        goalsImgRef.current,
+      ].filter(Boolean);
+      gsap.killTweensOf(elements);
+      gsap.set(elements, { clearProps: 'all' });
+    } else {
+      ScrollTrigger.refresh();
+    }
+  }, [isPortrait]);
+
   useGSAP(() => {
+    if (window.matchMedia('(orientation: portrait)').matches && window.innerWidth >= 1024) return;
+
     // Parallax background — desktop only
     if (window.innerWidth >= 768) {
       gsap.to(bgRef.current, {
@@ -33,22 +66,22 @@ export default function AboutMe() {
     gsap.fromTo(aboutImgRef.current,
       { opacity: 0, x: -70, filter: 'blur(6px)' },
       { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.95, ease: 'power3.out', clearProps: 'filter,transform,opacity',
-        scrollTrigger: { trigger: aboutImgRef.current,  start: 'top bottom-=8%', ...cfg } });
+        scrollTrigger: { trigger: aboutImgRef.current,  start: 'top bottom', ...cfg } });
 
     gsap.fromTo(Array.from(aboutTextRef.current?.children ?? []),
       { opacity: 0, x: 70 },
       { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out', stagger: 0.15, clearProps: 'transform,opacity',
-        scrollTrigger: { trigger: aboutTextRef.current, start: 'top bottom-=8%', ...cfg } });
+        scrollTrigger: { trigger: aboutTextRef.current, start: 'top bottom', ...cfg } });
 
     gsap.fromTo(Array.from(goalsTextRef.current?.children ?? []),
       { opacity: 0, x: -70 },
       { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out', stagger: 0.15, clearProps: 'transform,opacity',
-        scrollTrigger: { trigger: goalsTextRef.current, start: 'top bottom-=8%', ...cfg } });
+        scrollTrigger: { trigger: goalsTextRef.current, start: 'top bottom', ...cfg } });
 
     gsap.fromTo(goalsImgRef.current,
       { opacity: 0, x: 70, filter: 'blur(6px)' },
       { opacity: 1, x: 0, filter: 'blur(0px)', duration: 0.95, ease: 'power3.out', clearProps: 'filter,transform,opacity',
-        scrollTrigger: { trigger: goalsImgRef.current,  start: 'top bottom-=8%', ...cfg } });
+        scrollTrigger: { trigger: goalsImgRef.current,  start: 'top bottom', ...cfg } });
   }, {});
 
   return (

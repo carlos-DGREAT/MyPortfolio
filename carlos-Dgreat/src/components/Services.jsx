@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Monitor, Server, Palette, Globe } from "lucide-react";
 
 const services = [
@@ -27,18 +27,27 @@ const services = [
 export default function Services() {
   const [scrolled, setScrolled] = useState(false);
   const [isWideScreen, setIsWideScreen] = useState(true);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsWideScreen(window.innerWidth > 1024);
-    };
-
     const handleScroll = () => {
-      if (isWideScreen) {
-        setScrolled(window.scrollY > 50);
+      const wide = window.innerWidth > 1024;
+      if (wide) {
+        if (window.scrollY > 50) {
+          setScrolled(true);
+        } else {
+          const rect = sectionRef.current?.getBoundingClientRect();
+          const sectionVisible = rect && rect.top < window.innerHeight && rect.bottom > 0;
+          setScrolled(!!sectionVisible);
+        }
       } else {
         setScrolled(false);
       }
+    };
+
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth > 1024);
+      handleScroll();
     };
 
     handleResize();
@@ -51,10 +60,10 @@ export default function Services() {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isWideScreen]);
+  }, []);
 
   return (
-    <div className="flex justify-center items-center w-full py-12 lg:py-14 xl:py-16 lg:min-h-[55vh] xl:min-h-[62vh] 2xl:min-h-[70vh] bg-gradient-to-b from-gray-900 via-black to-gray-900 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+    <div ref={sectionRef} className="flex justify-center items-center w-full py-12 lg:py-14 xl:py-16 lg:min-h-[55vh] xl:min-h-[62vh] 2xl:min-h-[70vh] portrait:lg:min-h-[380px] portrait:xl:min-h-[420px] portrait:2xl:min-h-[460px] bg-gradient-to-b from-gray-900 via-black to-gray-900 px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
       <div
         className={`z-10 w-full max-w-7xl px-6 sm:px-8 lg:px-10 xl:px-14 py-6 sm:py-10 lg:py-12 xl:py-16 transition-all duration-700 ease-out
           ${
