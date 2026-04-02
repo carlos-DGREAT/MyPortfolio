@@ -49,7 +49,10 @@ export default function MyTechStack() {
     <div className="w-full py-10 sm:py-12 lg:py-12 xl:py-16 2xl:py-20">
       <div className="flex justify-center">
         <div className="w-full max-w-6xl px-4">
-          <h2 ref={titleRef} className="text-center text-xl lg:text-2xl xl:text-3xl font-bold mb-6 sm:mb-8 lg:mb-8 xl:mb-12 2xl:mb-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Tech Stack & Proficiencies</h2>
+          <div ref={titleRef} className="text-center mb-6 sm:mb-8 lg:mb-8 xl:mb-12 2xl:mb-14">
+            <p className="text-xs font-bold tracking-[0.25em] uppercase text-red-900/70 mb-3">Tools & Skills</p>
+            <h2 className="text-xl lg:text-2xl xl:text-3xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">Tech Stack & Proficiencies</h2>
+          </div>
 
           <div ref={iconsRef} className="flex flex-wrap gap-3 sm:gap-4 lg:gap-4 xl:gap-6 justify-center">
             {allTechs.map((tech, idx) => (

@@ -200,7 +200,8 @@ export default function Portfolio() {
       <div className="relative flex justify-center w-full py-10 lg:py-12 xl:py-16">
         <div className="flex flex-col w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8 xl:px-10">
           <FadeIn className="text-center mb-10">
-            <h2 className="text-4xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4">
+            <p className="text-xs font-bold tracking-[0.25em] uppercase text-red-900/70 mb-3">Latest Projects</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4">
               My Recent Projects
             </h2>
           </FadeIn>

@@ -1,4 +1,28 @@
 import { useEffect, useState } from "react";
+import { Monitor, Server, Palette, Globe } from "lucide-react";
+
+const services = [
+  {
+    icon: Monitor,
+    title: "Frontend Development",
+    description: "Fast, responsive UIs built with React and Tailwind CSS that look great on any device.",
+  },
+  {
+    icon: Server,
+    title: "Backend Development",
+    description: "Reliable REST APIs and server logic with Node.js, Express, and PostgreSQL.",
+  },
+  {
+    icon: Palette,
+    title: "UI/UX Design",
+    description: "Clean, intuitive interfaces and Figma prototypes focused on real user experience.",
+  },
+  {
+    icon: Globe,
+    title: "Full-Stack Web Apps",
+    description: "End-to-end solutions from database to deployment — built to scale.",
+  },
+];
 
 export default function Services() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,7 +59,7 @@ export default function Services() {
         className={`z-10 w-full max-w-7xl px-6 sm:px-8 lg:px-10 xl:px-14 py-6 sm:py-10 lg:py-12 xl:py-16 transition-all duration-700 ease-out
           ${
             isWideScreen && scrolled
-              ? "lg:mt-[-14rem] xl:mt-[-18rem] 2xl:mt-[-22rem] opacity-100"
+              ? "lg:mt-[-10rem] xl:mt-[-13rem] 2xl:mt-[-17rem] opacity-100"
               : isWideScreen
               ? "mt-0 opacity-0"
               : "mt-0 opacity-100"
@@ -49,45 +73,36 @@ export default function Services() {
           shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]`}
       >
         {/* Title */}
-        <div className="text-center justify-center text-white">
-          <p className="text-xl lg:text-2xl xl:text-3xl font-bold">What I can provide?</p>
-          <hr className="bg-primary my-3 border-2 w-[220px] mx-auto" />
+        <div className="text-center text-white mb-8 sm:mb-10 lg:mb-12">
+          <p className="text-xs font-bold tracking-[0.25em] uppercase text-red-400/90 mb-3">What I Do</p>
+          <p className="text-xl lg:text-2xl xl:text-3xl font-bold tracking-tight">From Design to Deployment</p>
+          <div className="mt-4 mx-auto w-16 h-[2px] rounded-full bg-gradient-to-r from-transparent via-red-500/60 to-transparent" />
         </div>
 
         {/* Services Cards */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-6 sm:gap-10 lg:gap-8 xl:gap-12 2xl:gap-16 mt-8 sm:mt-12 lg:mt-14 xl:mt-16 text-white w-full">
-          {/* Card 1 */}
-          <div className="flex flex-col items-center text-center max-w-xs w-full group">
-            <img src="/icon-3.png" alt="icon1" className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] mb-4" />
-            <p className="relative font-semibold text-lg lg:text-xl xl:text-2xl py-2 sm:py-3 tracking-wide transition-all duration-300 ease-out group-hover:tracking-wider after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-white/70 after:transition-all after:duration-300 after:ease-out group-hover:after:w-14">
-              UI/UX DESIGN
-            </p>
-            <p className="text-sm lg:text-sm xl:text-base">
-              I create user-friendly designs using Figma and can also use Photoshop to edit photos.
-            </p>
-          </div>
-
-          {/* Card 2 */}
-          <div className="flex flex-col items-center text-center max-w-xs w-full group">
-            <img src="/icon-1.png" alt="icon2" className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] mb-4" />
-            <p className="relative font-semibold text-lg lg:text-xl xl:text-2xl py-2 sm:py-3 tracking-wide transition-all duration-300 ease-out group-hover:tracking-wider after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-white/70 after:transition-all after:duration-300 after:ease-out group-hover:after:w-14">
-              Front-end Development
-            </p>
-            <p className="text-sm lg:text-sm xl:text-base">
-              I develop dynamic and responsive web applications with clean, maintainable code that performs reliably on any device.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="flex flex-col items-center text-center max-w-xs w-full group">
-            <img src="/icon-2.png" alt="icon3" className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] mb-4" />
-            <p className="relative font-semibold text-lg lg:text-xl xl:text-2xl py-2 sm:py-3 tracking-wide transition-all duration-300 ease-out group-hover:tracking-wider after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-white/70 after:transition-all after:duration-300 after:ease-out group-hover:after:w-14">
-              Responsiveness
-            </p>
-            <p className="text-sm lg:text-sm xl:text-base">
-              I ensure designs and applications adapt to different screen sizes, delivering a consistent and efficient experience for all users.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 xl:gap-6 text-white w-full lg:items-start">
+          {services.map((service, i) => {
+            const Icon = service.icon;
+            const isOffset = i % 2 === 1;
+            return (
+              <div
+                key={service.title}
+                className={`group flex flex-col items-center text-center w-full border border-white/10 bg-white/5 rounded-2xl px-6 py-8 hover:border-red-800/50 hover:bg-white/[0.08] transition-all duration-300 ${
+                  isOffset ? "lg:mt-10" : ""
+                }`}
+              >
+                <div className="w-14 h-14 rounded-2xl bg-red-950/60 border border-red-900/40 flex items-center justify-center mb-4 group-hover:bg-red-900/70 transition-colors duration-300">
+                  <Icon className="w-7 h-7 text-red-400 group-hover:text-red-300 transition-colors" strokeWidth={1.5} />
+                </div>
+                <p className="relative font-semibold text-lg lg:text-xl xl:text-2xl py-2 sm:py-3 tracking-wide transition-all duration-300 ease-out group-hover:tracking-wider after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0.5 after:h-[2px] after:w-0 after:bg-white/70 after:transition-all after:duration-300 after:ease-out group-hover:after:w-14">
+                  {service.title}
+                </p>
+                <p className="text-sm lg:text-sm xl:text-base text-gray-300">
+                  {service.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
