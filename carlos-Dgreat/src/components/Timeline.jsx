@@ -47,7 +47,10 @@ export default function Timeline() {
 
     <div className="max-w-6xl mx-auto px-4 py-10 sm:py-12 lg:py-12 xl:py-16 2xl:py-20">
 
-      <p ref={titleRef} className="text-center text-2xl lg:text-3xl xl:text-4xl font-bold my-6 sm:my-8 lg:my-8 xl:my-12 2xl:my-14 bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">My Timeline</p>
+      <div ref={titleRef} className="text-center my-6 sm:my-8 lg:my-8 xl:my-12 2xl:my-14">
+        <p className="text-xs font-bold tracking-[0.25em] uppercase text-red-900/70 mb-3">My Journey</p>
+        <p className="text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent">My Timeline</p>
+      </div>
 
       <div className="flex flex-col md:flex-row w-full gap-10">
 
