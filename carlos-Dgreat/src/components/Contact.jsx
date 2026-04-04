@@ -31,7 +31,7 @@ export default function Contact() {
           onClick={() => setShowConfirm(false)}
         >
           <div
-            className="bg-white rounded-2xl shadow-2xl max-w-md w-full relative animate-in fade-in zoom-in-95 duration-200 overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full relative animate-in fade-in zoom-in-95 duration-200 overflow-hidden overscroll-contain"
             onClick={e => e.stopPropagation()}
           >
             {/* Header */}
@@ -106,7 +106,7 @@ export default function Contact() {
           onClick={() => setShowModal(false)}
         >
           <div
-            className="bg-white rounded-2xl shadow-2xl max-w-sm w-full relative animate-in fade-in zoom-in-95 duration-200 overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl max-w-sm w-full relative animate-in fade-in zoom-in-95 duration-200 overflow-hidden overscroll-contain"
             onClick={e => e.stopPropagation()}
           >
             {/* Top accent bar */}
@@ -234,11 +234,13 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-3 xl:gap-4">
                     {/* Full Name */}
                     <div>
-                      <label className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
+                      <label htmlFor="contact-name" className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
                         Full Name <span className="text-gray-400 font-normal text-xs">*</span>
                       </label>
                       <input
+                        id="contact-name"
                         type="text"
+                        autoComplete="name"
                         maxLength={LIMITS.name}
                         placeholder="John Doe"
                         className={fieldCls('name')}
@@ -251,11 +253,13 @@ export default function Contact() {
 
                     {/* Email */}
                     <div>
-                      <label className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
+                      <label htmlFor="contact-email" className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
                         Email <span className="text-gray-400 font-normal text-xs">*</span>
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
+                        autoComplete="email"
                         maxLength={LIMITS.email}
                         placeholder="john@example.com"
                         className={fieldCls('email')}
@@ -269,11 +273,13 @@ export default function Contact() {
 
                   {/* Subject */}
                   <div>
-                    <label className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
+                    <label htmlFor="contact-subject" className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
                       Subject <span className="text-gray-400 font-normal text-xs">*</span>
                     </label>
                     <input
+                      id="contact-subject"
                       type="text"
+                      autoComplete="off"
                       maxLength={LIMITS.subject}
                       placeholder="What's this about?"
                       className={fieldCls('subject')}
@@ -286,11 +292,13 @@ export default function Contact() {
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
+                    <label htmlFor="contact-message" className="block text-xs lg:text-xs xl:text-sm font-medium text-gray-600 mb-1">
                       Message <span className="text-gray-400 font-normal text-xs">*</span>
                     </label>
                     <textarea
+                      id="contact-message"
                       rows="3"
+                      autoComplete="off"
                       maxLength={LIMITS.message}
                       placeholder="Tell me about your project..."
                       className={`${fieldCls('message')} resize-none`}

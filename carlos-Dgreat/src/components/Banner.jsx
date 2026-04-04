@@ -59,7 +59,7 @@ export default function Banner({ isLoaded = false }) {
   }, { dependencies: [isLoaded] });
 
   return (
-    <div className="relative min-h-screen flex w-full z-0 overflow-hidden">
+    <div className="relative min-h-screen lg:portrait:min-h-[50vh] flex w-full z-0 overflow-hidden">
       {/* Particles — bottom layer */}
       <div className="absolute inset-0 z-0">
         <ParticlesWeb />

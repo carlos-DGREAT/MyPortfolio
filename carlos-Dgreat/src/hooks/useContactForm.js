@@ -33,6 +33,24 @@ export function useContactForm() {
     return () => { if (cooldownRef.current) clearInterval(cooldownRef.current); };
   }, []);
 
+  useEffect(() => {
+    if (showModal || showConfirm) {
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
+    } else {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    };
+  }, [showModal, showConfirm]);
+
   const onSubmit = (data) => {
     if (cooldown > 0 || isLoading) return;
     setPendingData(data);
