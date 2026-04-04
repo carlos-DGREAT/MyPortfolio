@@ -117,7 +117,7 @@ export default function AboutMe() {
               ABOUT ME
             </h2>
             <p className="text-base lg:text-sm xl:text-base leading-relaxed max-w-2xl">
-              Hi, I’m Carlos Opena, a Web Developer specializing in responsive and user-friendly websites. I’m passionate about improving my skills and working toward becoming a Software Engineer. I create websites and applications that are reliable, efficient, and easy to use.
+              Hi, I’m Carlos Opena, a Web Developer passionate about creating responsive and user-friendly websites. I enjoy learning new technologies and improving my skills as I work toward becoming a Software Engineer. I focus on building websites and applications that are practical, reliable, and easy to use.
             </p>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function AboutMe() {
               GOALS
             </h2>
             <p className="text-base lg:text-sm xl:text-base leading-relaxed max-w-2xl">
-              I help bring your ideas to life by building websites and applications that are reliable, efficient, and easy to use. I focus on understanding your needs and delivering results that achieve your objectives and meet user expectations.
+              I aim to bring your ideas to life by building websites and applications that meet user needs and achieve your objectives. I focus on understanding the problem, delivering clear solutions, and creating experiences that people enjoy using.
             </p>
           </div>
             <div ref={goalsImgRef} className="w-full md:w-1/2 flex items-center justify-center p-3 sm:p-6 order-2">

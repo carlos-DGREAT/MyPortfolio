@@ -28,8 +28,7 @@ export default function Portfolio() {
   const portfolioItems = [
     {
       id: 1,
-      title: "Website Landing Page",
-      category: "Web App",
+      title: "Landing Page website",
       image: "project-2-mobile.png",
       description:
         "This project was part of my role as a web developer at Dan Gordon Enterprise. It involved rebuilding a client's mediation website from scratch. The site was designed in Figma and implemented using WordPress with custom CSS. The focus was on creating a clean, professional landing page that clearly presents services and encourages client inquiries.",
@@ -41,7 +40,6 @@ export default function Portfolio() {
     {
       id: 2,
       title: "Plan & Services page",
-      category: "Web Design",
       image: "project-4-mobile.png",
       description:
         "Developed and rebuilt the Services and Plans & Pricing pages for the LArealtor website as part of my role at Dan Gordon Enterprise. The pages were designed in Figma and implemented using WordPress with custom HTML, CSS, and JavaScript. Focused on creating clear layouts, interactive elements, and responsive design to improve usability and present services effectively.",
@@ -52,11 +50,10 @@ export default function Portfolio() {
     },
     {
       id: 3,
-      title: "Outsourcing Website",
-      category: "Web Design",
+      title: "Landing page website",
       image: "project-3-mobile.png",
       description:
-        "This project was a freelance gig for Seva Solutions, where I built their website entirely from scratch. I managed the project end-to-end, including setting up hosting via cPanel, designing and implementing the site in WordPress, and customizing it with CSS to match the client's branding and functional needs. The focus was on creating a fully responsive, user-friendly website that effectively showcases their services and provides a seamless experience for visitors.",
+        "This project is the Jeff Kravitz Mediation website, which I rebuilt from scratch as part of my role as a web developer at Dan Gordon Enterprise. I created the design in Figma and implemented it using WordPress with custom CSS. I focused on improving the structure and clarity of the site to better present the services and make it easier for potential clients to reach out.",
       role: "Fullstack Developer",
       tools: ["Wordpress", "Elementor Pro", "cPanel", "CSS", "Figma"],
       deliverables: ["Figma prototype", "Exported assets", "Design spec"],
@@ -66,8 +63,7 @@ export default function Portfolio() {
     {
       id: 4,
       title: "DENR-Reservation System",
-      category: "Web App",
-      image: "DENR-reservation System.PNG",
+      image: "DENR-ReservationSystem.png",
       description:
         "Reservation system built for managing bookings and schedules with validation and admin panel.",
       role: "Full-stack Engineer",
@@ -75,46 +71,38 @@ export default function Portfolio() {
       deliverables: ["Reservation UI", "Admin dashboard", "API integration"],
       liveUrl: "https://denr-car-reservation.vercel.app/",
       manualUrl: "#",
-      imageFit: "cover",
     },
     {
       id: 5,
       title: "Web Application Utilizing a Deep Learning Model",
-      category: "Web App",
       image: "EcoSense.png",
-      description:
-        "This thesis project involved developing a web application that integrates a deep learning model to conduct pine tree and crop plot census using drone-captured imagery for DENR-CAR. The application automates image analysis, providing accurate and efficient mapping of vegetation. I handled both the backend model integration with TensorFlow and Flask, and the frontend interface using React, ensuring a seamless experience for users to visualize and interpret results.",
-      role: "ML Engineer / Frontend",
+      description: `I worked on the frontend and UI/UX design for EcoSense, a web app we built for DENR-CAR. It automatically detects and counts pine trees and crop plots from drone images across the BLISTT region using two YOLOv11 models.
+      I designed the UI/UX in Figma and built the interface with React, Tailwind CSS, and Vite to create a smooth and intuitive user experience. I also helped annotate the drone imagery in Roboflow to support training the tree detection model.`,
+      role: "Frontend / UI/UX Designer",
       tools: ["Python", "Flask", "TensorFlow", "React", "TypeScript", "Figma"],
       deliverables: ["Model integration", "Inference UI", "Performance report"],
       figmaUrl: "#",
       manualUrl: "#",
-      imageFit: "cover",
     },
     {
       id: 6,
       title: "Smart waste bin",
-      category: "Web Design",
-      image: "portfolio-1.PNG",
-      description:
-        "First version of my personal portfolio website showcasing my frontend development projects and UI design skills. Built with responsive layout principles and focused on clean visual hierarchy.",
+      image: "SWB.png",
+      description: `I designed and built the website for Smart Waste Bin, our Human-Computer Interaction project. The site showcases our AI-powered smart bin solution to address waste management challenges in Baguio City while supporting the United Nations Sustainable Development Goals.
+      Using HTML, CSS, and Bootstrap, I created a clean, responsive website that clearly explains the problem, our proposed solution, key features, and benefits.`,
       role: "Frontend Developer",
       tools: ["HTML", "CSS", "Bootstrap"],
       deliverables: ["Portfolio UI", "Responsive layout"],
       liveUrl: "https://smart-waste-bin-ph.vercel.app/",
-      imageFit: "cover",
     },
     {
       id: 7,
       title: "My Portfolio",
-      category: "Figma Design",
-      image: "MyPortfolio.PNG",
-      description:
-        "Figma mockups and prototypes for a portfolio site with interactive states.",
-      role: "Product Designer",
+      image: "Portfolio.png",
+      description: `I designed and developed my personal portfolio website to present my projects, skills, and experience as a full-stack developer and Website designer. I focused on making it easy to navigate and fully responsive across different screen sizes.`,
+      role: "Fullstack Developer + Web Designer",
       tools: ["React", "Javascript", "Tailwind", "Figma"],
       deliverables: ["Interactive prototype", "Design system"],
-      imageFit: "cover",
     },
   ];
 

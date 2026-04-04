@@ -5,22 +5,22 @@ const services = [
   {
     icon: Monitor,
     title: "Frontend Development",
-    description: "Fast, responsive UIs built with React and Tailwind CSS that look great on any device.",
+    description: "I build responsive, user-friendly interfaces with React and Tailwind CSS that look good on any device.",
   },
   {
     icon: Server,
     title: "Backend Development",
-    description: "Reliable REST APIs and server logic with Node.js, Express, and PostgreSQL.",
+    description: "I create APIs and server logic to manage data and support web applications.",
   },
   {
     icon: Palette,
     title: "UI/UX Design",
-    description: "Clean, intuitive interfaces and Figma prototypes focused on real user experience.",
+    description: "I design clean, intuitive interfaces and practical Figma prototypes that focus on real user needs.",
   },
   {
     icon: Globe,
     title: "Full-Stack Web Apps",
-    description: "End-to-end solutions from database to deployment — built to scale.",
+    description: "I develop complete web applications that combine frontend and backend into functional projects.",
   },
 ];
 
