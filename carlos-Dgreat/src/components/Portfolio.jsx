@@ -29,9 +29,9 @@ export default function Portfolio() {
     {
       id: 1,
       title: "Landing Page website",
-      image: "project-2-mobile.png",
+      image: "devices/project-1-mobile.png",
       description:
-        "This project was part of my role as a web developer at Dan Gordon Enterprise. It involved rebuilding a client's mediation website from scratch. The site was designed in Figma and implemented using WordPress with custom CSS. The focus was on creating a clean, professional landing page that clearly presents services and encourages client inquiries.",
+        "This project is the Jeff Kravitz Mediation website, which I rebuilt from scratch as part of my role as a web developer at Dan Gordon Enterprise. I created the design in Figma and implemented it using WordPress with custom CSS. I focused on improving the structure and clarity of the site to better present the services and make it easier for potential clients to reach out.",
       role: "Frontend Developer",
       tools: ["WordPress", "Elementor Pro", "CSS", "Figma"],
       deliverables: ["Landing page", "Responsive assets", "Accessibility review"],
@@ -40,7 +40,7 @@ export default function Portfolio() {
     {
       id: 2,
       title: "Plan & Services page",
-      image: "project-4-mobile.png",
+      image: "devices/project-2-mobile.png",
       description:
         "Developed and rebuilt the Services and Plans & Pricing pages for the LArealtor website as part of my role at Dan Gordon Enterprise. The pages were designed in Figma and implemented using WordPress with custom HTML, CSS, and JavaScript. Focused on creating clear layouts, interactive elements, and responsive design to improve usability and present services effectively.",
       role: "Frontend Developer",
@@ -51,9 +51,9 @@ export default function Portfolio() {
     {
       id: 3,
       title: "Landing page website",
-      image: "project-3-mobile.png",
+      image: "devices/project-3-mobile.png",
       description:
-        "This project is the Jeff Kravitz Mediation website, which I rebuilt from scratch as part of my role as a web developer at Dan Gordon Enterprise. I created the design in Figma and implemented it using WordPress with custom CSS. I focused on improving the structure and clarity of the site to better present the services and make it easier for potential clients to reach out.",
+        "This project is the Seva Solutions website, which I designed and developed from scratch as a freelance developer. I created the design in Figma, set up the hosting through GoDaddy and configured cPanel, then built the site using WordPress and Elementor Pro. I also used custom CSS to match the design and branding, while making sure the website is responsive and easy to use across different devices.",
       role: "Fullstack Developer",
       tools: ["Wordpress", "Elementor Pro", "cPanel", "CSS", "Figma"],
       deliverables: ["Figma prototype", "Exported assets", "Design spec"],
@@ -63,7 +63,7 @@ export default function Portfolio() {
     {
       id: 4,
       title: "DENR-Reservation System",
-      image: "DENR-ReservationSystem.png",
+      image: "devices/project-4-mobile.png",
       description:
         "Reservation system built for managing bookings and schedules with validation and admin panel.",
       role: "Full-stack Engineer",
@@ -87,7 +87,7 @@ export default function Portfolio() {
     {
       id: 6,
       title: "Smart waste bin",
-      image: "SWB.png",
+      image: "devices/project-6-mobile.png",
       description: `I designed and built the website for Smart Waste Bin, our Human-Computer Interaction project. The site showcases our AI-powered smart bin solution to address waste management challenges in Baguio City while supporting the United Nations Sustainable Development Goals.
       Using HTML, CSS, and Bootstrap, I created a clean, responsive website that clearly explains the problem, our proposed solution, key features, and benefits.`,
       role: "Frontend Developer",
@@ -98,7 +98,7 @@ export default function Portfolio() {
     {
       id: 7,
       title: "My Portfolio",
-      image: "Portfolio.png",
+      image: "devices/project-7-mobile.png",
       description: `I designed and developed my personal portfolio website to present my projects, skills, and experience as a full-stack developer and Website designer. I focused on making it easy to navigate and fully responsive across different screen sizes.`,
       role: "Fullstack Developer + Web Designer",
       tools: ["React", "Javascript", "Tailwind", "Figma"],
@@ -176,29 +176,29 @@ export default function Portfolio() {
   }, [displayedItems.length]);
 
   const toolColors = {
-    React:        { bg: 'bg-blue-50',    border: 'border-blue-200',    text: 'text-blue-700',    dot: 'bg-blue-400' },
-    'Tailwind CSS':{ bg: 'bg-cyan-50',   border: 'border-cyan-200',    text: 'text-cyan-700',    dot: 'bg-cyan-400' },
-    JavaScript:   { bg: 'bg-yellow-50',  border: 'border-yellow-200',  text: 'text-yellow-700',  dot: 'bg-yellow-400' },
-    TypeScript:   { bg: 'bg-blue-50',    border: 'border-blue-300',    text: 'text-blue-800',    dot: 'bg-blue-500' },
-    Python:       { bg: 'bg-yellow-50',  border: 'border-yellow-200',  text: 'text-yellow-800',  dot: 'bg-yellow-500' },
-    Flask:        { bg: 'bg-gray-50',    border: 'border-gray-300',    text: 'text-gray-700',    dot: 'bg-gray-400' },
-    TensorFlow:   { bg: 'bg-orange-50',  border: 'border-orange-200',  text: 'text-orange-700',  dot: 'bg-orange-400' },
-    Node:         { bg: 'bg-green-50',   border: 'border-green-200',   text: 'text-green-700',   dot: 'bg-green-400' },
-    Express:      { bg: 'bg-green-50',   border: 'border-green-200',   text: 'text-green-700',   dot: 'bg-green-400' },
-    MongoDB:      { bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-700', dot: 'bg-emerald-400' },
-    WordPress:    { bg: 'bg-sky-50',     border: 'border-sky-200',     text: 'text-sky-700',     dot: 'bg-sky-400' },
-    Wordpress:    { bg: 'bg-sky-50',     border: 'border-sky-200',     text: 'text-sky-700',     dot: 'bg-sky-400' },
-    Figma:        { bg: 'bg-purple-50',  border: 'border-purple-200',  text: 'text-purple-700',  dot: 'bg-purple-400' },
-    CSS:          { bg: 'bg-indigo-50',  border: 'border-indigo-200',  text: 'text-indigo-700',  dot: 'bg-indigo-400' },
-    Illustrator:  { bg: 'bg-orange-50',  border: 'border-orange-200',  text: 'text-orange-700',  dot: 'bg-orange-400' },
-    'Elementor Pro': { bg: 'bg-pink-50',   border: 'border-pink-200',    text: 'text-pink-700',    dot: 'bg-pink-400' },
-    cPanel:       { bg: 'bg-slate-100',  border: 'border-slate-300',   text: 'text-slate-700',   dot: 'bg-slate-500' },
-    NextJS:       { bg: 'bg-gray-900',   border: 'border-gray-700',    text: 'text-gray-100',    dot: 'bg-gray-400' },
-    Tailwind:     { bg: 'bg-cyan-50',    border: 'border-cyan-200',    text: 'text-cyan-700',    dot: 'bg-cyan-400' },
-    'Postgres DB':{ bg: 'bg-blue-50',    border: 'border-blue-200',    text: 'text-blue-700',    dot: 'bg-blue-400' },
-    Bootstrap:    { bg: 'bg-purple-50',  border: 'border-purple-200',  text: 'text-purple-700',  dot: 'bg-purple-400' },
-    HTML:         { bg: 'bg-orange-50',  border: 'border-orange-200',  text: 'text-orange-700',  dot: 'bg-orange-500' },
-    Javascript:   { bg: 'bg-yellow-50',  border: 'border-yellow-200',  text: 'text-yellow-700',  dot: 'bg-yellow-400' },
+    React: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700', dot: 'bg-blue-400' },
+    'Tailwind CSS': { bg: 'bg-cyan-50', border: 'border-cyan-200', text: 'text-cyan-700', dot: 'bg-cyan-400' },
+    JavaScript: { bg: 'bg-yellow-50', border: 'border-yellow-200', text: 'text-yellow-700', dot: 'bg-yellow-400' },
+    TypeScript: { bg: 'bg-blue-50', border: 'border-blue-300', text: 'text-blue-800', dot: 'bg-blue-500' },
+    Python: { bg: 'bg-yellow-50', border: 'border-yellow-200', text: 'text-yellow-800', dot: 'bg-yellow-500' },
+    Flask: { bg: 'bg-gray-50', border: 'border-gray-300', text: 'text-gray-700', dot: 'bg-gray-400' },
+    TensorFlow: { bg: 'bg-orange-50', border: 'border-orange-200', text: 'text-orange-700', dot: 'bg-orange-400' },
+    Node: { bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-700', dot: 'bg-green-400' },
+    Express: { bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-700', dot: 'bg-green-400' },
+    MongoDB: { bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-700', dot: 'bg-emerald-400' },
+    WordPress: { bg: 'bg-sky-50', border: 'border-sky-200', text: 'text-sky-700', dot: 'bg-sky-400' },
+    Wordpress: { bg: 'bg-sky-50', border: 'border-sky-200', text: 'text-sky-700', dot: 'bg-sky-400' },
+    Figma: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-700', dot: 'bg-purple-400' },
+    CSS: { bg: 'bg-indigo-50', border: 'border-indigo-200', text: 'text-indigo-700', dot: 'bg-indigo-400' },
+    Illustrator: { bg: 'bg-orange-50', border: 'border-orange-200', text: 'text-orange-700', dot: 'bg-orange-400' },
+    'Elementor Pro': { bg: 'bg-pink-50', border: 'border-pink-200', text: 'text-pink-700', dot: 'bg-pink-400' },
+    cPanel: { bg: 'bg-slate-100', border: 'border-slate-300', text: 'text-slate-700', dot: 'bg-slate-500' },
+    NextJS: { bg: 'bg-gray-900', border: 'border-gray-700', text: 'text-gray-100', dot: 'bg-gray-400' },
+    Tailwind: { bg: 'bg-cyan-50', border: 'border-cyan-200', text: 'text-cyan-700', dot: 'bg-cyan-400' },
+    'Postgres DB': { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700', dot: 'bg-blue-400' },
+    Bootstrap: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-700', dot: 'bg-purple-400' },
+    HTML: { bg: 'bg-orange-50', border: 'border-orange-200', text: 'text-orange-700', dot: 'bg-orange-500' },
+    Javascript: { bg: 'bg-yellow-50', border: 'border-yellow-200', text: 'text-yellow-700', dot: 'bg-yellow-400' },
   };
   const getToolStyle = (tool) => toolColors[tool] ?? { bg: 'bg-gray-50', border: 'border-gray-200', text: 'text-gray-700', dot: 'bg-gray-400' };
 
@@ -209,66 +209,66 @@ export default function Portfolio() {
         <div className="flex flex-col w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8 xl:px-10">
           <FadeIn className="text-center mb-10">
             <p className="text-xs font-bold tracking-[0.25em] uppercase text-red-900/70 mb-3">Latest Projects</p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4">
+            <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-red-900 to-gray-800 bg-clip-text text-transparent mb-4">
               My Recent Projects
             </h2>
           </FadeIn>
 
           {/* Grid */}
           <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-6 xl:gap-10 max-w-7xl w-full" style={{ perspective: '1200px' }}>
-        {displayedItems.map((item) => (
-          <div
-            key={item.id}
-            className="group cursor-pointer h-full flex flex-col"
-            onClick={() => setSelectedProject(item)}
-          >
-            <BorderGlow
-              backgroundColor="#ffffff"
-              colors={['#7f1d1d', '#991b1b', '#1f2937']}
-              glowColor="0 75 25"
-              glowIntensity={0.8}
-              glowRadius={30}
-              borderRadius={12}
-              className="h-full"
-            >
-              <div className="flex flex-col h-full">
-                {/* Image */}
-                <div className="h-48 lg:h-44 xl:h-56 2xl:h-64 overflow-hidden relative bg-gray-100 rounded-t-xl">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${item.imageFit === 'cover' ? 'object-cover' : 'object-contain'}`}
-                  />
-                  <div className="absolute top-4 right-4 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <LinkIcon className="w-5 h-5 text-black" />
+            {displayedItems.map((item) => (
+              <div
+                key={item.id}
+                className="group cursor-pointer h-full flex flex-col"
+                onClick={() => setSelectedProject(item)}
+              >
+                <BorderGlow
+                  backgroundColor="#ffffff"
+                  colors={['#7f1d1d', '#991b1b', '#1f2937']}
+                  glowColor="0 75 25"
+                  glowIntensity={0.8}
+                  glowRadius={30}
+                  borderRadius={12}
+                  className="h-full"
+                >
+                  <div className="flex flex-col h-full">
+                    {/* Image */}
+                    <div className="h-48 lg:h-44 xl:h-56 2xl:h-64 overflow-hidden relative bg-gray-100 rounded-t-xl">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${item.imageFit === 'cover' ? 'object-cover' : 'object-contain'}`}
+                      />
+                      <div className="absolute top-4 right-4 bg-white/80 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <LinkIcon className="w-5 h-5 text-black" />
+                      </div>
+                    </div>
+                    {/* Content */}
+                    <div className="p-4 lg:p-4 xl:p-6 flex-1 flex flex-col">
+                      <h3 className="text-base lg:text-base xl:text-xl font-bold mt-2 xl:mt-3 text-gray-900 group-hover:text-red-900 transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 mt-2 line-clamp-3 text-sm flex-1">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                {/* Content */}
-                <div className="p-4 lg:p-4 xl:p-6 flex-1 flex flex-col">
-                  <h3 className="text-base lg:text-base xl:text-xl font-bold mt-2 xl:mt-3 text-gray-900 group-hover:text-red-900 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 mt-2 line-clamp-3 text-sm flex-1">
-                    {item.description}
-                  </p>
-                </div>
+                </BorderGlow>
               </div>
-            </BorderGlow>
+            ))}
           </div>
-        ))}
-      </div>
 
-      {/* See More Button */}
-      {portfolioItems.length > initialCount && (
-        <div className="mt-10 flex justify-center">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition-all shadow-md"
-          >
-            {showAll ? <ChevronUp size={22} /> : <ChevronDown size={22} />}
-          </button>
-        </div>
-      )}
+          {/* See More Button */}
+          {portfolioItems.length > initialCount && (
+            <div className="mt-10 flex justify-center">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="p-3 bg-black text-white rounded-full hover:bg-gray-800 transition-all shadow-md"
+              >
+                {showAll ? <ChevronUp size={22} /> : <ChevronDown size={22} />}
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -278,11 +278,11 @@ export default function Portfolio() {
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setSelectedProject(null)}
         >
-          
+
           {/* Modal Content */}
-          <div 
+          <div
             className="bg-white w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl max-h-[80vh] lg:max-h-[75vh] xl:max-h-[80vh] overflow-y-auto overscroll-contain shadow-2xl relative rounded-2xl animate-in fade-in zoom-in duration-200"
-            onClick={(e) => e.stopPropagation()} 
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Image with gradient overlay + title */}
             <div className="relative w-full">

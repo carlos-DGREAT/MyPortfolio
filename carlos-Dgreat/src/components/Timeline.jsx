@@ -15,31 +15,37 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Timeline() {
 
   const titleRef = useRef(null);
-  const expRef   = useRef(null);
-  const eduRef   = useRef(null);
+  const expRef = useRef(null);
+  const eduRef = useRef(null);
 
   useGSAP(() => {
     gsap.fromTo(titleRef.current,
       { opacity: 0, y: 35, filter: 'blur(4px)' },
-      { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.1, ease: 'power3.out', clearProps: 'filter,transform,opacity',
-        scrollTrigger: { trigger: titleRef.current, start: 'top bottom', toggleActions: 'play none none reset' } });
+      {
+        opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.1, ease: 'power3.out', clearProps: 'filter,transform,opacity',
+        scrollTrigger: { trigger: titleRef.current, start: 'top bottom', toggleActions: 'play none none reset' }
+      });
 
     const expCards = expRef.current?.querySelectorAll('.tl-card');
     if (expCards?.length) {
       gsap.fromTo(expCards,
         { opacity: 0, x: -65, filter: 'blur(4px)' },
-        { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.0, ease: 'power3.out', stagger: 0.22,
+        {
+          opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.0, ease: 'power3.out', stagger: 0.22,
           clearProps: 'filter,transform,opacity',
-          scrollTrigger: { trigger: expRef.current, start: 'top bottom', toggleActions: 'play none none reset' } });
+          scrollTrigger: { trigger: expRef.current, start: 'top bottom', toggleActions: 'play none none reset' }
+        });
     }
 
     const eduCards = eduRef.current?.querySelectorAll('.tl-card');
     if (eduCards?.length) {
       gsap.fromTo(eduCards,
         { opacity: 0, x: 65, filter: 'blur(4px)' },
-        { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.0, ease: 'power3.out', stagger: 0.22,
+        {
+          opacity: 1, x: 0, filter: 'blur(0px)', duration: 1.0, ease: 'power3.out', stagger: 0.22,
           clearProps: 'filter,transform,opacity',
-          scrollTrigger: { trigger: eduRef.current, start: 'top bottom', toggleActions: 'play none none reset' } });
+          scrollTrigger: { trigger: eduRef.current, start: 'top bottom', toggleActions: 'play none none reset' }
+        });
     }
   }, {});
 
@@ -74,7 +80,7 @@ export default function Timeline() {
 
                 location: "Philippines · Hybrid",
 
-                logo: "/DENR-Logo2.png"
+                logo: "Timeline/DENR-Logo2.png"
 
               },
 
@@ -88,7 +94,7 @@ export default function Timeline() {
 
                 location: "Philippines · Remote",
 
-                logo: "/sevasolutions-logo.jpg"
+                logo: "Timeline/sevasolutions-logo.jpg"
 
               },
 
@@ -102,7 +108,7 @@ export default function Timeline() {
 
                 location: "United States · Remote",
 
-                logo: "/DanLogo.png"
+                logo: "Timeline/DanLogo.png"
 
               }
 
@@ -174,7 +180,7 @@ export default function Timeline() {
 
                 date: "January 2022 - July 2026",
 
-                logo: "/SLU-logo.png",
+                logo: "Timeline/SLU-logo.png",
 
                 logoSize: "w-10 h-10"
 
@@ -188,7 +194,7 @@ export default function Timeline() {
 
                 date: "April 2024 - Present",
 
-                logo: "/freecodecamp- logo.jfif",
+                logo: "Timeline/freecodecamp- logo.png",
 
                 logoSize: "w-10 h-10"
 
@@ -202,7 +208,7 @@ export default function Timeline() {
 
                 date: "June 2022 - July 2022",
 
-                logo: "/studytonight-logo.png",
+                logo: "Timeline/studytonight-logo.png",
 
                 logoSize: "w-10 h-10"
 
